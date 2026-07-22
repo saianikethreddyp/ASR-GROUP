@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construction with a clear chain of responsibility. — ASR Group</title>
+  <meta name="description" content="ASR coordinates architecture, engineering, procurement, site execution and quality assurance for residential, commercial and institutional projects.">
+  <link rel="stylesheet" href="../css/style.css?v=20260722g">
+</head>
+<body>
+
+  <!-- ═══════ NAVIGATION ═══════ -->
+  <nav class="nav" id="main-nav" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <img src="../assets/brand/asr-group-logo.png" alt="ASR Group" class="nav__logo-image" width="600" height="288">
+      </a>
+
+      <div class="nav__links">
+        <a href="../projects.html" class="nav__link">Projects</a>
+        <div class="nav__dropdown">
+          <a href="interiors.html" class="nav__link nav__dropdown-trigger">
+            Expertise
+            <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l4 4 4-4"/></svg>
+          </a>
+          <div class="nav__dropdown-menu">
+            <a href="interiors.html" class="nav__dropdown-item">Interiors</a>
+            <a href="construction.html" class="nav__dropdown-item">Construction</a>
+          </div>
+        </div>
+        <a href="../about.html" class="nav__link">About Us</a>
+        <a href="../clients.html" class="nav__link">Clients</a>
+        <a href="../gallery.html" class="nav__link">Gallery</a>
+        <a href="../contact.html" class="nav__link">Contact Us</a>
+      </div>
+
+      <a href="../contact.html" class="btn btn--brass nav__cta-link">Discuss a Project</a>
+
+      <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Overlay -->
+  <div class="nav__mobile-overlay">
+    <a href="../projects.html" class="nav__mobile-link">Projects</a>
+    <a href="interiors.html" class="nav__mobile-link">Interiors</a>
+    <a href="construction.html" class="nav__mobile-link">Construction</a>
+    <a href="../about.html" class="nav__mobile-link">About Us</a>
+    <a href="../clients.html" class="nav__mobile-link">Clients</a>
+    <a href="../gallery.html" class="nav__mobile-link">Gallery</a>
+    <a href="../contact.html" class="nav__mobile-link">Contact Us</a>
+  </div>
+
+  <!-- ═══════ PAGE HEADER ═══════ -->
+  <header class="page-header" style="position: relative; overflow: hidden; padding: 120px 0 60px;">
+    <div class="page-header__bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+      <img src="../assets/images/residential-hero-generated.webp" alt="Contemporary residence representing integrated construction" loading="eager">
+      <div class="hero__overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6);"></div>
+    </div>
+    <div class="container reveal" style="color: white;">
+      <p class="eyebrow" style="color: rgba(255,255,255,0.8);">Expertise</p>
+      <h1 class="hero__title">Construction with a clear chain of responsibility.</h1>
+      <p class="hero__subtitle" style="color: rgba(255,255,255,0.9); max-width: 800px;">ASR coordinates architecture, engineering, procurement, site execution and quality assurance for residential, commercial and institutional projects.</p>
+    </div>
+  </header>
+
+  <!-- ═══════ EXPERTISE SECTIONS ═══════ -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2" style="gap: var(--space-xl);">
+
+        <div class="discipline-card reveal">
+          <h3 style="margin-bottom: var(--space-sm);">Residential construction</h3>
+          <p>From individual residences to larger developments, we coordinate the technical and operational decisions required to move a project from planning to completion.</p>
+        </div>
+
+        <div class="discipline-card reveal">
+          <h3 style="margin-bottom: var(--space-sm);">Commercial and institutional work</h3>
+          <p>Projects with multiple stakeholders require disciplined documentation, sequencing and accountability. Our delivery approach is structured around coordination and inspection.</p>
+        </div>
+
+        <div class="discipline-card reveal">
+          <h3 style="margin-bottom: var(--space-sm);">Turnkey execution</h3>
+          <p>A turnkey engagement brings planning, engineering, procurement and execution into one coordinated programme, reducing fragmented responsibility across the project.</p>
+        </div>
+
+        <div class="discipline-card reveal">
+          <h3 style="margin-bottom: var(--space-sm);">Elevations, glazing and metalwork</h3>
+          <p>Building-envelope and architectural elements require careful integration with structure, waterproofing, fabrication and installation. ASR coordinates these details as part of the wider construction system.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ SELECTED PROJECTS ═══════ -->
+  <section class="section section--warm" id="selected-projects">
+    <div class="container--wide" style="padding: 0 var(--gutter);">
+      <div class="reveal" style="margin-bottom: var(--space-2xl);">
+        <h2 style="margin-bottom: var(--space-sm);">Government & Institutional Highlights</h2>
+      </div>
+
+      <div class="grid grid--2" style="gap: var(--space-lg);">
+        <a href="../projects.html" class="project-card reveal" style="height: 400px;">
+          <img src="../assets/images/government-building.jpg" alt="Telangana Government Projects" class="project-card__image" loading="lazy">
+          <span class="project-card__status">Illustrative image · replace with verified photography</span>
+          <div class="project-card__overlay">
+            <span class="project-card__meta">Institutional · Telangana</span>
+            <h3 class="project-card__title">Telangana Government Projects</h3>
+            <p class="project-card__scope">C.M. Camp Office, Jubilee Hall restoration and Telangana Legislative Assembly are named in the supplied profile. Exact scopes and dates require confirmation.</p>
+            <span class="project-card__link">View Project <span>→</span></span>
+          </div>
+        </a>
+        <a href="../projects.html" class="project-card reveal reveal--delay-1" style="height: 400px;">
+          <img src="../assets/images/residential-hero-generated.webp" alt="Illustrative contemporary private residence" class="project-card__image" loading="lazy">
+          <span class="project-card__status">Illustrative residence · replace with verified project photography</span>
+          <div class="project-card__overlay">
+            <span class="project-card__meta">Residential construction</span>
+            <h3 class="project-card__title">Private Residences</h3>
+            <p class="project-card__scope">Representative residential work from the supplied portfolio. Confirm ASR's scope, location, area and completion year.</p>
+            <span class="project-card__link">View Project <span>→</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ CTA ═══════ -->
+  <section class="cta-section">
+    <div class="container reveal">
+      <h2 class="cta-section__title">Planning a construction project?</h2>
+      <div class="cta-section__actions">
+        <a href="../contact.html" class="btn btn--brass">Discuss a Construction Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer class="footer" id="footer">
+    <div class="container--wide" style="padding: 0 var(--gutter);">
+      <div class="footer__grid">
+        <div>
+          <img src="../assets/brand/asr-group-logo.png" alt="ASR Group" class="footer__logo" width="600" height="288">
+          <p class="footer__tagline">Interiors · Construction · Integrated Delivery</p>
+        </div>
+        <div>
+          <h6 class="footer__heading">Navigate</h6>
+          <a href="../projects.html" class="footer__link">Projects</a>
+          <a href="interiors.html" class="footer__link">Expertise</a>
+          <a href="../about.html" class="footer__link">About Us</a>
+          <a href="../clients.html" class="footer__link">Clients</a>
+          <a href="../gallery.html" class="footer__link">Gallery</a>
+          <a href="../contact.html" class="footer__link">Contact Us</a>
+        </div>
+        <div>
+          <h6 class="footer__heading">Project Enquiries</h6>
+          <a href="tel:+918008667766" class="footer__link">+91 80086 67766</a>
+          <a href="tel:+919908606867" class="footer__link">+91 99086 06867</a>
+          <p class="footer__link" style="margin-top: var(--space-md); cursor: default;">Madhapur, Hyderabad<br>Telangana, India</p>
+        </div>
+        <div>
+          <h6 class="footer__heading">ASR Properties</h6>
+          <p style="font-size: var(--text-sm); color: var(--color-taupe); margin-bottom: var(--space-sm);">Looking for developed properties?</p>
+          <span class="footer__avani-link">Avani Real Estate website launching separately</span>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 ASR Group</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js?v=20260722"></script>
+</body>
+</html>
