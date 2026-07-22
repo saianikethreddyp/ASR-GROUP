@@ -1,34 +1,35 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import "@fontsource-variable/manrope";
+import "@fontsource-variable/newsreader";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "ASR Group | Where Style Meets Comfort",
-  description: "ASR Group offers integrated solutions across interiors, construction, architectural elevations, and uPVC window systems.",
+  title: "ASR Group | Interiors & Construction",
+  description:
+    "ASR Homes LLP Pvt. Ltd. delivers integrated construction, turnkey interiors, specialist facade systems, kitchens and wardrobes across India.",
+  keywords: [
+    "ASR Group",
+    "turnkey interiors Hyderabad",
+    "construction company Hyderabad",
+    "structural glazing ACP",
+    "commercial interiors",
+  ],
+  openGraph: {
+    title: "ASR Group — From First Line to Final Handover",
+    description: "Construction, interiors and specialist systems coordinated through one accountable team.",
+    type: "website",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${outfit.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col font-sans selection:bg-primary selection:text-primary-foreground">
+    <html lang="en">
+      <body>
+        <a className="skip-link" href="#main-content">Skip to content</a>
         <Navbar />
-        <main className="flex-1">
-          {children}
-        </main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>

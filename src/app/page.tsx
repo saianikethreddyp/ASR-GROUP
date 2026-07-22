@@ -1,201 +1,215 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { ArrowRight, Building2, HardHat, Home, Briefcase, Ruler, Factory } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import CapabilityExplorer from "@/components/CapabilityExplorer";
+import Reveal from "@/components/Reveal";
+
+const clients = ["ICRISAT", "WIPRO", "UNITED NATIONS", "L&T", "HETERO", "INDIA CEMENTS"];
+
+const selectedWork = [
+  {
+    number: "01",
+    title: "Automotive showroom",
+    category: "Interiors",
+    image: "/images/generated/automotive-showroom.png",
+    alt: "AI visualisation of a premium automotive showroom interior",
+    className: "work-primary",
+  },
+  {
+    number: "02",
+    title: "Commercial development",
+    category: "Construction",
+    image: "/images/generated/construction.png",
+    alt: "AI visualisation of a commercial building under construction",
+    className: "work-secondary",
+  },
+  {
+    number: "03",
+    title: "Specialist facade",
+    category: "Systems",
+    image: "/images/generated/specialist-systems.png",
+    alt: "AI visualisation of structural glazing and ACP facade systems",
+    className: "work-tertiary",
+  },
+];
+
+const projectNames = [
+  "Manjeera Majestic",
+  "Lanco Hills",
+  "My Home Vihanga",
+  "Lodha Meridian",
+  "BMW Showroom",
+  "Aparna Sarovar",
+];
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-secondary">
-        {/* We would use the generated image here once we have the path, for now using a placeholder div */}
-        <div className="absolute inset-0 z-0 opacity-40">
-           <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80')] bg-cover bg-center" />
-           <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/80 to-transparent" />
+    <>
+      <section className="hero-section" aria-labelledby="hero-title">
+        <div className="hero-media" aria-hidden="true">
+          <Image
+            src="/images/generated/hero-headquarters.png"
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 68vw"
+            className="object-cover object-[65%_center]"
+          />
         </div>
-        
-        <div className="container relative z-10 px-4 md:px-6 mt-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-3xl space-y-6"
-          >
-            <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm">
-              <span className="flex h-2 w-2 rounded-full bg-primary mr-2"></span>
-              Inspiring the Future
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
-              Where Style <br />
-              <span className="text-primary">Meets Comfort</span>
+        <div className="page-shell hero-inner">
+          <Reveal className="hero-copy">
+            <h1 id="hero-title" className="display hero-title">
+              From first line
+              <span>to final handover.</span>
             </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-300 max-w-2xl font-light">
-              EVERY ROOM TELLS A STORY.
+            <p className="hero-description">
+              Planning an office, institution, hospitality space or home? Bring construction,
+              interiors and specialist systems under one accountable team.
             </p>
-            
-            <p className="text-gray-400 max-w-xl text-lg pt-4 leading-relaxed">
-              ASR Group is a nationally respected leader championing excellence, innovation, and creative development through sustainable practices and thoughtfully crafted spaces.
-            </p>
-
-            <div className="flex flex-wrap gap-4 pt-8">
-              <Link 
-                href="/projects"
-                className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-md font-medium transition-colors flex items-center gap-2 group"
-              >
-                Explore Projects
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link 
-                href="/about"
-                className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/20 px-8 py-4 rounded-md font-medium transition-colors"
-              >
-                Learn More
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Divisions Section */}
-      <section className="py-24 bg-background relative z-20 -mt-10 rounded-t-[40px] shadow-2xl">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Our <span className="text-primary">Divisions</span></h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">
-              Delivering comprehensive turnkey solutions across interiors, construction, and real estate.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Interiors */}
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="group rounded-2xl bg-white dark:bg-accent/30 border border-gray-100 dark:border-accent shadow-lg overflow-hidden flex flex-col"
-            >
-              <div className="h-48 bg-gray-200 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
-                  <Home size={24} className="text-primary" />
-                  <span className="font-semibold text-lg">ASR Homes PVT LTD</span>
-                </div>
-              </div>
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-2xl font-bold mb-2">Interiors</h3>
-                <p className="text-gray-500 dark:text-gray-400 mb-6 flex-1">
-                  Premium interior solutions, structural glazing, and high-quality metal works with strict quality control.
-                </p>
-                <Link href="/projects" className="text-primary font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                  View Interior Projects <ArrowRight size={16} />
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Construction (External Redirect) */}
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="group rounded-2xl bg-white dark:bg-accent/30 border border-gray-100 dark:border-accent shadow-lg overflow-hidden flex flex-col"
-            >
-              <div className="h-48 bg-gray-200 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541888086425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
-                  <HardHat size={24} className="text-primary" />
-                  <span className="font-semibold text-lg">ASR Homes PVT LTD</span>
-                </div>
-              </div>
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-2xl font-bold mb-2">Construction</h3>
-                <p className="text-gray-500 dark:text-gray-400 mb-6 flex-1">
-                  Precision engineering, architectural planning, and turnkey construction solutions.
-                </p>
-                <a 
-                  href="https://avaniprojectsindia.com/" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-secondary text-white px-4 py-2 rounded text-center hover:bg-secondary/90 transition-colors font-medium mt-auto"
-                >
-                  Visit Avani Projects
-                </a>
-              </div>
-            </motion.div>
-
-            {/* Real Estate */}
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="group rounded-2xl bg-white dark:bg-accent/30 border border-gray-100 dark:border-accent shadow-lg overflow-hidden flex flex-col"
-            >
-              <div className="h-48 bg-gray-200 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
-                  <Building2 size={24} className="text-primary" />
-                  <span className="font-semibold text-lg">Avani Realestate</span>
-                </div>
-              </div>
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-2xl font-bold mb-2">Real Estate</h3>
-                <p className="text-gray-500 dark:text-gray-400 mb-6 flex-1">
-                  Discover premium properties and thoughtful layouts designed for modern living and commercial success.
-                </p>
-                <Link href="/contact" className="text-primary font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                  Enquire Now <ArrowRight size={16} />
-                </Link>
-              </div>
-            </motion.div>
+            <Link className="action action-solid" href="#contact">
+              Discuss your project
+              <span className="arrow" aria-hidden="true">↗</span>
+            </Link>
+          </Reveal>
+          <div className="hero-index" aria-hidden="true">
+            <span>ASR / 2026</span>
+            <span>17.4486° N / 78.3908° E</span>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-24 bg-gray-50 dark:bg-secondary/20">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            <div className="lg:w-1/2 space-y-8">
-              <div>
-                <h2 className="text-3xl md:text-5xl font-bold mb-4">Integrated <span className="text-primary">Turnkey Solutions</span></h2>
-                <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
-                  A key strength of ASR Group lies in its backward integration capabilities, which form the backbone of our turnkey project execution. Our diverse divisions collaborate seamlessly to deliver every aspect of a project under one unified system.
-                </p>
-              </div>
+      <section className="approach-section" id="about" aria-labelledby="approach-title">
+        <div className="page-shell approach-grid">
+          <Reveal>
+            <div className="section-marker"><span>The problem we solve</span></div>
+            <h2 id="approach-title" className="display approach-title">
+              Your project should not feel like five separate jobs.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.12} className="approach-copy">
+            <p>
+              Civil work, interiors, facades, joinery and services often arrive through different
+              vendors. Every handoff creates another decision for you to chase.
+            </p>
+            <p>
+              ASR can coordinate those connected scopes as one delivery team, giving you a clearer
+              point of responsibility from the first drawing through handover.
+            </p>
+          </Reveal>
+          <Reveal delay={0.2} className="approach-figure">
+            <span className="display">One</span>
+            <p>point of coordination when several parts of the project need to work together.</p>
+          </Reveal>
+        </div>
+      </section>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {[
-                  { icon: Ruler, title: "Architectural Expertise" },
-                  { icon: Factory, title: "Block Making Factory" },
-                  { icon: Home, title: "Interior Design Studio" },
-                  { icon: Briefcase, title: "Project Management" },
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="bg-primary/10 p-3 rounded-lg text-primary">
-                      <item.icon size={24} />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-lg">{item.title}</h4>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="lg:w-1/2">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl h-[500px] w-full">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center" />
-                <div className="absolute inset-0 bg-secondary/20 mix-blend-multiply" />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
-                  <p className="text-white text-xl font-medium border-l-4 border-primary pl-4">
-                    "Through strong leadership and a culture of accountability, we deliver projects that reflect the highest standards of quality."
-                  </p>
+      <CapabilityExplorer />
+
+      <section className="work-section" id="projects" aria-labelledby="work-title">
+        <div className="page-shell">
+          <Reveal className="work-heading-row">
+            <h2 id="work-title" className="display work-title">
+              See what could
+              <span>match your brief.</span>
+            </h2>
+            <p>
+              Explore the kinds of spaces and specialist scopes ASR can take on. These concept
+              visualisations show the intended design standard; named experience is listed below.
+            </p>
+          </Reveal>
+
+          <div className="work-grid" id="gallery">
+            {selectedWork.map((work, index) => (
+              <Reveal key={work.number} delay={index * 0.08} className={`work-item ${work.className}`}>
+                <div className="work-image">
+                  <Image src={work.image} alt={work.alt} fill sizes="(max-width: 900px) 100vw, 65vw" />
                 </div>
-              </div>
+                <div className="work-caption">
+                  <span>{work.number}</span>
+                  <p>{work.title}</p>
+                  <span>{work.category}</span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="project-register">
+            <div className="section-marker"><span>Projects in the company profile</span></div>
+            <div className="project-list">
+              {projectNames.map((name, index) => (
+                <div key={name} className="project-row">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <p>{name}</p>
+                  <span>Hyderabad</span>
+                </div>
+              ))}
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="proof-section" id="clients" aria-labelledby="proof-title">
+        <div className="page-shell proof-inner">
+          <Reveal>
+            <div className="section-marker section-marker-light"><span>Before you shortlist us</span></div>
+            <h2 id="proof-title" className="display proof-title">
+              Check the experience behind the conversation.
+            </h2>
+          </Reveal>
+          <div className="client-rail" aria-label="Selected clients">
+            {clients.map((client) => <span key={client}>{client}</span>)}
           </div>
         </div>
       </section>
-    </div>
+
+      <section className="experience-section" aria-label="Experience and company principles">
+        <div className="page-shell experience-grid">
+          <Reveal className="experience-stat">
+            <span className="display">25 years</span>
+            <p>of interior experience across approximately 4,000 projects.</p>
+          </Reveal>
+          <Reveal delay={0.1} className="experience-note">
+            <span>If your project includes construction</span>
+            <p>
+              ASR brings 20 years of construction experience and more than 6 lakh square feet of
+              execution across commercial, institutional and residential assignments.
+            </p>
+          </Reveal>
+          <Reveal delay={0.2} className="principles">
+            {[
+              ["01", "Relevant judgement", "Experience across different spaces helps surface practical decisions earlier."],
+              ["02", "Less vendor chasing", "Connected scopes can be coordinated through one accountable team."],
+              ["03", "One finish standard", "Execution is considered from structure through the details you see and use."],
+            ].map(([number, title, copy]) => (
+              <div className="principle" key={title}>
+                <span>{number}</span>
+                <h3 className="display">{title}</h3>
+                <p>{copy}</p>
+              </div>
+            ))}
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="process-section" aria-labelledby="process-title">
+        <div className="page-shell">
+          <Reveal>
+            <div className="section-marker"><span>What happens after you call</span></div>
+            <h2 id="process-title" className="display process-title">Know what comes next.</h2>
+          </Reveal>
+          <div className="process-line">
+            {["Share the brief", "Define the scope", "Coordinate delivery", "Handover"].map((step, index) => (
+              <div key={step} className="process-step">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <p>{step}</p>
+              </div>
+            ))}
+          </div>
+          <p className="process-copy">
+            Start with your site, requirement and expected timeline. ASR can then identify the right
+            scope, the open decisions and a practical next step.
+          </p>
+        </div>
+      </section>
+    </>
   );
 }

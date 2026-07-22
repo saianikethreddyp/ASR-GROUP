@@ -12,6 +12,11 @@
 
 # testing
 /coverage
+/tmp/
+/.pnpm-store/
+
+# local source material
+/ASR NEW    rrr.pdf
 
 # next.js
 /.next/
