@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "@fontsource-variable/manrope";
-import "@fontsource-variable/newsreader";
+import "lenis/dist/lenis.css";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Preloader from "@/components/Preloader";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "ASR Group | Interiors & Construction",
@@ -27,10 +27,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
+        <Preloader />
         <a className="skip-link" href="#main-content">Skip to content</a>
-        <Navbar />
-        <main id="main-content">{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <main id="main-content">{children}</main>
+        </SmoothScroll>
       </body>
     </html>
   );

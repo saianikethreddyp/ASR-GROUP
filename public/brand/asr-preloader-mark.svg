@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 158" role="img" aria-labelledby="title desc">
+  <title id="title">ASR Group mark</title>
+  <desc id="desc">A simplified vector recreation of the ASR Group monogram for digital animation.</desc>
+  <g fill="#0B1B3A">
+    <path d="M43 78 99 19h49l58 59h-49l-34-34-32 34H43Z"/>
+    <path d="M181 19h222v59h-48V50H250l29 28h124v27h-61l52 53h-65L237 68h-48l-32-31h57l19 19h122V47H209l-28-28Z"/>
+    <path d="m216 91 49-1 36 36h-50l-35-35Z"/>
+  </g>
+  <path fill="#C69652" d="M8 156 68 87h196L8 156Z"/>
+</svg>
