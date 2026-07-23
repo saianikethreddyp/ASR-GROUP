@@ -1,0 +1,107 @@
+.surface {
+  isolation: isolate;
+}
+
+.surface::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(11, 27, 58, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 27, 58, 0.055) 1px, transparent 1px);
+  background-size: clamp(72px, 8vw, 128px) clamp(72px, 8vw, 128px);
+  mask-image: radial-gradient(circle at center, black, transparent 72%);
+}
+
+.frame {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(16rem, 34vw, 34rem);
+  aspect-ratio: 2.25 / 1;
+  border: 1px solid rgba(166, 132, 78, 0.78);
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.frame::before,
+.frame::after {
+  position: absolute;
+  content: "";
+  background: #a6844e;
+}
+
+.frame::before {
+  width: calc(100% + 2.5rem);
+  height: 1px;
+  left: -1.25rem;
+  top: 50%;
+}
+
+.frame::after {
+  width: 1px;
+  height: calc(100% + 2.5rem);
+  left: 50%;
+  top: -1.25rem;
+}
+
+.corner {
+  position: absolute;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-color: #a6844e;
+  border-style: solid;
+}
+
+.corner:nth-child(1) {
+  left: -1px;
+  top: -1px;
+  border-width: 2px 0 0 2px;
+}
+
+.corner:nth-child(2) {
+  right: -1px;
+  top: -1px;
+  border-width: 2px 2px 0 0;
+}
+
+.corner:nth-child(3) {
+  right: -1px;
+  bottom: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+.corner:nth-child(4) {
+  left: -1px;
+  bottom: -1px;
+  border-width: 0 0 2px 2px;
+}
+
+.logo {
+  filter: drop-shadow(0 12px 24px rgba(11, 27, 58, 0.08));
+}
+
+.rule {
+  width: clamp(3.5rem, 5vw, 5.5rem);
+  height: 1px;
+  background: #a6844e;
+  transform-origin: left center;
+}
+
+@media (max-width: 640px) {
+  .frame {
+    width: min(72vw, 19rem);
+    aspect-ratio: 1.9 / 1;
+  }
+
+  .surface::before {
+    background-size: 64px 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surface::before {
+    display: none;
+  }
+}
