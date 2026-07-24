@@ -6,6 +6,7 @@
   --navy: #081523;
   --brass: #c6a36b;
   --font-sans: "Manrope Variable", "Inter", Helvetica, Arial, sans-serif;
+  --font-display: "Newsreader Variable", Georgia, "Times New Roman", serif;
 }
 
 * {
@@ -26,13 +27,42 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 button {
   font: inherit;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.cta-primary {
+  border: 1px solid #b58b51;
+  background: #b58b51;
+  color: var(--charcoal) !important;
+  box-shadow: 0 10px 28px rgba(17, 24, 32, 0.12);
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.cta-primary:hover {
+  border-color: var(--brass);
+  background: var(--brass);
+  box-shadow: 0 13px 34px rgba(17, 24, 32, 0.17);
+  transform: translateY(-1px);
+}
+
+.cta-primary:active {
+  transform: translateY(0);
 }
 
 ::selection {

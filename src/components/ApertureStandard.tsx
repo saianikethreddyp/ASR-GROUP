@@ -144,13 +144,13 @@ export default function ApertureStandard() {
                 every decision that follows.
               </p>
               <Link
-                href="#about"
-                className="group mt-8 inline-flex min-h-12 items-center gap-8 rounded-[10px] border border-[#111820]/28 px-6 text-[0.7rem] font-semibold tracking-[0.12em] uppercase transition-colors hover:border-[#111820] hover:bg-[#111820] hover:text-[#f4f0e8]"
+                href="/about"
+                className="cta-primary group mt-8 inline-flex min-h-12 items-center gap-8 rounded-[10px] px-6 text-[0.7rem] font-semibold tracking-[0.12em] uppercase"
               >
                 Discover ASR
                 <span
                   aria-hidden="true"
-                  className="text-base transition-transform duration-300 group-hover:translate-x-1"
+                  className="text-base text-[#111820]/70 transition-transform duration-300 group-hover:translate-x-1"
                 >
                   →
                 </span>
@@ -261,22 +261,18 @@ export default function ApertureStandard() {
           decision that follows.
         </p>
         <Link
-          href="#about"
-          className="mt-7 inline-flex min-h-12 items-center gap-7 rounded-[10px] border border-[#111820]/28 px-6 text-[0.68rem] font-semibold tracking-[0.12em] uppercase"
+          href="/about"
+          className="cta-primary mt-7 inline-flex min-h-12 items-center gap-7 rounded-[10px] px-6 text-[0.68rem] font-semibold tracking-[0.12em] uppercase"
         >
           Discover ASR <span aria-hidden="true">→</span>
         </Link>
 
         <motion.div
           className="relative mt-14 aspect-[4/5] overflow-hidden rounded-[18px] bg-[#dfd8cc]"
-          initial={
-            reduceMotion ? false : { clipPath: "inset(0 48% 0 48% round 18px)" }
-          }
-          whileInView={
-            reduceMotion ? undefined : { clipPath: "inset(0 0% 0 0% round 18px)" }
-          }
+          initial={reduceMotion ? false : { opacity: 0.82, scale: 0.985 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
           viewport={{ amount: 0.25, once: true }}
-          transition={{ duration: 1.15, ease }}
+          transition={{ duration: 0.85, ease }}
         >
           <Image
             src="/media/asr-aperture-material-study.jpg"

@@ -20,13 +20,12 @@ export default function Footer() {
             </p>
             <a
               href="tel:+918008667766"
-              className="group mt-8 inline-flex min-h-12 items-center gap-10 rounded-[10px] bg-[#f2eee6] px-7 text-[0.72rem] font-semibold tracking-[0.11em] uppercase transition-colors hover:bg-[#c6a36b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f2eee6]"
-              style={{ color: "#111820" }}
+              className="cta-primary group mt-8 inline-flex min-h-12 items-center gap-10 rounded-[10px] px-7 text-[0.72rem] font-semibold tracking-[0.11em] uppercase focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f2eee6]"
             >
               Start a conversation
               <span
                 aria-hidden="true"
-                className="text-base transition-transform duration-300 group-hover:translate-x-1"
+                className="text-base text-[#111820]/70 transition-transform duration-300 group-hover:translate-x-1"
               >
                 →
               </span>
@@ -53,7 +52,7 @@ export default function Footer() {
               Company
             </p>
             <div className="mt-5 flex flex-col items-start gap-3 text-sm text-white/72">
-              <Link className="transition-colors hover:text-white" href="#about">
+              <Link className="transition-colors hover:text-white" href="/about">
                 About Us
               </Link>
               <Link className="transition-colors hover:text-white" href="#clients">

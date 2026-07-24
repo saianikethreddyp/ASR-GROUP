@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@fontsource-variable/manrope";
+import "@fontsource-variable/newsreader";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import Preloader from "@/components/Preloader";
