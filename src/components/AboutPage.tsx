@@ -102,7 +102,7 @@ export default function AboutPage() {
         className="relative min-h-[100svh] overflow-hidden px-5 pb-16 pt-32 sm:px-9 sm:pb-20 sm:pt-36 lg:px-[4.8rem] lg:pb-12 lg:pt-36"
         aria-labelledby="about-hero-title"
       >
-        <InternalHeader />
+        <InternalHeader activeLabel="About Us" />
 
         <div className="mx-auto grid min-h-[calc(100svh-9rem)] max-w-[1540px] items-center gap-12 lg:grid-cols-[minmax(0,.98fr)_minmax(31rem,1.02fr)] lg:gap-[clamp(3rem,5vw,6rem)]">
           <div className="relative z-10 max-w-[48rem]">

@@ -9,6 +9,7 @@ import {
   useTransform,
 } from "framer-motion";
 import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import constructionImage from "../../public/media/asr-construction-capability.png";
 import interiorsImage from "../../public/media/asr-interiors-capability.png";
@@ -26,6 +27,7 @@ type Discipline = {
   }>;
   image: StaticImageData;
   imagePosition?: string;
+  href: "/interiors" | "/construction";
 };
 
 const disciplines: [Discipline, Discipline] = [
@@ -41,6 +43,7 @@ const disciplines: [Discipline, Discipline] = [
     ],
     image: interiorsImage,
     imagePosition: "50% 54%",
+    href: "/interiors",
   },
   {
     number: "02",
@@ -54,6 +57,7 @@ const disciplines: [Discipline, Discipline] = [
     ],
     image: constructionImage,
     imagePosition: "50% 48%",
+    href: "/construction",
   },
 ];
 
@@ -106,6 +110,13 @@ function MobileDiscipline({ discipline }: { discipline: Discipline }) {
             </div>
           ))}
         </dl>
+        <Link
+          href={discipline.href}
+          className="cta-primary mt-7 inline-flex min-h-12 w-fit items-center gap-8 rounded-[10px] px-6 text-[0.75rem] font-semibold"
+        >
+          Explore {discipline.title}
+          <span aria-hidden="true">→</span>
+        </Link>
       </div>
     </motion.article>
   );
@@ -216,6 +227,13 @@ export default function DisciplinesSection() {
                     ))}
                   </dl>
                 </div>
+                <Link
+                  href="/interiors"
+                  className="cta-primary mt-6 inline-flex min-h-12 w-fit items-center gap-8 rounded-[10px] px-6 text-[0.75rem] font-semibold"
+                >
+                  Explore Interiors
+                  <span aria-hidden="true">→</span>
+                </Link>
               </motion.div>
             </motion.article>
 
@@ -270,6 +288,13 @@ export default function DisciplinesSection() {
                     ))}
                   </dl>
                 </div>
+                <Link
+                  href="/construction"
+                  className="cta-primary mt-6 inline-flex min-h-12 w-fit items-center gap-8 rounded-[10px] px-6 text-[0.75rem] font-semibold"
+                >
+                  Explore Construction
+                  <span aria-hidden="true">→</span>
+                </Link>
               </motion.div>
             </motion.article>
           </div>

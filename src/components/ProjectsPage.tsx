@@ -84,14 +84,34 @@ export default function ProjectsPage() {
     <article className="min-h-screen bg-[#f2eee6] text-[#111820]">
       <section className="relative px-5 pb-18 pt-36 sm:px-9 sm:pb-24 sm:pt-44 lg:px-[4.8rem] lg:pb-32 lg:pt-52" aria-labelledby="projects-title">
         <InternalHeader activeLabel="Projects" />
-        <div className="mx-auto grid max-w-[1540px] gap-11 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,.8fr)] lg:items-end lg:gap-20">
+        <div className="mx-auto grid max-w-[1540px] gap-11 lg:grid-cols-[minmax(0,1.12fr)_minmax(23rem,.88fr)] lg:items-end lg:gap-16">
           <motion.div initial={reduceMotion ? false : { opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0.01 : 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}>
             <p className="mb-6 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Projects</p>
             <h1 id="projects-title" className="font-display display-heading-long max-w-[12ch] text-[clamp(4rem,7vw,8.2rem)] leading-[0.89] tracking-[-0.055em]">Find the work most relevant to what you are planning.</h1>
           </motion.div>
-          <motion.p className="max-w-[35rem] text-[clamp(1rem,1.3vw,1.16rem)] leading-[1.72] text-[#465058] lg:pb-2" initial={reduceMotion ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0.01 : 0.78, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}>
-            Explore selected projects across Interiors and Construction. Each project opens a dedicated Gallery collection where you can view the complete available set of spaces, materials, and details.
-          </motion.p>
+          <motion.div
+            className="lg:pb-2"
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: reduceMotion ? 0.01 : 0.78, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[18px] bg-[#d8d0c4]">
+              <Image
+                src="/media/projects/bmw-service-station-brochure.jpg"
+                alt="BMW customer environment represented in ASR's project record"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="object-cover"
+              />
+            </div>
+            <p className="mt-3 text-[0.62rem] leading-5 text-[#6b7379]">
+              BMW customer environment · publication scope and location remain subject to final confirmation.
+            </p>
+            <p className="mt-6 max-w-[35rem] text-[clamp(1rem,1.2vw,1.12rem)] leading-[1.72] text-[#465058]">
+              Explore selected projects across Interiors and Construction. Each project opens a dedicated Gallery collection where you can view the complete available set of spaces, materials, and details.
+            </p>
+          </motion.div>
         </div>
       </section>
 

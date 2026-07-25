@@ -89,7 +89,11 @@ function DirectContact({ className = "" }: { className?: string }) {
   );
 }
 
-export default function ContactPage() {
+export default function ContactPage({
+  initialTeam,
+}: {
+  initialTeam?: "interiors" | "construction";
+}) {
   const reduceMotion = useReducedMotion();
   const formRef = useRef<HTMLFormElement>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
@@ -288,6 +292,7 @@ export default function ContactPage() {
                             type="radio"
                             name="team"
                             value={team.value}
+                            defaultChecked={team.value === initialTeam}
                             required
                             className="peer sr-only"
                           />

@@ -69,10 +69,10 @@ export default function Footer() {
               Explore
             </p>
             <div className="mt-5 flex flex-col items-start gap-3 text-sm text-white/72">
-              <Link className="transition-colors hover:text-white" href="#about">
+              <Link className="transition-colors hover:text-white" href="/interiors">
                 Interiors
               </Link>
-              <Link className="transition-colors hover:text-white" href="#about">
+              <Link className="transition-colors hover:text-white" href="/construction">
                 Construction
               </Link>
               <Link className="transition-colors hover:text-white" href="/projects">

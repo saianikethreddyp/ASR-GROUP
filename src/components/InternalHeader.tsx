@@ -16,7 +16,7 @@ const navigation = [
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function InternalHeader({
-  activeLabel = "About Us",
+  activeLabel,
 }: {
   activeLabel?: (typeof navigation)[number][0];
 }) {

@@ -28,7 +28,11 @@ const priorityClients = [
   { name: "India Cements" },
   { name: "K. Raheja IT Park" },
   { name: "Karnataka Thermal Power" },
-  { name: "BMW" },
+  {
+    name: "BMW",
+    logo: "/media/client-logos/bmw.jpg",
+    logoClassName: "h-[5.2rem] w-[9.3rem] rounded-[4px] object-cover",
+  },
   { name: "TCI Constructions" },
   { name: "DSR Constructions" },
   { name: "Manjeera Group" },
