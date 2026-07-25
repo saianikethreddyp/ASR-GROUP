@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./Preloader.module.css";
 
-const SESSION_KEY = "asr-intro-seen-v5";
+const SESSION_KEY = "asr-intro-seen-v6";
 const FULL_SEQUENCE_MS = 3500;
 const QUICK_SEQUENCE_MS = 520;
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -101,28 +101,6 @@ export default function Preloader() {
             />
             <span className={styles.visualWash} />
           </motion.div>
-
-          {!quick ? (
-            <motion.div
-              className={styles.frame}
-              initial={{ opacity: 0, scale: 0.18 }}
-              animate={{
-                opacity: [0, 1, 1, 0],
-                scale: [0.18, 1, 1, 5.8],
-              }}
-              transition={{
-                duration: 3.38,
-                times: [0, 0.18, 0.82, 1],
-                ease: EASE,
-              }}
-              aria-hidden="true"
-            >
-              <span className={styles.corner} />
-              <span className={styles.corner} />
-              <span className={styles.corner} />
-              <span className={styles.corner} />
-            </motion.div>
-          ) : null}
 
           <motion.div
             className="relative z-10 flex w-[min(88vw,42rem)] flex-col items-center"
