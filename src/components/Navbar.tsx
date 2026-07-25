@@ -36,7 +36,7 @@ export default function Navbar() {
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navItems.map(([label, href]) => <Link key={label} href={href}>{label}</Link>)}
         </nav>
-        <Link className="nav-action" href="#contact">Start a project</Link>
+        <Link className="nav-action" href="/contact">Start a project</Link>
         <button
           type="button"
           className={`menu-toggle ${open ? "is-open" : ""}`}
@@ -55,7 +55,7 @@ export default function Navbar() {
               <span>0{index + 1}</span>{label}
             </Link>
           ))}
-          <Link href="#contact" onClick={() => setOpen(false)}><span>05</span>Start a project</Link>
+          <Link href="/contact" onClick={() => setOpen(false)}><span>05</span>Start a project</Link>
         </nav>
       </div>
     </header>

@@ -9,27 +9,27 @@ export default function Footer() {
             <p className="text-[0.62rem] font-semibold tracking-[0.19em] text-[#c6a36b] uppercase">
               Start a project
             </p>
-            <h2 className="mt-5 max-w-[13ch] text-[clamp(3.2rem,6.2vw,7rem)] leading-[0.9] tracking-[-0.064em]">
-              Tell us what you&apos;re planning.
+            <h2 className="mt-5 max-w-[14ch] text-[clamp(2.6rem,4.5vw,5.1rem)]">
+              Start with a clearer next step.
             </h2>
           </div>
           <div className="lg:pb-2">
             <p className="max-w-[30rem] text-[0.95rem] leading-7 text-white/66">
-              Share the ambition, location and current stage. A first conversation can clarify
-              the scope and the most useful next step.
+              Share the project type, location and current stage. We&apos;ll help clarify the scope
+              and where ASR can take responsibility.
             </p>
-            <a
-              href="tel:+918008667766"
+            <Link
+              href="/contact"
               className="cta-primary group mt-8 inline-flex min-h-12 items-center gap-10 rounded-[10px] px-7 text-[0.72rem] font-semibold tracking-[0.11em] uppercase focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f2eee6]"
             >
-              Start a conversation
+              Plan the next step
               <span
                 aria-hidden="true"
                 className="text-base text-[#111820]/70 transition-transform duration-300 group-hover:translate-x-1"
               >
                 →
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -55,10 +55,10 @@ export default function Footer() {
               <Link className="transition-colors hover:text-white" href="/about">
                 About Us
               </Link>
-              <Link className="transition-colors hover:text-white" href="#clients">
+              <Link className="transition-colors hover:text-white" href="/clients">
                 Clients
               </Link>
-              <Link className="transition-colors hover:text-white" href="#projects">
+              <Link className="transition-colors hover:text-white" href="/projects">
                 Projects
               </Link>
             </div>
@@ -75,8 +75,11 @@ export default function Footer() {
               <Link className="transition-colors hover:text-white" href="#about">
                 Construction
               </Link>
-              <Link className="transition-colors hover:text-white" href="#projects">
+              <Link className="transition-colors hover:text-white" href="/projects">
                 Selected Work
+              </Link>
+              <Link className="transition-colors hover:text-white" href="/gallery">
+                Gallery
               </Link>
             </div>
           </nav>

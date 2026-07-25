@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import ClosingCta from "@/components/ClosingCta";
+import InternalFooter from "@/components/InternalFooter";
 import InternalHeader from "@/components/InternalHeader";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -106,7 +108,7 @@ export default function AboutPage() {
           <div className="relative z-10 max-w-[48rem]">
             <motion.h1
               id="about-hero-title"
-              className="font-display max-w-[12ch] text-[clamp(3.7rem,5.75vw,6.6rem)] leading-[0.94] font-normal tracking-[-0.045em]"
+              className="font-display display-heading-long max-w-[12ch] text-[clamp(3.7rem,5.75vw,6.6rem)] leading-[0.94] font-normal tracking-[-0.045em]"
               initial={reduceMotion ? false : { opacity: 0, y: 34 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: reduceMotion ? 0.01 : 0.9, delay: 0.12, ease }}
@@ -316,48 +318,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-5 pb-24 pt-16 sm:px-9 sm:pb-28 lg:px-[4.8rem] lg:pb-36 lg:pt-24">
-        <Reveal className="mx-auto grid max-w-[1440px] items-end gap-10 border-t border-[#111820]/16 pt-14 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,.8fr)]">
-          <h2 className="font-display max-w-[12ch] text-[clamp(3.4rem,5.7vw,6.8rem)] leading-[0.92] tracking-[-0.045em]">
-            Planning something significant?
-          </h2>
-          <div className="lg:pb-2">
-            <p className="max-w-[31rem] text-[0.98rem] leading-7 text-[#465058]">
-              Tell us what you are considering, where the project stands today, and the kind of
-              support you need. We will connect you with the right ASR team.
-            </p>
-            <Link
-              href="/#contact"
-              className="cta-primary group mt-8 inline-flex min-h-14 items-center gap-12 rounded-[10px] px-7 text-[0.78rem] font-semibold"
-            >
-              Discuss your project
-              <span
-                aria-hidden="true"
-                className="text-[#111820]/70 transition-transform duration-300 group-hover:translate-x-1"
-              >
-                →
-              </span>
-            </Link>
-          </div>
-        </Reveal>
-      </section>
+      <ClosingCta
+        eyebrow="Start with clarity"
+        title="Let’s make the brief clearer."
+        body="Share what you know today. We’ll help define the scope and connect you with the right ASR team."
+      />
 
-      <footer className="border-t border-[#111820]/14 px-5 py-7 text-[#111820] sm:px-9 lg:px-[4.8rem]">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-3 text-[0.6rem] tracking-[0.08em] text-[#596168] uppercase sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} ASR Homes LLP. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/#projects" className="transition-colors hover:text-[#111820]">
-              Projects
-            </Link>
-            <Link href="/#contact" className="transition-colors hover:text-[#111820]">
-              Contact
-            </Link>
-            <Link href="#main-content" className="transition-colors hover:text-[#111820]">
-              Back to top ↑
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <InternalFooter />
     </article>
   );
 }

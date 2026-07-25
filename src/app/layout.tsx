@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>
+      <body suppressHydrationWarning>
         <Preloader />
         <a className="skip-link" href="#main-content">Skip to content</a>
         <SmoothScroll>

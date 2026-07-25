@@ -7,10 +7,10 @@ import { useEffect, useState } from "react";
 
 const navItems = [
   ["About Us", "/about"],
-  ["Clients", "#clients"],
-  ["Projects", "#projects"],
-  ["Gallery", "#gallery"],
-  ["Contact Us", "#contact"],
+  ["Clients", "/clients"],
+  ["Projects", "/projects"],
+  ["Gallery", "/gallery"],
+  ["Contact Us", "/contact"],
 ] as const;
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -103,7 +103,7 @@ export default function HeroHome() {
           </nav>
 
           <Link
-            href="mailto:info@asrgroup.com?subject=New%20project%20enquiry"
+            href="/contact"
             className="cta-primary hidden min-h-12 min-w-[11.5rem] items-center justify-center rounded-[10px] px-8 text-[0.82rem] font-semibold sm:flex"
           >
             Start a project
@@ -157,7 +157,7 @@ export default function HeroHome() {
               ))}
             </nav>
             <Link
-              href="mailto:info@asrgroup.com?subject=New%20project%20enquiry"
+              href="/contact"
               className="cta-primary mt-8 flex min-h-12 items-center justify-center rounded-[10px] text-sm font-semibold"
             >
               Start a project

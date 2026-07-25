@@ -9,6 +9,15 @@ export type SignatureProject = {
   image: string;
   imageAlt: string;
   imageNote: string;
+  galleryCategory:
+    | "Residential Interiors"
+    | "Corporate & Commercial"
+    | "Branded Environments"
+    | "Institutional"
+    | "Construction";
+  scope: string;
+  status: "Completed" | "Photography pending";
+  imageGroup: string;
   facts: Array<{
     label: string;
     value: string;
@@ -30,6 +39,10 @@ export const signatureProjects: SignatureProject[] = [
     imageAlt:
       "Illustrative architectural view of a formal executive office with walnut panelling and stone finishes",
     imageNote: "Illustrative visual — original project photography pending.",
+    galleryCategory: "Institutional",
+    scope: "Completed-project record; exact ASR scope pending client confirmation",
+    status: "Photography pending",
+    imageGroup: "Overall Spaces",
     facts: [
       { label: "Project", value: "C.M. Camp Office" },
       { label: "Sector", value: "Government & institutional" },
@@ -51,6 +64,10 @@ export const signatureProjects: SignatureProject[] = [
     imageAlt:
       "Illustrative blue-hour view of a restored historic civic hall with illuminated arched colonnades",
     imageNote: "Illustrative visual — original project photography pending.",
+    galleryCategory: "Construction",
+    scope: "Restoration works recorded in the ASR company profile",
+    status: "Photography pending",
+    imageGroup: "Exterior & Built Form",
     facts: [
       { label: "Project", value: "Jubilee Hall restoration" },
       { label: "Sector", value: "Heritage restoration" },
@@ -72,6 +89,10 @@ export const signatureProjects: SignatureProject[] = [
     imageAlt:
       "Illustrative architectural view of a formal assembly chamber with timber joinery and stone finishes",
     imageNote: "Illustrative visual — original project photography pending.",
+    galleryCategory: "Institutional",
+    scope: "Completed-project record; exact ASR scope pending client confirmation",
+    status: "Photography pending",
+    imageGroup: "Overall Spaces",
     facts: [
       { label: "Project", value: "Telangana Legislative Assembly" },
       { label: "Sector", value: "Government & institutional" },
@@ -84,19 +105,23 @@ export const signatureProjects: SignatureProject[] = [
     title: "BMW Service Station",
     discipline: "Interiors",
     sector: "Retail & brand environment",
-    location: "Faridabad",
+    location: "Location pending confirmation",
     summary:
       "A branded automotive environment included in ASR’s completed project record.",
     detail:
-      "The ASR company profile lists BMW Service Station, Faridabad, within its project record. Brand environments demand disciplined execution to approved visual, material and operational standards.",
+      "ASR’s source material records BMW showroom and service-station environments. Brand environments demand disciplined execution across approved visual, material, operational, and customer-experience standards. The location will be published after the source discrepancy is resolved.",
     image: "/media/projects/bmw-service-station-brochure.jpg",
     imageAlt:
       "BMW display environment with a silver vehicle, timber wall finish and illuminated brand wall",
     imageNote: "Image supplied in the ASR company profile.",
+    galleryCategory: "Branded Environments",
+    scope: "Brand-environment project record; exact scope pending confirmation",
+    status: "Completed",
+    imageGroup: "Customer & Display Areas",
     facts: [
       { label: "Project", value: "BMW Service Station" },
       { label: "Sector", value: "Retail & brand environment" },
-      { label: "Location", value: "Faridabad" },
+      { label: "Location", value: "Pending confirmation" },
       { label: "Record", value: "ASR company profile" },
     ],
   },

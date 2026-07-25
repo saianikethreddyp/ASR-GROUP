@@ -11,7 +11,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 function ProjectLink({ project }: { project: SignatureProject }) {
   return (
     <Link
-      href={`/projects/${project.slug}`}
+      href={`/gallery/${project.slug}`}
       className="cta-primary group mt-8 inline-flex min-h-12 items-center gap-8 rounded-[10px] px-6 text-[0.72rem] font-semibold tracking-[0.12em] uppercase"
     >
       View project

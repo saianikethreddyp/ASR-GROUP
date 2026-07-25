@@ -7,15 +7,19 @@ import { useEffect, useState } from "react";
 
 const navigation = [
   ["About Us", "/about"],
-  ["Clients", "/#clients"],
-  ["Projects", "/#projects"],
-  ["Gallery", "/#gallery"],
-  ["Contact Us", "/#contact"],
+  ["Clients", "/clients"],
+  ["Projects", "/projects"],
+  ["Gallery", "/gallery"],
+  ["Contact Us", "/contact"],
 ] as const;
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-export default function InternalHeader() {
+export default function InternalHeader({
+  activeLabel = "About Us",
+}: {
+  activeLabel?: (typeof navigation)[number][0];
+}) {
   const [open, setOpen] = useState(false);
   const reduceMotion = useReducedMotion();
 
@@ -65,7 +69,7 @@ export default function InternalHeader() {
           aria-label="Primary navigation"
         >
           {navigation.map(([label, href]) => {
-            const active = label === "About Us";
+            const active = label === activeLabel;
             return (
               <Link
                 key={label}
@@ -85,7 +89,7 @@ export default function InternalHeader() {
         </nav>
 
         <Link
-          href="/#contact"
+          href={activeLabel === "Contact Us" ? "#enquiry-form" : "/contact"}
           className="cta-primary hidden min-h-12 min-w-[10.75rem] items-center justify-center rounded-[10px] px-7 text-[0.8rem] font-semibold sm:flex"
         >
           Start a project
@@ -138,7 +142,7 @@ export default function InternalHeader() {
               ))}
             </nav>
             <Link
-              href="/#contact"
+              href={activeLabel === "Contact Us" ? "#enquiry-form" : "/contact"}
               onClick={() => setOpen(false)}
               className="cta-primary mt-8 flex min-h-12 items-center justify-center rounded-[10px] text-sm font-semibold"
             >
