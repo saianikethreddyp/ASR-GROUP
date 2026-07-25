@@ -16,30 +16,30 @@ const leaders = [
     summary: "Direction across ASR Group’s interior and construction activities.",
   },
   {
-    name: "Founder name",
-    role: "Verified role",
-    summary: "Biography and area of responsibility to be supplied.",
+    name: "G. S. Rao",
+    role: "Director, Production",
+    summary:
+      "Production planning, joinery and workshop output behind every interior project.",
   },
   {
-    name: "Leadership name",
-    role: "Verified role",
-    summary: "Biography and area of responsibility to be supplied.",
+    name: "Siddhiq",
+    role: "Director, Marketing",
+    summary:
+      "Client relationships, and the first conversation on most ASR projects.",
   },
   {
-    name: "Leadership name",
-    role: "Verified role",
-    summary: "Biography and area of responsibility to be supplied.",
+    name: "M. Srinivasa Rao",
+    role: "Architect",
+    summary:
+      "Design and architectural coordination alongside the ASR project teams.",
   },
 ] as const;
 
 const proof = [
-  ["25 years", "Interior experience"],
-  ["20 years", "Construction experience"],
-  ["6 lakh+ sq. ft.", "Construction delivery stated in the company profile"],
-  [
-    "Approximately 4,000–5,000",
-    "Residential flats and villas represented in the source profile",
-  ],
+  ["25 years", "In interiors"],
+  ["20 years", "In construction"],
+  ["6 lakh+ sq. ft.", "Constructed"],
+  ["4,000+", "Residential spaces"],
 ] as const;
 
 const approach = [
@@ -202,8 +202,15 @@ export default function AboutPage() {
                 <Reveal key={`${leader.name}-${index}`} delay={index * 0.08}>
                   <article>
                     <div className="grid aspect-[3/4] place-items-center overflow-hidden bg-[#282b2d] px-5 text-center">
-                      <p className="max-w-[8rem] text-[0.67rem] font-semibold tracking-[0.13em] text-[#c6a36b] uppercase">
-                        Portrait to be supplied
+                      <p
+                        aria-hidden="true"
+                        className="font-display text-[clamp(2.6rem,3.6vw,3.9rem)] leading-none tracking-[-0.04em] text-[#c6a36b]"
+                      >
+                        {leader.name
+                          .split(" ")
+                          .map((part) => part[0])
+                          .join("")
+                          .slice(0, 3)}
                       </p>
                     </div>
                     <h3 className="font-display mt-5 text-[clamp(1.55rem,2vw,2.25rem)] leading-none tracking-[-0.025em]">
@@ -271,9 +278,6 @@ export default function AboutPage() {
               </Reveal>
             ))}
           </dl>
-          <p className="mt-5 text-[0.62rem] leading-5 tracking-[0.05em] text-[#9a7645]">
-            Final figures and wording require client approval before publication.
-          </p>
         </div>
       </section>
 

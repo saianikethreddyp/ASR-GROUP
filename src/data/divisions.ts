@@ -43,20 +43,20 @@ export const divisions: Record<Division["slug"], Division> = {
     slug: "interiors",
     name: "Interiors",
     eyebrow: "ASR Interiors",
-    title: "Spaces shaped around how people live, work and experience a brand.",
+    title: "Finished exactly as drawn.",
     introduction:
-      "ASR designs and executes complete interiors for premium homes, workplaces, retail environments, hospitality spaces and other commercial settings—bringing planning, materials, services, custom work and site execution into one coordinated process.",
+      "Homes, workplaces, retail and hospitality interiors—designed, made and installed by one ASR team. What you approve on paper is what gets handed over.",
     image: "/media/asr-interiors-capability.png",
     imageAlt:
       "Representative warm interior showing coordinated materials, lighting and joinery",
     imagePosition: "50% 54%",
     imageNote:
-      "Representative visual · final project photography is presented in the Gallery where approved.",
+      "Representative visual, not project photography.",
     metrics: [
       { value: "25 years", label: "Interior experience" },
       {
         value: "4,000+",
-        label: "Residential spaces represented in ASR’s profile",
+        label: "Residential spaces",
       },
     ],
     audienceTitle: "Start with the space you need to make work.",
@@ -118,11 +118,11 @@ export const divisions: Record<Division["slug"], Division> = {
           "The work is reviewed against the agreed intent and brought together for a considered handover.",
       },
     ],
-    galleryHref: "/gallery?category=Residential%20Interiors",
+    galleryHref: "/gallery",
     galleryLabel: "View interior work",
     galleryTitle: "See the materials, details and finished environments.",
     galleryBody:
-      "Explore the currently available residential, workplace, branded and institutional interior collections in the ASR Gallery.",
+      "Residential, workplace, branded and institutional interiors — photographed up close.",
     relatedHref: "/construction",
     relatedLabel: "Explore Construction",
     relatedTitle: "Does the requirement begin with the building itself?",
@@ -136,20 +136,20 @@ export const divisions: Record<Division["slug"], Division> = {
     slug: "construction",
     name: "Construction",
     eyebrow: "ASR Construction",
-    title: "Built from the ground up, with responsibility under one roof.",
+    title: "Strong where it doesn’t show.",
     introduction:
-      "ASR delivers comprehensive construction solutions for residential, commercial and institutional requirements, connecting planning, engineering coordination, structural and civil works, specialist execution, finishing and handover.",
+      "Residential, commercial and institutional builds. One ASR team carries the structure, the services and the finish—and the responsibility for all three.",
     image: "/media/asr-construction-capability.png",
     imageAlt:
       "Representative construction environment showing structure and architectural delivery",
     imagePosition: "50% 48%",
     imageNote:
-      "Representative visual · verified project imagery and scope are presented in the Gallery where approved.",
+      "Representative visual, not project photography.",
     metrics: [
       { value: "20 years", label: "Construction experience" },
       {
         value: "6 lakh+ sq. ft.",
-        label: "Construction delivery stated in ASR’s profile",
+        label: "Constructed",
       },
     ],
     audienceTitle: "Start with the responsibility your project needs.",
@@ -215,7 +215,7 @@ export const divisions: Record<Division["slug"], Division> = {
     galleryLabel: "View construction work",
     galleryTitle: "See construction responsibility in practice.",
     galleryBody:
-      "Explore the construction and institutional collections currently available in the ASR Gallery, with scope described where it is verified.",
+      "Construction and institutional projects, with the scope ASR delivered on each.",
     relatedHref: "/interiors",
     relatedLabel: "Explore Interiors",
     relatedTitle: "Does the requirement begin inside the space?",

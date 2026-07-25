@@ -3,7 +3,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Check, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import InternalFooter from "@/components/InternalFooter";
 import InternalHeader from "@/components/InternalHeader";
 
@@ -82,9 +82,6 @@ function DirectContact({ className = "" }: { className?: string }) {
         </address>
       </div>
 
-      <p className="text-[0.66rem] leading-5 text-[#6b7379] sm:col-span-2">
-        Public contact details and map destination require final confirmation before launch.
-      </p>
     </div>
   );
 }
@@ -97,22 +94,13 @@ export default function ContactPage({
   const reduceMotion = useReducedMotion();
   const formRef = useRef<HTMLFormElement>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
-  const submissionTimerRef = useRef<number | null>(null);
   const [submittedName, setSubmittedName] = useState("");
   const [formStatus, setFormStatus] = useState<
     "idle" | "submitting" | "error"
   >("idle");
   const [formError, setFormError] = useState("");
 
-  useEffect(() => {
-    return () => {
-      if (submissionTimerRef.current) {
-        window.clearTimeout(submissionTimerRef.current);
-      }
-    };
-  }, []);
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (formStatus === "submitting") return;
 
@@ -127,18 +115,47 @@ export default function ContactPage({
       return;
     }
 
+    const name = String(formData.get("fullName") || "").trim();
+
     setFormError("");
     setFormStatus("submitting");
-    submissionTimerRef.current = window.setTimeout(() => {
-      setSubmittedName(
-        String(formData.get("fullName") || "there").trim() || "there",
-      );
+
+    try {
+      const response = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: name,
+          phone: phoneNumber,
+          email: String(formData.get("email") || ""),
+          team: String(formData.get("team") || ""),
+          location: String(formData.get("location") || ""),
+          projectBrief: String(formData.get("projectBrief") || ""),
+        }),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        setFormError(
+          result.error ??
+            "We could not send your enquiry. Please call the ASR team on +91 80086 67766.",
+        );
+        setFormStatus("error");
+        return;
+      }
+
+      setSubmittedName(name || "there");
       setFormStatus("idle");
-      submissionTimerRef.current = null;
-    }, 850);
+    } catch {
+      setFormError(
+        "Your enquiry did not reach us — you may be offline. Please try again, or call the ASR team on +91 80086 67766.",
+      );
+      setFormStatus("error");
+    }
   }
 
-  function resetPreview() {
+  function resetForm() {
     setSubmittedName("");
     setFormError("");
     setFormStatus("idle");
@@ -200,18 +217,24 @@ export default function ContactPage({
                       Thank you, {submittedName}.
                     </h2>
                     <p className="mt-6 max-w-[34rem] text-[0.98rem] leading-7 text-[#4d565d]">
-                      The enquiry flow is ready. Once delivery is connected, the appropriate ASR
-                      team will review the information and contact you using the number provided.
+                      Your enquiry has reached us. The relevant ASR team will review it and call
+                      you on the number you provided, usually within one working day.
                     </p>
-                    <p className="mt-5 max-w-[34rem] rounded-[10px] border border-[#111820]/12 bg-[#f2eee6] px-4 py-3 text-xs leading-5 text-[#60686e]">
-                      Design preview only—your information has not been sent or stored.
+                    <p className="mt-5 max-w-[34rem] text-[0.98rem] leading-7 text-[#4d565d]">
+                      Prefer to talk now?{" "}
+                      <a
+                        href="tel:+918008667766"
+                        className="font-semibold text-[#9a7645] underline underline-offset-4 transition-colors hover:text-[#111820]"
+                      >
+                        +91 80086 67766
+                      </a>
                     </p>
                   </div>
 
                   <div className="mt-12 flex flex-wrap gap-3">
                     <button
                       type="button"
-                      onClick={resetPreview}
+                      onClick={resetForm}
                       className="cta-primary inline-flex min-h-12 items-center gap-8 rounded-[10px] px-6 text-[0.76rem] font-semibold"
                     >
                       Send another enquiry
@@ -374,7 +397,7 @@ export default function ContactPage({
                     className="cta-primary group mt-7 inline-flex min-h-14 w-full items-center justify-between rounded-[10px] px-6 text-[0.78rem] font-semibold disabled:cursor-wait disabled:opacity-70 sm:w-auto sm:min-w-[17rem]"
                   >
                     {formStatus === "submitting"
-                      ? "Preparing enquiry…"
+                      ? "Sending enquiry…"
                       : "Send project enquiry"}
                     <ArrowRight
                       aria-hidden="true"
@@ -387,10 +410,6 @@ export default function ContactPage({
                     />
                   </button>
 
-                  <p className="mt-4 text-[0.62rem] leading-5 text-[#737a7f]">
-                    Design preview—submission delivery will be connected after ASR confirms the
-                    receiving email.
-                  </p>
                 </motion.form>
               )}
             </AnimatePresence>

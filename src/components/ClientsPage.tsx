@@ -9,34 +9,18 @@ import InternalHeader from "@/components/InternalHeader";
 import Reveal from "@/components/Reveal";
 
 const priorityClients = [
-  {
-    name: "ICRISAT",
-    logo: "/media/client-logos/icrisat-compact.jpg",
-    logoClassName: "h-[5.2rem] w-auto mix-blend-multiply",
-  },
-  {
-    name: "Wipro",
-    logo: "/media/client-logos/wipro.svg",
-    logoClassName: "h-[4.8rem] w-auto",
-  },
-  { name: "Rallis India" },
-  {
-    name: "Hetero",
-    logo: "/media/client-logos/hetero.jpg",
-    logoClassName: "h-[5.2rem] w-auto mix-blend-multiply",
-  },
-  { name: "India Cements" },
-  { name: "K. Raheja IT Park" },
-  { name: "Karnataka Thermal Power" },
-  {
-    name: "BMW",
-    logo: "/media/client-logos/bmw.jpg",
-    logoClassName: "h-[5.2rem] w-[9.3rem] rounded-[4px] object-cover",
-  },
-  { name: "TCI Constructions" },
-  { name: "DSR Constructions" },
-  { name: "Manjeera Group" },
-  { name: "Ramky" },
+  { name: "ICRISAT", industry: "Institutions & Public" },
+  { name: "Wipro", industry: "Technology & Business" },
+  { name: "Rallis India", industry: "Industry & Enterprise" },
+  { name: "Hetero", industry: "Healthcare & Pharma" },
+  { name: "India Cements", industry: "Industry & Enterprise" },
+  { name: "K. Raheja IT Park", industry: "Development" },
+  { name: "Karnataka Thermal", industry: "Infrastructure" },
+  { name: "BMW", industry: "Automotive & Enterprise" },
+  { name: "TCI Constructions", industry: "Development" },
+  { name: "DSR Constructions", industry: "Development" },
+  { name: "Manjeera Group", industry: "Development" },
+  { name: "Ramky", industry: "Development" },
 ] as const;
 
 const experienceGroups = [
@@ -112,14 +96,6 @@ export default function ClientsPage() {
               Trusted with spaces that carry real responsibility.
             </h1>
           </motion.div>
-          <motion.div className="max-w-[33rem] lg:pb-2" initial={reduceMotion ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0.01 : 0.78, delay: 0.28, ease }}>
-            <p className="text-[clamp(1rem,1.3vw,1.16rem)] leading-[1.72] text-[#465058]">
-              Every client brings a different brief, environment, and standard to protect. ASR&apos;s experience includes work associated with homeowners, businesses, brands, developers, institutions, and public-sector settings.
-            </p>
-            <p className="mt-5 text-[clamp(1rem,1.3vw,1.16rem)] leading-[1.72] text-[#465058]">
-              The names may be different. The responsibility remains the same: understand what must be delivered and coordinate the work required to deliver it well.
-            </p>
-          </motion.div>
         </div>
       </section>
 
@@ -131,32 +107,30 @@ export default function ClientsPage() {
               <h2 className="font-display max-w-[12ch] text-[clamp(3.2rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">Experience across serious briefs.</h2>
             </div>
             <p className="max-w-[28rem] text-sm leading-6 text-[#586168] lg:justify-self-end">
-              Selected official marks are shown for layout review. Confirm client approval before final publication.
+              A selection of the organisations, developers, brands and institutions represented in ASR&apos;s project experience.
             </p>
           </Reveal>
-          <div className="mt-14 grid grid-cols-2 border-l border-t border-[#111820]/14 lg:grid-cols-4">
+          <div className="mt-14 grid grid-cols-1 border-l border-t border-[#111820]/14 sm:grid-cols-2 lg:grid-cols-4">
             {priorityClients.map((client, index) => (
               <motion.div
                 key={client.name}
-                className="grid min-h-[8.5rem] place-items-center border-b border-r border-[#111820]/14 px-4 text-center sm:min-h-[10rem] sm:px-7"
+                className="relative flex min-h-[10rem] flex-col justify-end border-b border-r border-[#111820]/14 p-6 sm:min-h-[12rem] sm:p-7"
                 initial={reduceMotion ? false : { opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: reduceMotion ? 0.01 : 0.58, delay: (index % 4) * 0.05, ease }}
               >
-                {"logo" in client ? (
-                  <Image
-                    src={client.logo}
-                    alt={`${client.name} logo`}
-                    width={240}
-                    height={100}
-                    className={client.logoClassName}
-                  />
-                ) : (
-                  <p className="text-[0.85rem] font-semibold tracking-[-0.015em] text-[#252d34] sm:text-[1rem]">
-                    {client.name}
+                <p className="absolute left-6 top-6 text-[0.65rem] font-semibold tracking-[0.15em] text-[#9a7645] uppercase sm:left-7 sm:top-7">
+                  {(index + 1).toString().padStart(2, '0')}
+                </p>
+                <div>
+                  <p className="mb-2 text-[0.65rem] font-medium tracking-[0.08em] text-[#586168] uppercase">
+                    {client.industry}
                   </p>
-                )}
+                  <h3 className="font-display text-[clamp(1.4rem,2vw,1.8rem)] leading-[1.1] tracking-[-0.02em] text-[#111820]">
+                    {client.name}
+                  </h3>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -209,7 +183,7 @@ export default function ClientsPage() {
                     </div>
                     <span className="mt-1 text-[#9a7645] transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
                   </div>
-                  <p className="mt-4 text-[0.68rem] leading-5 text-[#687077]">Illustrative visual — original project photography pending.</p>
+                  <p className="mt-4 text-[0.68rem] leading-5 text-[#687077]">Illustrative visual, not project photography.</p>
                 </Link>
               </Reveal>
             ))}
@@ -223,7 +197,7 @@ export default function ClientsPage() {
             <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Homes &amp; communities</p>
             <p className="font-display text-[clamp(4.3rem,7vw,8.5rem)] leading-[0.82] tracking-[-0.055em]">4,000–5,000</p>
             <p className="mt-6 max-w-[25rem] text-[0.98rem] leading-7 text-[#505961]">
-              Approximate residential flats and villas represented in ASR&apos;s source profile. The exact contribution must be confirmed before final publication.
+              Residential flats and villas across established communities in and around Hyderabad, delivered over 25 years of interior work.
             </p>
           </Reveal>
           <Reveal delay={0.08}>

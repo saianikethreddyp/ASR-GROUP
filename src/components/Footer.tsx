@@ -22,7 +22,7 @@ export default function Footer() {
               href="/contact"
               className="cta-primary group mt-8 inline-flex min-h-12 items-center gap-10 rounded-[10px] px-7 text-[0.72rem] font-semibold tracking-[0.11em] uppercase focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f2eee6]"
             >
-              Plan the next step
+              Start a project
               <span
                 aria-hidden="true"
                 className="text-base text-[#111820]/70 transition-transform duration-300 group-hover:translate-x-1"
@@ -43,7 +43,7 @@ export default function Footer() {
               coordination and execution.
             </p>
             <p className="mt-8 text-[0.62rem] font-semibold tracking-[0.16em] text-[#c6a36b] uppercase">
-              Designed with intent. Built with control.
+              From structure to soul.
             </p>
           </div>
 

@@ -59,7 +59,7 @@ export default function DivisionPage({ division }: { division: Division }) {
                 href={contactHref}
                 className="cta-primary inline-flex min-h-13 items-center gap-9 rounded-[10px] px-7 text-[0.78rem] font-semibold"
               >
-                Discuss a {division.name.toLowerCase()} project
+                Start a project
                 <span aria-hidden="true">→</span>
               </Link>
               <Link
@@ -248,7 +248,7 @@ export default function DivisionPage({ division }: { division: Division }) {
               href={contactHref}
               className="cta-primary mt-7 inline-flex min-h-13 items-center gap-9 rounded-[10px] px-6 text-[0.76rem] font-semibold"
             >
-              Plan the next step
+              Start a project
               <span aria-hidden="true">→</span>
             </Link>
           </div>

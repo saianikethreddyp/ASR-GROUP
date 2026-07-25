@@ -12,7 +12,7 @@ export default function ClosingCta({
   eyebrow = "Start a project",
   title,
   body,
-  ctaLabel = "Plan the next step",
+  ctaLabel = "Start a project",
 }: ClosingCtaProps) {
   return (
     <section className="px-5 pb-5 pt-16 sm:px-9 sm:pb-9 sm:pt-20 lg:px-[4.8rem] lg:pb-[4.8rem] lg:pt-24">

@@ -1,7 +1,5 @@
 export const galleryCategories = [
   "All",
-  "Residential Interiors",
-  "Corporate & Commercial",
   "Branded Environments",
   "Institutional",
   "Construction",

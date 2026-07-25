@@ -39,7 +39,7 @@ const disciplines: [Discipline, Discipline] = [
       "Complete interior execution for homes, workplaces and brand environments—coordinated from approved design through the final finish.",
     metrics: [
       { value: "25", label: "years of craft" },
-      { value: "4,000+", label: "projects delivered" },
+      { value: "4,000+", label: "residential spaces" },
     ],
     image: interiorsImage,
     imagePosition: "50% 54%",

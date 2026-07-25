@@ -9,7 +9,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 export const metadata: Metadata = {
   title: "ASR Group | Interiors & Construction",
   description:
-    "ASR Homes LLP Pvt. Ltd. delivers integrated construction, turnkey interiors, specialist facade systems, kitchens and wardrobes across India.",
+    "ASR Homes LLP delivers premium interiors and construction in Hyderabad — homes, workplaces, branded environments and complete buildings, through one accountable team.",
   keywords: [
     "ASR Group",
     "turnkey interiors Hyderabad",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "commercial interiors",
   ],
   openGraph: {
-    title: "ASR Group — From First Line to Final Handover",
+    title: "ASR Group — From structure to soul.",
     description: "Construction, interiors and specialist systems coordinated through one accountable team.",
     type: "website",
   },

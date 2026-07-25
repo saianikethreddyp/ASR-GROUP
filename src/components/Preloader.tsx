@@ -14,7 +14,7 @@ function AsrMark() {
   return (
     <Image
       src="/brand/asr-group-2024-full.png"
-      alt="ASR Group — Inspire the Future"
+      alt="ASR Group"
       width={1656}
       height={888}
       priority
@@ -147,7 +147,7 @@ export default function Preloader() {
               animate={{ opacity: [0, 0.72, 0.72] }}
               transition={{ duration: 2.72, delay: 0.58, times: [0, 0.28, 1] }}
             >
-              Hyderabad · Since 1999
+              Hyderabad, India
             </motion.p>
           ) : null}
         </motion.div>

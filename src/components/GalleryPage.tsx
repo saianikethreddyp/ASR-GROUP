@@ -59,7 +59,7 @@ export default function GalleryPage({
             <h1 id="gallery-title" className="font-display max-w-[11ch] text-[clamp(4.2rem,7.5vw,8.7rem)] leading-[0.88] tracking-[-0.055em]">The work, in full view.</h1>
           </motion.div>
           <motion.p className="max-w-[35rem] text-[clamp(1rem,1.3vw,1.16rem)] leading-[1.72] text-[#465058] lg:pb-2" initial={reduceMotion ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0.01 : 0.78, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}>
-            Explore ASR&apos;s available project photography by category or open an individual project collection to see its spaces, materials, and details together.
+            Browse by category, or open a project to see its spaces, materials and details together.
           </motion.p>
         </div>
       </section>
@@ -129,7 +129,6 @@ export default function GalleryPage({
                         <Image src={project.image} alt={project.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]" />
                         <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3">
                           <span className="rounded-full bg-[#081523]/88 px-3 py-2 text-[0.58rem] font-semibold tracking-[0.11em] text-white uppercase backdrop-blur-sm">{project.galleryCategory}</span>
-                          <span className="rounded-full bg-[#f2eee6]/90 px-3 py-2 text-[0.58rem] font-semibold tracking-[0.1em] text-[#111820] uppercase backdrop-blur-sm">{project.status}</span>
                         </div>
                       </div>
                       <div className="mt-5 flex items-start justify-between gap-6">
@@ -150,7 +149,7 @@ export default function GalleryPage({
                 <div>
                   <h3 className="font-display text-[clamp(2.2rem,4vw,4.4rem)] leading-none tracking-[-0.04em]">This collection is being prepared.</h3>
                   <p className="mx-auto mt-5 max-w-[34rem] text-sm leading-6 text-[#586168]">No project collections match this selection yet. Choose another category to continue exploring.</p>
-                  <button type="button" onClick={() => { selectCategory("All"); setQuery(""); }} className="mt-7 text-xs font-semibold text-[#9a7645] underline underline-offset-4">View all available collections</button>
+                  <button type="button" onClick={() => { selectCategory("All"); setQuery(""); }} className="mt-7 text-xs font-semibold text-[#9a7645] underline underline-offset-4">View all projects</button>
                 </div>
               </motion.div>
             )}

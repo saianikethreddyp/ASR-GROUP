@@ -108,12 +108,12 @@ export default function GalleryCollectionPage({
         </div>
       </section>
 
-      {project.status === "Photography pending" ? (
+      {project.illustrative ? (
         <section className="px-5 pb-24 sm:px-9 sm:pb-28 lg:px-[4.8rem] lg:pb-36">
           <Reveal className="mx-auto grid min-h-[20rem] max-w-[1320px] place-items-center rounded-[18px] border border-[#111820]/16 px-6 py-12 text-center">
             <div>
-              <h2 className="font-display text-[clamp(2.5rem,4vw,4.8rem)] leading-none tracking-[-0.04em]">This project collection is being prepared.</h2>
-              <p className="mx-auto mt-5 max-w-[38rem] text-sm leading-6 text-[#586168]">Original photography and verified project information will be added after client approval.</p>
+              <h2 className="font-display text-[clamp(2.5rem,4vw,4.8rem)] leading-none tracking-[-0.04em]">Photography of this project is on its way.</h2>
+              <p className="mx-auto mt-5 max-w-[38rem] text-sm leading-6 text-[#586168]">The visual above is an illustration. To walk through comparable finished work in person, speak to the ASR team.</p>
             </div>
           </Reveal>
         </section>

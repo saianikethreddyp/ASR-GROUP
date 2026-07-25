@@ -51,7 +51,7 @@ function Credential({
 const credentials = [
   { value: "25 years", label: "Interior craft" },
   { value: "20 years", label: "Construction execution" },
-  { value: "4,000+", label: "Projects delivered" },
+  { value: "4,000+", label: "Residential spaces" },
   { value: "6 lakh", label: "Sq. ft. delivered" },
 ] as const;
 
@@ -211,7 +211,7 @@ export default function ApertureStandard() {
               />
               <Credential
                 value="4,000+"
-                label="Projects delivered"
+                label="Residential spaces"
                 className="bottom-[1%] left-0 pr-5"
                 opacity={reduceMotion ? undefined : thirdCredentialOpacity}
                 y={reduceMotion ? undefined : thirdCredentialY}

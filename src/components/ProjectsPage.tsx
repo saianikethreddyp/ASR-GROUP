@@ -30,7 +30,7 @@ const workTypes = [
       "Complete interior environments shaped around the people who live in them—from space planning and custom joinery to lighting, materials, kitchens, wardrobes, and final execution.",
     image: "/media/asr-interiors-capability.png",
     alt: "Warm residential interior showing joinery, materials, and lighting",
-    href: "/gallery?category=Residential%20Interiors",
+    href: "/gallery",
   },
   {
     title: "Corporate & Commercial Interiors",
@@ -39,7 +39,7 @@ const workTypes = [
       "Workplaces and commercial spaces coordinated around function, technical requirements, organizational identity, and everyday performance.",
     image: "/media/asr-aperture-material-study.jpg",
     alt: "Architectural material and technical coordination study",
-    href: "/gallery?category=Corporate%20%26%20Commercial",
+    href: "/gallery",
   },
   {
     title: "Construction",
@@ -105,11 +105,8 @@ export default function ProjectsPage() {
                 className="object-cover"
               />
             </div>
-            <p className="mt-3 text-[0.62rem] leading-5 text-[#6b7379]">
-              BMW customer environment · publication scope and location remain subject to final confirmation.
-            </p>
             <p className="mt-6 max-w-[35rem] text-[clamp(1rem,1.2vw,1.12rem)] leading-[1.72] text-[#465058]">
-              Explore selected projects across Interiors and Construction. Each project opens a dedicated Gallery collection where you can view the complete available set of spaces, materials, and details.
+              Selected work across Interiors and Construction. Open any project to see its spaces, materials and details together.
             </p>
           </motion.div>
         </div>
@@ -134,7 +131,7 @@ export default function ProjectsPage() {
                   <p className="mt-7 max-w-[34rem] text-[0.98rem] leading-7 text-white/66">An automotive customer environment requiring disciplined execution across materials, lighting, display, customer zones, and brand standards.</p>
                   <p className="mt-5 text-[0.66rem] leading-5 text-white/44">{featuredProject.imageNote}</p>
                 </div>
-                <Link href={`/gallery/${featuredProject.slug}`} className="cta-primary group mt-10 inline-flex min-h-14 w-fit items-center gap-10 rounded-[10px] px-7 text-[0.78rem] font-semibold">Open project Gallery <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span></Link>
+                <Link href={`/gallery/${featuredProject.slug}`} className="cta-primary group mt-10 inline-flex min-h-14 w-fit items-center gap-10 rounded-[10px] px-7 text-[0.78rem] font-semibold">View project <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span></Link>
               </div>
             </div>
           </Reveal>
@@ -203,7 +200,7 @@ export default function ProjectsPage() {
                   <p className="mt-5 text-[0.62rem] font-semibold tracking-[0.13em] text-[#9a7645] uppercase">{workType.category}</p>
                   <h3 className="font-display mt-3 text-[clamp(2rem,2.8vw,3.4rem)] leading-[0.96] tracking-[-0.035em]">{workType.title}</h3>
                   <p className="mt-5 text-sm leading-6 text-[#505961]">{workType.description}</p>
-                  <Link href={workType.href} className="mt-6 inline-flex items-center gap-5 text-xs font-semibold text-[#9a7645]">Explore available Gallery <span aria-hidden="true">→</span></Link>
+                  <Link href={workType.href} className="mt-6 inline-flex items-center gap-5 text-xs font-semibold text-[#9a7645]">View gallery <span aria-hidden="true">→</span></Link>
                 </article>
               </Reveal>
             ))}

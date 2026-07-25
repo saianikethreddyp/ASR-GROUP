@@ -214,16 +214,13 @@ export default function HeroHome() {
               </Link>
             </motion.div>
           </div>
-
-          <motion.div
-            className="hidden min-h-12 items-center rounded-[12px] border border-white/40 bg-[#0a1521]/45 px-7 text-sm font-light tracking-[0.01em] text-white/95 shadow-[inset_0_1px_0_rgba(255,255,255,.12)] backdrop-blur-sm lg:flex"
-            initial={{ opacity: 0, y: 18 }}
-            animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
-            transition={{ ...enter, delay: reduceMotion ? 0 : 0.58 }}
-          >
-            Interiors · Construction
-          </motion.div>
         </div>
+      </div>
+
+      <div
+        className="absolute bottom-1.5 right-1.5 z-10 hidden min-h-12 items-center rounded-[12px] border border-white/40 bg-[#0a1521]/45 px-7 text-sm font-light tracking-[0.01em] text-white/95 shadow-[inset_0_1px_0_rgba(255,255,255,.12)] backdrop-blur-sm lg:flex"
+      >
+        Interiors · Construction
       </div>
     </section>
   );
