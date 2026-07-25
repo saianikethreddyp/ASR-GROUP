@@ -6,11 +6,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navItems = [
-  ["About Us", "#about"],
-  ["Clients", "#clients"],
-  ["Projects", "#projects"],
-  ["Gallery", "#gallery"],
-  ["Contact Us", "#contact"],
+  ["About Us", "/about"],
+  ["Clients", "/clients"],
+  ["Projects", "/projects"],
+  ["Gallery", "/gallery"],
+  ["Contact Us", "/contact"],
 ] as const;
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -70,7 +70,7 @@ export default function HeroHome() {
         animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: -18 }}
         transition={{ ...enter, delay: reduceMotion ? 0 : 0.08 }}
       >
-        <div className="relative mx-auto flex h-[76px] max-w-[1540px] items-center justify-between overflow-hidden rounded-[17px] border border-white/25 bg-[#081523]/82 px-4 shadow-[inset_0_1px_0_rgba(255,255,255,.12),0_18px_50px_rgba(0,0,0,.16)] backdrop-blur-md sm:h-[90px] sm:px-6">
+        <div className="relative mx-auto flex h-[76px] max-w-[1540px] items-center justify-between overflow-hidden rounded-[17px] border border-white/25 bg-[#081523] px-4 shadow-[inset_0_1px_0_rgba(255,255,255,.12),0_18px_50px_rgba(0,0,0,.16)] backdrop-blur-md sm:h-[90px] sm:px-6">
           <Link
             href="#hero"
             className="relative z-10 block w-[116px] shrink-0 sm:w-[136px]"
@@ -103,9 +103,8 @@ export default function HeroHome() {
           </nav>
 
           <Link
-            href="mailto:info@asrgroup.com?subject=New%20project%20enquiry"
-            className="hidden min-h-12 min-w-[11.5rem] items-center justify-center rounded-[10px] bg-[#f4f0e8] px-8 text-[0.82rem] font-semibold transition-colors hover:bg-white sm:flex"
-            style={{ color: "#111820" }}
+            href="/contact"
+            className="cta-primary hidden min-h-12 min-w-[11.5rem] items-center justify-center rounded-[10px] px-8 text-[0.82rem] font-semibold sm:flex"
           >
             Start a project
           </Link>
@@ -158,9 +157,8 @@ export default function HeroHome() {
               ))}
             </nav>
             <Link
-              href="mailto:info@asrgroup.com?subject=New%20project%20enquiry"
-              className="mt-8 flex min-h-12 items-center justify-center rounded-[10px] bg-[#f4f0e8] text-sm font-semibold"
-              style={{ color: "#111820" }}
+              href="/contact"
+              className="cta-primary mt-8 flex min-h-12 items-center justify-center rounded-[10px] text-sm font-semibold"
             >
               Start a project
             </Link>
@@ -204,29 +202,25 @@ export default function HeroHome() {
             >
               <Link
                 href="#projects"
-                className="flex min-h-12 min-w-[11.5rem] items-center justify-center rounded-[10px] bg-[#f4f0e8] px-8 text-[0.82rem] font-semibold transition-colors hover:bg-white"
-                style={{ color: "#111820" }}
+                className="cta-primary flex min-h-12 min-w-[11.5rem] items-center justify-center rounded-[10px] px-8 text-[0.82rem] font-semibold"
               >
                 View our work
               </Link>
               <Link
-                href="#about"
+                href="/about"
                 className="flex min-h-12 min-w-[10.5rem] items-center justify-center rounded-[10px] border border-white/55 bg-[#0a1521]/25 px-8 text-[0.82rem] font-medium text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[#111820]"
               >
                 Discover ASR
               </Link>
             </motion.div>
           </div>
-
-          <motion.div
-            className="hidden min-h-12 items-center rounded-[12px] border border-white/40 bg-[#0a1521]/45 px-7 text-sm font-light tracking-[0.01em] text-white/95 shadow-[inset_0_1px_0_rgba(255,255,255,.12)] backdrop-blur-sm lg:flex"
-            initial={{ opacity: 0, y: 18 }}
-            animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
-            transition={{ ...enter, delay: reduceMotion ? 0 : 0.58 }}
-          >
-            Interiors · Construction
-          </motion.div>
         </div>
+      </div>
+
+      <div
+        className="absolute bottom-1.5 right-1.5 z-10 hidden min-h-12 items-center rounded-[12px] border border-white/40 bg-[#0a1521]/45 px-7 text-sm font-light tracking-[0.01em] text-white/95 shadow-[inset_0_1px_0_rgba(255,255,255,.12)] backdrop-blur-sm lg:flex"
+      >
+        Interiors · Construction
       </div>
     </section>
   );

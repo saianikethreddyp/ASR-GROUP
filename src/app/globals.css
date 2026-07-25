@@ -6,6 +6,7 @@
   --navy: #081523;
   --brass: #c6a36b;
   --font-sans: "Manrope Variable", "Inter", Helvetica, Arial, sans-serif;
+  --font-display: "Newsreader Variable", Georgia, "Times New Roman", serif;
 }
 
 * {
@@ -26,13 +27,87 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 button {
   font: inherit;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/*
+ * ASR display-heading system
+ * One optical treatment for every semantic page heading. Size remains
+ * contextual, while family, spacing, ligatures and rhythm stay consistent.
+ */
+:where(h1, h2, h3) {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-optical-sizing: auto;
+  font-kerning: normal;
+  font-variant-ligatures: none;
+  letter-spacing: -0.015em !important;
+  text-wrap: balance;
+}
+
+:where(h1) {
+  line-height: 0.96 !important;
+}
+
+:where(h2) {
+  line-height: 0.98 !important;
+}
+
+:where(h3) {
+  line-height: 1.02 !important;
+}
+
+@media (max-width: 640px) {
+  :where(h1, h2, h3) {
+    letter-spacing: -0.006em !important;
+  }
+
+  :where(h1) {
+    line-height: 0.99 !important;
+  }
+
+  :where(h2, h3) {
+    line-height: 1.02 !important;
+  }
+
+  .display-heading-long {
+    font-size: 3.5rem !important;
+  }
+}
+
+.cta-primary {
+  border: 1px solid #b58b51;
+  background: #b58b51;
+  color: var(--charcoal) !important;
+  box-shadow: 0 10px 28px rgba(17, 24, 32, 0.12);
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.cta-primary:hover {
+  border-color: var(--brass);
+  background: var(--brass);
+  box-shadow: 0 13px 34px rgba(17, 24, 32, 0.17);
+  transform: translateY(-1px);
+}
+
+.cta-primary:active {
+  transform: translateY(0);
 }
 
 ::selection {

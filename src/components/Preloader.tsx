@@ -5,8 +5,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./Preloader.module.css";
 
-const SESSION_KEY = "asr-intro-seen";
-const FULL_SEQUENCE_MS = 3450;
+const SESSION_KEY = "asr-intro-seen-v4";
+const FULL_SEQUENCE_MS = 3500;
 const QUICK_SEQUENCE_MS = 520;
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -14,7 +14,7 @@ function AsrMark() {
   return (
     <Image
       src="/brand/asr-group-2024-full.png"
-      alt="ASR Group — Inspire the Future"
+      alt="ASR Group"
       width={1656}
       height={888}
       priority
@@ -86,8 +86,8 @@ export default function Preloader() {
                 scale: [0.18, 1, 1, 5.8],
               }}
               transition={{
-                duration: 3.18,
-                times: [0, 0.24, 0.72, 1],
+                duration: 3.38,
+                times: [0, 0.18, 0.82, 1],
                 ease: EASE,
               }}
               aria-hidden="true"
@@ -103,12 +103,12 @@ export default function Preloader() {
             className="relative z-10 flex w-[min(72vw,22rem)] flex-col items-center"
             initial={{ opacity: 0, y: quick ? 0 : 12 }}
             animate={{
-              opacity: quick ? [0, 1, 1, 0] : [0, 1, 1, 0],
-              y: quick ? 0 : [12, 0, 0, -8],
+              opacity: [0, 1, 1, 1],
+              y: quick ? 0 : [12, 0, 0, 0],
             }}
             transition={{
-              duration: quick ? 0.48 : 3.08,
-              times: quick ? [0, 0.25, 0.7, 1] : [0, 0.22, 0.76, 1],
+              duration: quick ? 0.48 : 3.45,
+              times: quick ? [0, 0.25, 0.7, 1] : [0, 0.16, 0.82, 1],
               ease: EASE,
             }}
           >
@@ -144,10 +144,10 @@ export default function Preloader() {
             <motion.p
               className="absolute bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-[0.52rem] font-semibold tracking-[0.28em] text-[#5f625f] uppercase sm:bottom-10"
               initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0.72, 0] }}
-              transition={{ duration: 2.45, delay: 0.58, times: [0, 0.32, 1] }}
+              animate={{ opacity: [0, 0.72, 0.72] }}
+              transition={{ duration: 2.72, delay: 0.58, times: [0, 0.28, 1] }}
             >
-              Hyderabad · Since 1999
+              Hyderabad, India
             </motion.p>
           ) : null}
         </motion.div>

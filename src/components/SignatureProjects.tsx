@@ -11,13 +11,13 @@ const ease = [0.22, 1, 0.36, 1] as const;
 function ProjectLink({ project }: { project: SignatureProject }) {
   return (
     <Link
-      href={`/projects/${project.slug}`}
-      className="group mt-8 inline-flex min-h-12 items-center gap-8 rounded-[10px] border border-[#111820]/28 px-6 text-[0.72rem] font-semibold tracking-[0.12em] text-[#111820] uppercase transition-colors hover:border-[#111820] hover:bg-[#111820] hover:text-[#f4f0e8]"
+      href={`/gallery/${project.slug}`}
+      className="cta-primary group mt-8 inline-flex min-h-12 items-center gap-8 rounded-[10px] px-6 text-[0.72rem] font-semibold tracking-[0.12em] uppercase"
     >
       View project
       <span
         aria-hidden="true"
-        className="text-base transition-transform duration-300 group-hover:translate-x-1"
+        className="text-base text-[#111820]/70 transition-transform duration-300 group-hover:translate-x-1"
       >
         →
       </span>
