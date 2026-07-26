@@ -44,8 +44,8 @@ const experienceGroups = [
   },
   {
     number: "04",
-    title: "Institutions and commercial environments",
-    description: "Public, international, hospitality, retail, and customer-facing settings that carry distinct operational and representational responsibilities.",
+    title: "Retail & Commercial Industries",
+    description: "Public spaces, hotels, retail stores, and other customer-facing environments that require functional and welcoming designs.",
     names: ["ICRISAT", "United Nations Organization project", "SGS of Sweden", "Hotel Halliburton", "Reliance Fresh", "Pyramid Saimira Theatre", "ISS Call Centre"],
   },
 ] as const;
@@ -139,13 +139,13 @@ export default function ClientsPage() {
 
       <section className="px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32">
         <div className="mx-auto max-w-[1540px]">
-          <Reveal>
+          <Reveal className="flex flex-col items-center text-center">
             <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Areas of experience</p>
-            <h2 className="font-display max-w-[12ch] text-[clamp(3.2rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">Different environments. One standard of responsibility.</h2>
+            <h2 className="font-display max-w-[24ch] text-[clamp(3.2rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">Different environments. One standard of responsibility.</h2>
           </Reveal>
           <div className="mt-16 border-t border-[#111820]/18">
             {experienceGroups.map((group, index) => (
-              <Reveal key={group.title} className="grid gap-7 border-b border-[#111820]/18 py-10 lg:grid-cols-[5rem_minmax(17rem,.66fr)_minmax(18rem,.68fr)_minmax(19rem,.66fr)] lg:gap-10 lg:py-12" delay={index * 0.04}>
+              <Reveal key={group.title} className="grid gap-7 border-b border-[#111820]/18 py-10 lg:grid-cols-[5rem_minmax(17rem,.66fr)_minmax(18rem,.68fr)_minmax(19rem,.66fr)] lg:items-center lg:gap-10 lg:py-12" delay={index * 0.04}>
                 <p className="text-[0.66rem] font-semibold tracking-[0.15em] text-[#9a7645]">{group.number}</p>
                 <h3 className="font-display max-w-[11ch] text-[clamp(2rem,2.8vw,3.25rem)] leading-[1] tracking-[-0.035em]">{group.title}</h3>
                 <p className="max-w-[31rem] text-[0.94rem] leading-7 text-[#505961]">{group.description}</p>
@@ -192,17 +192,12 @@ export default function ClientsPage() {
       </section>
 
       <section className="px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32">
-        <div className="mx-auto grid max-w-[1540px] gap-14 lg:grid-cols-[minmax(23rem,.7fr)_minmax(0,1.3fr)] lg:gap-[clamp(4rem,9vw,10rem)]">
-          <Reveal>
-            <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Homes &amp; communities</p>
-            <p className="font-display text-[clamp(4.3rem,7vw,8.5rem)] leading-[0.82] tracking-[-0.055em]">4,000–5,000</p>
-            <p className="mt-6 max-w-[25rem] text-[0.98rem] leading-7 text-[#505961]">
-              Residential flats and villas across established communities in and around Hyderabad, delivered over 25 years of interior work.
-            </p>
+        <div className="mx-auto max-w-[1000px]">
+          <Reveal className="text-center">
+            <h2 className="font-display mx-auto max-w-[20ch] text-[clamp(3rem,4.4vw,5.2rem)] leading-[0.95] tracking-[-0.042em]">Experience across established developments.</h2>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2 className="font-display max-w-[12ch] text-[clamp(3rem,4.4vw,5.2rem)] leading-[0.95] tracking-[-0.042em]">Experience across established developments.</h2>
-            <ul className="mt-10 grid border-t border-[#111820]/16 sm:grid-cols-2">
+            <ul className="mt-12 grid border-t border-[#111820]/16 sm:grid-cols-2">
               {residentialDevelopments.map((development, index) => (
                 <li key={development} className={`border-b border-[#111820]/16 py-4 text-sm text-[#30383f] ${index % 2 === 0 ? "sm:pr-6" : "sm:border-l sm:pl-6"}`}>{development}</li>
               ))}

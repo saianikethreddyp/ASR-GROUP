@@ -21,8 +21,8 @@ const projectTeams = [
     helper: "Residential, commercial and institutional",
   },
   {
-    value: "not-sure",
-    label: "Not sure yet",
+    value: "real-estate",
+    label: "Real Estate / Layout",
     helper: "We will help route your enquiry",
   },
 ] as const;

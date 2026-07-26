@@ -35,11 +35,27 @@ const leaders = [
   },
 ] as const;
 
-const proof = [
-  ["25 years", "In interiors"],
-  ["20 years", "In construction"],
-  ["6 lakh+ sq. ft.", "Constructed"],
-  ["4,000+", "Residential spaces"],
+const divisions = [
+  {
+    title: "ASR Interiors",
+    details: ["25 years of experience", "4,000+ residential spaces built"],
+    href: "/interiors",
+  },
+  {
+    title: "ASR Constructions",
+    details: ["20 years of experience", "6 lakh+ spaces constructed"],
+    href: "/construction",
+  },
+  {
+    title: "ASR Real Estate",
+    details: ["Open plots and layouts", "Helping you find the right property"],
+    href: "#", // Awaiting external URL
+  },
+  {
+    title: "ASR Advertising",
+    details: ["Digital Out-of-Home Advertising"],
+    href: "#", // Awaiting external URL
+  },
 ] as const;
 
 const approach = [
@@ -181,19 +197,14 @@ export default function AboutPage() {
         className="scroll-mt-8 px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32"
         aria-labelledby="leadership-title"
       >
-        <div className="mx-auto grid max-w-[1540px] gap-14 xl:grid-cols-[minmax(19rem,.44fr)_minmax(0,1.56fr)] xl:gap-16">
+        <div className="mx-auto flex max-w-[1540px] flex-col gap-12 xl:gap-14">
           <Reveal>
             <h2
               id="leadership-title"
-              className="font-display max-w-[10ch] text-[clamp(3.3rem,4.8vw,5.8rem)] leading-[0.96] tracking-[-0.042em]"
+              className="font-display text-[clamp(3.3rem,4.8vw,5.8rem)] leading-[0.96] tracking-[-0.042em]"
             >
               The people behind the standard.
             </h2>
-            <p className="mt-7 max-w-[28rem] text-[0.98rem] leading-7 text-[#465058]">
-              A project becomes more dependable when responsibility is visible. ASR is led by
-              people who remain connected to the decisions, teams, and execution behind the
-              finished result.
-            </p>
           </Reveal>
 
           <div className="-mx-5 overflow-x-auto px-5 pb-5 sm:-mx-9 sm:px-9 xl:mx-0 xl:overflow-visible xl:px-0">
@@ -262,29 +273,40 @@ export default function AboutPage() {
             </Reveal>
           </div>
 
-          <dl className="mt-16 grid border-y border-[#111820]/16 sm:grid-cols-2 xl:grid-cols-4">
-            {proof.map(([value, label], index) => (
+          <div className="mt-16 grid border-y border-[#111820]/16 sm:grid-cols-2 xl:grid-cols-4">
+            {divisions.map((division, index) => (
               <Reveal
-                key={value}
+                key={division.title}
                 delay={index * 0.07}
-                className={`py-7 sm:px-7 sm:first:pl-0 xl:py-9 ${
+                className={`flex flex-col py-7 sm:px-7 sm:first:pl-0 xl:py-9 ${
                   index > 0 ? "sm:border-l sm:border-[#111820]/12" : ""
                 }`}
               >
-                <dt className="font-display text-[clamp(2.45rem,3.4vw,4rem)] leading-[0.92] tracking-[-0.035em]">
-                  {value}
-                </dt>
-                <dd className="mt-4 max-w-[18rem] text-sm leading-6 text-[#505961]">{label}</dd>
+                <Link href={division.href} className="group flex h-full flex-col">
+                  <h3 className="font-display text-[clamp(1.8rem,2.5vw,2.5rem)] leading-[1.05] tracking-[-0.03em] transition-colors group-hover:text-[#9a7645]">
+                    {division.title}
+                  </h3>
+                  <div className="mt-5 flex-grow space-y-2">
+                    {division.details.map((detail, i) => (
+                      <p key={i} className="text-sm leading-6 text-[#505961]">
+                        {detail}
+                      </p>
+                    ))}
+                  </div>
+                  <div className="mt-6 flex items-center gap-2 text-[0.7rem] font-semibold tracking-[0.1em] text-[#9a7645] uppercase">
+                    Explore <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
+                  </div>
+                </Link>
               </Reveal>
             ))}
-          </dl>
+          </div>
         </div>
       </section>
 
       <section className="px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32">
         <div className="mx-auto max-w-[1440px]">
-          <Reveal>
-            <h2 className="font-display max-w-[13ch] text-[clamp(3.3rem,5vw,6rem)] leading-[0.94] tracking-[-0.043em]">
+          <Reveal className="flex justify-center text-center">
+            <h2 className="font-display max-w-[30ch] text-[clamp(3.3rem,5vw,6rem)] leading-[0.94] tracking-[-0.043em]">
               Intent is protected through coordination.
             </h2>
           </Reveal>
