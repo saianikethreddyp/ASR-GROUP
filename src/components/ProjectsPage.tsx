@@ -13,8 +13,6 @@ import { signatureProjects } from "@/data/signatureProjects";
 const primaryFilters = ["All Projects", "Interiors", "Construction"] as const;
 const interiorFilters = [
   "All Interiors",
-  "Residential",
-  "Corporate & Commercial",
   "Branded Environments",
   "Institutional",
 ] as const;
@@ -27,7 +25,7 @@ const workTypes = [
     title: "Residential Interiors",
     category: "Interiors · Residential",
     description:
-      "Complete interior environments shaped around the people who live in them—from space planning and custom joinery to lighting, materials, kitchens, wardrobes, and final execution.",
+      "Complete home interiors, from space planning and custom woodwork to lighting, materials, kitchens, wardrobes and final installation.",
     image: "/media/asr-interiors-capability.png",
     alt: "Warm residential interior showing joinery, materials, and lighting",
     href: "/gallery",
@@ -36,7 +34,7 @@ const workTypes = [
     title: "Corporate & Commercial Interiors",
     category: "Interiors · Corporate & Commercial",
     description:
-      "Workplaces and commercial spaces coordinated around function, technical requirements, organizational identity, and everyday performance.",
+      "Workplaces and commercial spaces planned around daily use, technical needs and the organization they represent.",
     image: "/media/asr-aperture-material-study.jpg",
     alt: "Architectural material and technical coordination study",
     href: "/gallery",
@@ -45,7 +43,7 @@ const workTypes = [
     title: "Construction",
     category: "Construction · Residential & Commercial",
     description:
-      "Buildings coordinated across planning, civil works, engineering inputs, specialist requirements, finishing, and handover.",
+      "Buildings managed across planning, civil works, engineering needs, specialist work, finishing and handover.",
     image: "/media/asr-construction-capability.png",
     alt: "Construction capability and architectural delivery",
     href: "/gallery?category=Construction",
@@ -116,7 +114,7 @@ export default function ProjectsPage() {
         <div className="mx-auto max-w-[1540px]">
           <Reveal>
             <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Featured work</p>
-            <h2 className="font-display max-w-[12ch] text-[clamp(3.2rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">A closer look at responsibility in practice.</h2>
+            <h2 className="font-display max-w-[12ch] text-[clamp(3.2rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">A closer look at our work.</h2>
           </Reveal>
           <Reveal className="mt-12 overflow-hidden rounded-[18px] bg-[#081523] text-[#f2eee6]" delay={0.08}>
             <div className="grid lg:grid-cols-[minmax(0,1.2fr)_minmax(26rem,.8fr)]">
@@ -128,7 +126,7 @@ export default function ProjectsPage() {
                   <p className="text-[0.62rem] font-semibold tracking-[0.15em] text-[#c6a36b] uppercase">{featuredProject.discipline} · {featuredProject.galleryCategory}</p>
                   <h3 className="font-display mt-5 text-[clamp(3rem,4.4vw,5.4rem)] leading-[0.92] tracking-[-0.045em]">{featuredProject.title}</h3>
                   <p className="mt-5 text-xs font-semibold text-white/52">{featuredProject.location}</p>
-                  <p className="mt-7 max-w-[34rem] text-[0.98rem] leading-7 text-white/66">An automotive customer environment requiring disciplined execution across materials, lighting, display, customer zones, and brand standards.</p>
+                  <p className="mt-7 max-w-[34rem] text-[0.98rem] leading-7 text-white/66">A BMW customer environment bringing together approved materials, lighting, display areas and customer spaces.</p>
                   <p className="mt-5 text-[0.66rem] leading-5 text-white/44">{featuredProject.imageNote}</p>
                 </div>
                 <Link href={`/gallery/${featuredProject.slug}`} className="cta-primary group mt-10 inline-flex min-h-14 w-fit items-center gap-10 rounded-[10px] px-7 text-[0.78rem] font-semibold">View project <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span></Link>
@@ -148,7 +146,7 @@ export default function ProjectsPage() {
                 </button>
               ))}
             </div>
-            <p aria-live="polite" className="text-xs text-[#626a70]">{visibleProjects.length} project {visibleProjects.length === 1 ? "record" : "records"}</p>
+            <p aria-live="polite" className="text-xs text-[#626a70]">{visibleProjects.length} {visibleProjects.length === 1 ? "project" : "projects"}</p>
           </Reveal>
 
           <AnimatePresence initial={false}>
@@ -210,7 +208,7 @@ export default function ProjectsPage() {
 
       <ClosingCta
         title="Have a project in mind?"
-        body="Share the type, location and current stage. We’ll help define the most useful next step."
+        body="Share the type, location and current stage. We’ll help identify the most useful next step."
       />
       <InternalFooter />
     </article>

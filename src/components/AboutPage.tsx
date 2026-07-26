@@ -25,7 +25,7 @@ const leaders = [
     name: "Siddhiq",
     role: "Director, Marketing",
     summary:
-      "Client relationships, and the first conversation on most ASR projects.",
+      "Client relationships and the first conversation on most ASR projects.",
   },
   {
     name: "M. Srinivasa Rao",
@@ -42,8 +42,8 @@ const divisions = [
     href: "/interiors",
   },
   {
-    title: "ASR Constructions",
-    details: ["20 years of experience", "6 lakh+ spaces constructed"],
+    title: "ASR Construction",
+    details: ["20 years of experience", "6 lakh+ sq. ft. completed"],
     href: "/construction",
   },
   {
@@ -61,25 +61,25 @@ const divisions = [
 const approach = [
   {
     number: "01",
-    title: "Understand the brief",
+    title: "Understand the project",
     body:
-      "We begin by understanding what the project must achieve—the people it serves, the way it must function, the priorities that shape it, and the responsibilities already in place.",
+      "We begin by understanding what the project must achieve, who will use it, how it must work and what matters most.",
     image: "/media/asr-aperture-material-study.jpg",
     alt: "Architectural drawings, materials and technical details used to understand a project brief",
   },
   {
     number: "02",
-    title: "Bring the disciplines together",
+    title: "Plan the work together",
     body:
-      "Design decisions, technical requirements, materials, specialist inputs, production, and site execution are coordinated around one shared direction.",
+      "We bring the design, technical requirements, materials, production and site work into one clear plan.",
     image: "/media/asr-interiors-capability.png",
     alt: "Warm interior material and joinery coordination study",
   },
   {
     number: "03",
-    title: "Carry the standard through",
+    title: "Check the work",
     body:
-      "The work is reviewed through execution so that the approved intent remains connected to what is finally delivered and handed over.",
+      "We review the work throughout the project so the finished result matches what was approved.",
     image: "/media/asr-construction-capability.png",
     alt: "Construction execution and finished architectural detailing",
   },
@@ -138,9 +138,8 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: reduceMotion ? 0.01 : 0.75, delay: 0.28, ease }}
             >
-              For more than two decades, ASR has worked across interiors and construction with
-              one consistent responsibility: to understand the intent, coordinate what the
-              project demands, and carry the agreed standard through execution.
+              For more than two decades, ASR has planned and completed interior and construction
+              projects. Our teams stay close to the work from the first discussion to completion.
             </motion.p>
 
             <motion.p
@@ -203,7 +202,7 @@ export default function AboutPage() {
               id="leadership-title"
               className="font-display text-[clamp(3.3rem,4.8vw,5.8rem)] leading-[0.96] tracking-[-0.042em]"
             >
-              The people behind the standard.
+              Meet the ASR team.
             </h2>
           </Reveal>
 
@@ -246,7 +245,7 @@ export default function AboutPage() {
           <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,.92fr)_minmax(30rem,1.08fr)] lg:gap-[clamp(3rem,7vw,8rem)]">
             <Reveal>
               <h2 className="font-display max-w-[12ch] text-[clamp(3.3rem,5vw,6rem)] leading-[0.94] tracking-[-0.043em]">
-                Two disciplines. One accountable way of working.
+                Two disciplines. One team working together.
               </h2>
               <div className="mt-8 max-w-[38rem] space-y-5 text-[0.98rem] leading-7 text-[#465058]">
                 <p>
@@ -254,8 +253,8 @@ export default function AboutPage() {
                   Interiors and Construction.
                 </p>
                 <p>
-                  Bringing these disciplines closer allows the team to consider the project as
-                  a whole rather than as a series of disconnected packages.
+                  Bringing these teams together helps ASR manage the project as a whole instead
+                  of splitting it into disconnected parts.
                 </p>
               </div>
             </Reveal>
@@ -307,7 +306,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1440px]">
           <Reveal className="flex justify-center text-center">
             <h2 className="font-display max-w-[30ch] text-[clamp(3.3rem,5vw,6rem)] leading-[0.94] tracking-[-0.043em]">
-              Intent is protected through coordination.
+              How we manage each project.
             </h2>
           </Reveal>
 
@@ -345,9 +344,9 @@ export default function AboutPage() {
       </section>
 
       <ClosingCta
-        eyebrow="Start with clarity"
-        title="Let’s make the brief clearer."
-        body="Share what you know today. We’ll help define the scope and connect you with the right ASR team."
+        eyebrow="Start a project"
+        title="Tell us what you’re planning."
+        body="Share what you know today. We’ll help list the work required and connect you with the right ASR team."
       />
 
       <InternalFooter />

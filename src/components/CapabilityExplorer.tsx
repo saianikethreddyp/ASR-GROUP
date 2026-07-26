@@ -18,16 +18,16 @@ const capabilities = [
     title: "Build from the ground up",
     image: "/images/generated/construction.png",
     alt: "AI visualisation of a commercial construction project",
-    copy: "Choose this when the requirement begins with civil construction and needs coordinated execution through handover.",
-    tags: ["Commercial", "Institutional", "Residential execution", "Layout development"],
+    copy: "Choose this when the project begins with civil construction and needs one team through handover.",
+    tags: ["Commercial", "Institutional", "Residential construction", "Layout development"],
   },
   {
     number: "03",
     title: "Solve facade + systems",
     image: "/images/generated/specialist-systems.png",
     alt: "AI visualisation of a structural glazing and ACP facade",
-    copy: "Choose this for facades, glazing, ACP, uPVC or metal work that must integrate cleanly with the wider build.",
-    tags: ["Structural glazing", "ACP", "uPVC systems", "Metal works"],
+    copy: "Choose this for facades, glazing, ACP or metal work that must integrate cleanly with the wider build.",
+    tags: ["Structural glazing", "ACP", "Metal works"],
   },
   {
     number: "04",
@@ -48,7 +48,7 @@ export default function CapabilityExplorer() {
       <div className="capability-intro">
         <div>
           <h2 id="capability-title" className="display" aria-label="Where are you starting from?">Where are you<span>starting from?</span></h2>
-          <p>Pick the closest requirement. ASR can help define the connected scopes before execution begins.</p>
+          <p>Pick the closest requirement. ASR can help identify the related work before construction begins.</p>
         </div>
       </div>
       <div className="capability-layout">

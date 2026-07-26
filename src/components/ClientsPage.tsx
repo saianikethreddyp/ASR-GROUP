@@ -12,10 +12,10 @@ const priorityClients = [
   { name: "ICRISAT", industry: "Institutions & Public" },
   { name: "Wipro", industry: "Technology & Business" },
   { name: "Rallis India", industry: "Industry & Enterprise" },
-  { name: "Hetero", industry: "Healthcare & Pharma" },
+  { name: "Hetero Drugs", industry: "Healthcare & Pharma" },
   { name: "India Cements", industry: "Industry & Enterprise" },
   { name: "K. Raheja IT Park", industry: "Development" },
-  { name: "Karnataka Thermal", industry: "Infrastructure" },
+  { name: "Karnataka Thermal Power", industry: "Infrastructure" },
   { name: "BMW", industry: "Automotive & Enterprise" },
   { name: "TCI Constructions", industry: "Development" },
   { name: "DSR Constructions", industry: "Development" },
@@ -27,13 +27,13 @@ const experienceGroups = [
   {
     number: "01",
     title: "Technology and business",
-    description: "Workplaces and business environments requiring functional planning, technical coordination, durable execution, and alignment with the organization they represent.",
+    description: "Workplaces and business environments planned around daily use, technical needs, durable materials and the organization they represent.",
     names: ["Wipro", "Satyam Computer Services", "Impec Soft Solutions", "Webex Communications India", "Knoah Solutions", "Lancesoft India"],
   },
   {
     number: "02",
     title: "Industry and enterprise",
-    description: "Operational environments where services, material performance, coordination, and accountable delivery must work together.",
+    description: "Industrial and operational spaces where services, materials and project teams must work together.",
     names: ["Rallis India, a Tata Enterprise", "Hetero Drugs", "India Cements", "Lee Pharma", "MIC Electricals", "Karnataka Thermal Power"],
   },
   {
@@ -93,7 +93,7 @@ export default function ClientsPage() {
           <motion.div initial={reduceMotion ? false : { opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0.01 : 0.9, delay: 0.1, ease }}>
             <p className="mb-6 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Clients</p>
             <h1 id="clients-title" className="font-display display-heading-long max-w-[13ch] text-[clamp(3.8rem,6.7vw,7.7rem)] leading-[0.91] tracking-[-0.05em]">
-              Trusted with spaces that carry real responsibility.
+              Experience across spaces that matter.
             </h1>
           </motion.div>
         </div>
@@ -104,7 +104,7 @@ export default function ClientsPage() {
           <Reveal className="grid gap-7 lg:grid-cols-[minmax(0,.72fr)_minmax(22rem,.28fr)] lg:items-end">
             <div>
               <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Selected experience</p>
-              <h2 className="font-display max-w-[12ch] text-[clamp(3.2rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">Experience across serious briefs.</h2>
+              <h2 className="font-display max-w-[12ch] text-[clamp(3.2rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">Selected clients and projects.</h2>
             </div>
             <p className="max-w-[28rem] text-sm leading-6 text-[#586168] lg:justify-self-end">
               A selection of the organisations, developers, brands and institutions represented in ASR&apos;s project experience.
@@ -141,7 +141,7 @@ export default function ClientsPage() {
         <div className="mx-auto max-w-[1540px]">
           <Reveal className="flex flex-col items-center text-center">
             <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Areas of experience</p>
-            <h2 className="font-display max-w-[24ch] text-[clamp(3.2rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">Different environments. One standard of responsibility.</h2>
+            <h2 className="font-display max-w-[24ch] text-[clamp(3.2rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">Experience across different kinds of spaces.</h2>
           </Reveal>
           <div className="mt-16 border-t border-[#111820]/18">
             {experienceGroups.map((group, index) => (
@@ -163,7 +163,7 @@ export default function ClientsPage() {
           <Reveal className="grid gap-8 lg:grid-cols-[minmax(0,.84fr)_minmax(24rem,.46fr)] lg:items-end">
             <div>
               <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Significant environments</p>
-              <h2 className="font-display max-w-[13ch] text-[clamp(3.2rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">Responsibility proven where the setting matters.</h2>
+              <h2 className="font-display max-w-[13ch] text-[clamp(3.2rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">Selected government and heritage projects.</h2>
             </div>
             <p className="max-w-[34rem] text-[0.98rem] leading-7 text-[#505961]">
               ASR&apos;s company profile includes work associated with the C.M. Camp Office in Telangana, the Telangana Legislative Assembly, and restoration work at Jubilee Hall in Hyderabad.
@@ -208,8 +208,8 @@ export default function ClientsPage() {
 
       <ClosingCta
         eyebrow="Work with ASR"
-        title="Your brief deserves clear ownership."
-        body="Share the project type, stage and location. We’ll show where ASR can take responsibility."
+        title="Need one team to manage your project?"
+        body="Share the project type, stage and location. We’ll explain how ASR can help."
       />
       <InternalFooter />
     </article>

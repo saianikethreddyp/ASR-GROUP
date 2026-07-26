@@ -50,9 +50,9 @@ function Credential({
 
 const credentials = [
   { value: "25 years", label: "Interior craft" },
-  { value: "20 years", label: "Construction execution" },
+  { value: "20 years", label: "Construction experience" },
   { value: "4,000+", label: "Residential spaces" },
-  { value: "6 lakh", label: "Sq. ft. delivered" },
+  { value: "6 lakh+", label: "Sq. ft. completed" },
 ] as const;
 
 export default function ApertureStandard() {
@@ -140,8 +140,8 @@ export default function ApertureStandard() {
                 The finished space is only the visible part of the work.
               </h2>
               <p className="mt-7 max-w-[27rem] text-[0.95rem] leading-7 text-[#4a5358]">
-                Integrated planning and accountable execution carry the approved intent through
-                every decision that follows.
+                One team plans the work, manages everyone involved and checks each stage through
+                completion.
               </p>
               <Link
                 href="/about"
@@ -203,7 +203,7 @@ export default function ApertureStandard() {
               />
               <Credential
                 value="20 years"
-                label="Construction execution"
+                label="Construction experience"
                 align="right"
                 className="right-0 top-[2%] pl-5"
                 opacity={reduceMotion ? undefined : secondCredentialOpacity}
@@ -217,8 +217,8 @@ export default function ApertureStandard() {
                 y={reduceMotion ? undefined : thirdCredentialY}
               />
               <Credential
-                value="6 lakh"
-                label="Sq. ft. delivered"
+                value="6 lakh+"
+                label="Sq. ft. completed"
                 align="right"
                 className="bottom-[1%] right-0 pl-5"
                 opacity={reduceMotion ? undefined : fourthCredentialOpacity}
@@ -257,8 +257,8 @@ export default function ApertureStandard() {
           The finished space is only the visible part of the work.
         </h2>
         <p className="mt-6 max-w-[34rem] text-sm leading-6 text-[#4a5358]">
-          Integrated planning and accountable execution carry the approved intent through every
-          decision that follows.
+          One team plans the work, manages everyone involved and checks each stage through
+          completion.
         </p>
         <Link
           href="/about"

@@ -36,7 +36,7 @@ const disciplines: [Discipline, Discipline] = [
     title: "Interiors",
     headline: "Interiors, considered in every detail.",
     description:
-      "Complete interior execution for homes, workplaces and brand environments—coordinated from approved design through the final finish.",
+      "Complete interiors for homes, workplaces and brand spaces, managed from the approved design to the final finish.",
     metrics: [
       { value: "25", label: "years of craft" },
       { value: "4,000+", label: "residential spaces" },
@@ -50,10 +50,10 @@ const disciplines: [Discipline, Discipline] = [
     title: "Construction",
     headline: "Construction, controlled from start to handover.",
     description:
-      "Experienced coordination across civil works, finishing and handover—where sequence, quality and accountability matter.",
+      "Experienced management across civil works, finishing and handover, with each stage completed in the right order.",
     metrics: [
-      { value: "20", label: "years of execution" },
-      { value: "6 lakh", label: "sq. ft. delivered" },
+      { value: "20", label: "years of experience" },
+      { value: "6 lakh+", label: "sq. ft. completed" },
     ],
     image: constructionImage,
     imagePosition: "50% 48%",
@@ -211,8 +211,8 @@ export default function DisciplinesSection() {
                 </h3>
                 <div className="mt-7 grid items-end gap-8 xl:grid-cols-[minmax(18rem,1fr)_auto]">
                   <p className="max-w-[31rem] text-[clamp(.84rem,.92vw,.98rem)] leading-[1.62] text-white/72">
-                    Complete interior execution for homes, workplaces and brand
-                    environments—coordinated from approved design through the final finish.
+                    Complete interiors for homes, workplaces and brand spaces, managed from the
+                    approved design to the final finish.
                   </p>
                   <dl className="grid grid-cols-2 gap-7 border-t border-white/25 pt-4 xl:min-w-[22rem]">
                     {disciplines[0].metrics.map((metric) => (
@@ -272,8 +272,8 @@ export default function DisciplinesSection() {
                 </h3>
                 <div className="mt-7 grid items-end gap-8 xl:grid-cols-[minmax(18rem,1fr)_auto]">
                   <p className="max-w-[31rem] text-[clamp(.84rem,.92vw,.98rem)] leading-[1.62] text-white/72">
-                    Experienced coordination across civil works, finishing and handover—where
-                    sequence, quality and accountability matter.
+                    Experienced management across civil works, finishing and handover, with each
+                    stage completed in the right order.
                   </p>
                   <dl className="grid grid-cols-2 gap-7 border-t border-white/25 pt-4 xl:min-w-[22rem]">
                     {disciplines[1].metrics.map((metric) => (

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./Preloader.module.css";
 
-const SESSION_KEY = "asr-intro-seen-v6";
+const SESSION_KEY = "asr-intro-seen-v7";
 const FULL_SEQUENCE_MS = 3500;
 const QUICK_SEQUENCE_MS = 520;
 const EASE = [0.22, 1, 0.36, 1] as const;

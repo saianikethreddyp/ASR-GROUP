@@ -51,7 +51,7 @@ export default function GalleryCollectionPage({
           >
             <div className="flex flex-wrap items-center justify-between gap-5">
               <Link href="/projects" className="text-xs font-semibold text-[#596168] transition-colors hover:text-[#9a7645]">← Back to Projects</Link>
-              <Link href="/gallery" className="text-xs font-semibold text-[#596168] transition-colors hover:text-[#9a7645]">View all Gallery collections</Link>
+              <Link href="/gallery" className="text-xs font-semibold text-[#596168] transition-colors hover:text-[#9a7645]">View all projects</Link>
             </div>
             <p className="mb-5 mt-16 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Project Gallery</p>
             <h1 className="font-display max-w-[15ch] text-[clamp(4rem,7.2vw,8.4rem)] leading-[0.89] tracking-[-0.055em]">{project.title}</h1>
@@ -86,7 +86,7 @@ export default function GalleryCollectionPage({
         <div className="mx-auto grid max-w-[1320px] gap-14 lg:grid-cols-[minmax(0,1.24fr)_minmax(20rem,.76fr)] lg:gap-20">
           <Reveal>
             <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Project information</p>
-            <h2 className="font-display max-w-[13ch] text-[clamp(3.1rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">Responsibility in practice.</h2>
+            <h2 className="font-display max-w-[13ch] text-[clamp(3.1rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">About this project.</h2>
             <p className="mt-8 max-w-[48rem] text-[clamp(1rem,1.25vw,1.16rem)] leading-8 text-[#465058]">{project.detail}</p>
           </Reveal>
           <Reveal delay={0.08}>
@@ -95,7 +95,7 @@ export default function GalleryCollectionPage({
                 ["Project", project.title],
                 ["Location", project.location],
                 ["Category", project.galleryCategory],
-                ["ASR scope", project.scope],
+                ["What ASR did", project.scope],
                 ["Status", project.status],
               ].map(([label, value]) => (
                 <div key={label} className="grid grid-cols-[6.5rem_1fr] gap-5 border-b border-[#111820]/16 py-5">
@@ -113,16 +113,16 @@ export default function GalleryCollectionPage({
           <Reveal className="mx-auto grid min-h-[20rem] max-w-[1320px] place-items-center rounded-[18px] border border-[#111820]/16 px-6 py-12 text-center">
             <div>
               <h2 className="font-display text-[clamp(2.5rem,4vw,4.8rem)] leading-none tracking-[-0.04em]">Photography of this project is on its way.</h2>
-              <p className="mx-auto mt-5 max-w-[38rem] text-sm leading-6 text-[#586168]">The visual above is an illustration. To walk through comparable finished work in person, speak to the ASR team.</p>
+              <p className="mx-auto mt-5 max-w-[38rem] text-sm leading-6 text-[#586168]">The visual above is an illustration. Ask the ASR team to see similar completed work.</p>
             </div>
           </Reveal>
         </section>
       ) : null}
 
       <ClosingCta
-        eyebrow="Turn reference into direction"
+        eyebrow="Start a project"
         title="Could this inspire your project?"
-        body="Share this collection with us. We’ll help adapt the direction to your space and priorities."
+        body="Share this project with us and tell us about your space and priorities."
       />
       <InternalFooter />
 
@@ -148,10 +148,8 @@ export default function GalleryCollectionPage({
             <div className="relative min-h-0 flex-1">
               <Image src={project.image} alt={project.imageAlt} fill sizes="100vw" className="object-contain p-4 sm:p-8" />
             </div>
-            <div className="flex min-h-24 items-center justify-between gap-5 border-t border-white/14 px-5 sm:px-8">
-              <button type="button" disabled className="text-xs font-semibold text-white/28" aria-label="Previous image">← Previous image</button>
+            <div className="flex min-h-24 items-center justify-center border-t border-white/14 px-5 sm:px-8">
               <p className="max-w-[34rem] text-center text-[0.64rem] leading-5 text-white/48">{project.imageNote}</p>
-              <button type="button" disabled className="text-xs font-semibold text-white/28" aria-label="Next image">Next image →</button>
             </div>
           </motion.div>
         ) : null}
