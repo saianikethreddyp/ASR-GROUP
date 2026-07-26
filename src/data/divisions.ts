@@ -64,38 +64,38 @@ export const divisions: Record<Division["slug"], Division> = {
       {
         title: "A complete home",
         body:
-          "For homeowners who want planning, materials, kitchens, wardrobes, custom joinery and execution considered as one living environment.",
+          "For homeowners who want the layout, materials, kitchens, wardrobes and custom woodwork planned as one complete home.",
       },
       {
         title: "A workplace",
         body:
-          "For organizations that need an office or corporate fit-out aligned with people, operations, technical requirements and identity.",
+          "For organizations that need office interiors designed around their people, daily work, technical needs and identity.",
       },
       {
         title: "A customer-facing space",
         body:
-          "For retail, hospitality and branded environments where circulation, lighting, detail and operational performance all represent the business.",
+          "For shops, restaurants, hotels and brand spaces where layout, lighting and details must support the business.",
       },
       {
         title: "Focused custom work",
         body:
-          "For kitchens, wardrobes and joinery that require thoughtful storage planning, dependable hardware and controlled finishing.",
+          "For kitchens, wardrobes and custom woodwork with practical storage, dependable hardware and careful finishing.",
       },
     ],
-    scopeTitle: "One interior brief. The connected disciplines to deliver it.",
+    scopeTitle: "One plan for the complete interior.",
     scopeIntroduction:
-      "The exact scope is defined around the project. ASR can coordinate the work required from approved intent through the finished space.",
+      "The work is planned around your project. ASR can manage each stage from the approved design to the finished space.",
     services: [
       "Full-home interiors",
-      "Corporate and office fit-outs",
-      "Retail and branded environments",
+      "Corporate and office interiors",
+      "Retail and brand spaces",
       "Restaurants, hospitality and business spaces",
-      "Kitchens, wardrobes and custom joinery",
-      "Interior project management and execution",
+      "Kitchens, wardrobes and custom woodwork",
+      "Interior project management",
     ],
-    outcomeTitle: "The intent should survive the execution.",
+    outcomeTitle: "The finished space should match the approved design.",
     outcomeBody:
-      "A strong interior is not a collection of isolated finishes. It is the result of decisions about function, materials, lighting, services, production and installation staying connected as the work moves forward.",
+      "A strong interior brings function, materials, lighting, production and installation together. These decisions stay connected from planning to completion.",
     process: [
       {
         title: "Understand",
@@ -105,17 +105,17 @@ export const divisions: Record<Division["slug"], Division> = {
       {
         title: "Plan",
         body:
-          "Design intent, scope, materials, services, responsibilities and execution requirements are aligned.",
+          "We agree on the design, work required, materials, services and responsibilities.",
       },
       {
         title: "Coordinate",
         body:
-          "Production, procurement, specialist inputs and on-site execution move around one shared direction.",
+          "We coordinate production, material orders, specialist work and installation on site.",
       },
       {
         title: "Deliver",
         body:
-          "The work is reviewed against the agreed intent and brought together for a considered handover.",
+          "We check the completed work against the approved design before handover.",
       },
     ],
     galleryHref: "/gallery",
@@ -127,10 +127,10 @@ export const divisions: Record<Division["slug"], Division> = {
     relatedLabel: "Explore Construction",
     relatedTitle: "Does the requirement begin with the building itself?",
     relatedBody:
-      "ASR Construction connects planning, civil works, engineering coordination, specialist execution, finishing and handover.",
+      "ASR Construction manages planning, civil works, engineering needs, specialist work, finishing and handover.",
     closingTitle: "Planning an interior?",
     closingBody:
-      "Share the type of space, location and current stage. ASR will help identify the scope and the most useful next step.",
+      "Share the type of space, location and current stage. ASR will help identify the work required and the next step.",
   },
   construction: {
     slug: "construction",
@@ -157,38 +157,38 @@ export const divisions: Record<Division["slug"], Division> = {
       {
         title: "Residential construction",
         body:
-          "For owners planning a home, villa or residential development that needs coordinated execution from the early build stages through finish.",
+          "For owners planning a home, villa or residential development that needs one team from the early building stages through finishing.",
       },
       {
         title: "Commercial construction",
         body:
-          "For business and commercial requirements where structure, services, programme, operational needs and finish must remain aligned.",
+          "For business and commercial projects where the structure, services, schedule, daily needs and finishes must work together.",
       },
       {
         title: "Institutional environments",
         body:
-          "For serious public or institutional settings that require measured coordination, accountability and respect for the project context.",
+          "For public and institutional projects that require careful planning, clear responsibility and respect for the setting.",
       },
       {
         title: "Structural and specialist works",
         body:
-          "For structural steel, glazing, ACP, uPVC, metal work and related scopes that must connect cleanly with the wider build.",
+          "For structural steel, glazing, ACP, metal work and related specialist work that must fit the wider build.",
       },
     ],
-    scopeTitle: "The major build disciplines, coordinated around one outcome.",
+    scopeTitle: "The main parts of the build, managed together.",
     scopeIntroduction:
-      "Every construction scope is different. ASR defines responsibilities clearly and connects the required technical and execution teams around the agreed brief.",
+      "Every construction project is different. ASR clearly defines the work and brings the required technical and site teams together.",
     services: [
-      "Construction planning and execution",
+      "Construction planning and site work",
       "Architectural coordination",
       "Structural and civil works",
       "Mechanical and electrical coordination",
       "Structural steel works and glazing",
       "Project management and handover",
     ],
-    outcomeTitle: "Control comes from keeping decisions connected.",
+    outcomeTitle: "Good construction depends on connected decisions.",
     outcomeBody:
-      "Construction becomes harder when planning, engineering inputs, specialist packages and site execution move independently. ASR’s integrated model is designed to keep responsibilities visible and decisions connected through delivery.",
+      "Construction becomes harder when planning, engineering, specialist contractors and site teams work separately. ASR keeps responsibilities clear and decisions connected through completion.",
     process: [
       {
         title: "Define",
@@ -198,31 +198,31 @@ export const divisions: Record<Division["slug"], Division> = {
       {
         title: "Plan",
         body:
-          "Scope, sequencing, engineering inputs, materials and specialist requirements are coordinated before execution advances.",
+          "We agree on the work, schedule, engineering needs, materials and specialist requirements before construction moves ahead.",
       },
       {
         title: "Execute",
         body:
-          "Civil works, services, specialist packages and finishing are managed against the agreed direction.",
+          "We manage civil works, services, specialist contractors and finishing against the agreed plan.",
       },
       {
         title: "Hand over",
         body:
-          "The completed work is reviewed, brought together and prepared for a responsible project handover.",
+          "We review the completed work and prepare the project for handover.",
       },
     ],
     galleryHref: "/gallery?category=Construction",
     galleryLabel: "View construction work",
-    galleryTitle: "See construction responsibility in practice.",
+    galleryTitle: "See completed construction work.",
     galleryBody:
-      "Construction and institutional projects, with the scope ASR delivered on each.",
+      "Construction and institutional projects, with details of the work ASR completed.",
     relatedHref: "/interiors",
     relatedLabel: "Explore Interiors",
     relatedTitle: "Does the requirement begin inside the space?",
     relatedBody:
-      "ASR Interiors brings planning, materials, custom work, services and site execution together for homes, workplaces and branded environments.",
+      "ASR Interiors brings planning, materials, custom work, services and installation together for homes, workplaces and brand spaces.",
     closingTitle: "Planning a construction project?",
     closingBody:
-      "Share the project type, location, approximate scale and current stage. ASR will help clarify where the team can take responsibility.",
+      "Share the project type, location, approximate size and current stage. ASR will explain how the team can help.",
   },
 };

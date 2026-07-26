@@ -70,7 +70,7 @@ export default function HeroHome() {
         animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: -18 }}
         transition={{ ...enter, delay: reduceMotion ? 0 : 0.08 }}
       >
-        <div className="relative mx-auto flex h-[76px] max-w-[1540px] items-center justify-between overflow-hidden rounded-[17px] border border-white/25 bg-[#081523] px-4 shadow-[inset_0_1px_0_rgba(255,255,255,.12),0_18px_50px_rgba(0,0,0,.16)] backdrop-blur-md sm:h-[90px] sm:px-6">
+        <div className="relative mx-auto flex h-[76px] max-w-[1540px] items-center justify-between overflow-hidden rounded-[17px] border border-white/20 bg-[linear-gradient(135deg,rgba(8,21,35,.84)_0%,rgba(8,21,35,.64)_100%)] px-4 shadow-[inset_0_1px_0_rgba(255,255,255,.14),0_18px_50px_rgba(0,0,0,.2)] backdrop-blur-[20px] backdrop-saturate-150 sm:h-[90px] sm:px-6">
           <Link
             href="#hero"
             className="relative z-10 block w-[116px] shrink-0 sm:w-[136px]"
@@ -180,8 +180,8 @@ export default function HeroHome() {
               }
               transition={{ ...enter, delay: reduceMotion ? 0 : 0.16 }}
             >
-              <span className="block whitespace-nowrap">From structure</span>
-              <span className="block">to soul.</span>
+              <span className="block">Everything,</span>
+              <span className="block">under one roof.</span>
             </motion.h1>
 
             <motion.p
@@ -190,8 +190,8 @@ export default function HeroHome() {
               animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
               transition={{ ...enter, delay: reduceMotion ? 0 : 0.34 }}
             >
-              Interiors shaped by 25 years of craft. Construction delivered with 20 years of
-              experience.
+              Interior-led, with connected capabilities across Real Estate, Construction and
+              Advertising—brought together through one accountable group.
             </motion.p>
 
             <motion.div
@@ -220,7 +220,7 @@ export default function HeroHome() {
       <div
         className="absolute bottom-1.5 right-1.5 z-10 hidden min-h-12 items-center rounded-[12px] border border-white/40 bg-[#0a1521]/45 px-7 text-sm font-light tracking-[0.01em] text-white/95 shadow-[inset_0_1px_0_rgba(255,255,255,.12)] backdrop-blur-sm lg:flex"
       >
-        Interiors · Construction
+        Four disciplines · One accountable group
       </div>
     </section>
   );

@@ -15,8 +15,8 @@ export default function Footer() {
           </div>
           <div className="lg:pb-2">
             <p className="max-w-[30rem] text-[0.95rem] leading-7 text-white/66">
-              Share the project type, location and current stage. We&apos;ll help clarify the scope
-              and where ASR can take responsibility.
+              Share the project type, location and current stage. We&apos;ll help identify the work
+              required and the right next step.
             </p>
             <Link
               href="/contact"
@@ -39,8 +39,7 @@ export default function Footer() {
           <div>
             <p className="text-2xl tracking-[-0.04em]">ASR Group</p>
             <p className="mt-4 max-w-[25rem] text-sm leading-6 text-white/55">
-              Premium interiors and construction delivered through integrated planning,
-              coordination and execution.
+              Premium interiors and construction, planned and completed by one experienced team.
             </p>
             <p className="mt-8 text-[0.62rem] font-semibold tracking-[0.16em] text-[#c6a36b] uppercase">
               From structure to soul.

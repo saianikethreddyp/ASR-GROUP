@@ -1,316 +1,363 @@
 "use client";
 
-import {
-  motion,
-  useMotionTemplate,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import advertisingImage from "../../public/media/asr-advertising-capability.jpg";
+import journeyImage from "../../public/media/asr-connected-journey-sketch.jpg";
 import constructionImage from "../../public/media/asr-construction-capability.png";
 import interiorsImage from "../../public/media/asr-interiors-capability.png";
+import realEstateImage from "../../public/media/asr-real-estate-capability.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 type Discipline = {
   number: string;
   title: string;
+  stage: string;
   headline: string;
   description: string;
-  metrics: Array<{
+  image: StaticImageData;
+  imagePosition?: string;
+  href: string;
+  action: string;
+  metrics?: Array<{
     value: string;
     label: string;
   }>;
-  image: StaticImageData;
-  imagePosition?: string;
-  href: "/interiors" | "/construction";
 };
 
-const disciplines: [Discipline, Discipline] = [
-  {
-    number: "01",
-    title: "Interiors",
-    headline: "Interiors, considered in every detail.",
-    description:
-      "Complete interior execution for homes, workplaces and brand environments—coordinated from approved design through the final finish.",
-    metrics: [
-      { value: "25", label: "years of craft" },
-      { value: "4,000+", label: "residential spaces" },
-    ],
-    image: interiorsImage,
-    imagePosition: "50% 54%",
-    href: "/interiors",
-  },
-  {
-    number: "02",
-    title: "Construction",
-    headline: "Construction, controlled from start to handover.",
-    description:
-      "Experienced coordination across civil works, finishing and handover—where sequence, quality and accountability matter.",
-    metrics: [
-      { value: "20", label: "years of execution" },
-      { value: "6 lakh", label: "sq. ft. delivered" },
-    ],
-    image: constructionImage,
-    imagePosition: "50% 48%",
-    href: "/construction",
-  },
-];
+const realEstate: Discipline = {
+  number: "01",
+  title: "Real Estate",
+  stage: "The opportunity",
+  headline: "Start with the right ground.",
+  description:
+    "A direct pathway for land and property requirements within the wider ASR Group.",
+  image: realEstateImage,
+  imagePosition: "50% 54%",
+  href: "/contact",
+  action: "Discuss Real Estate",
+};
 
-function MobileDiscipline({ discipline }: { discipline: Discipline }) {
+const construction: Discipline = {
+  number: "02",
+  title: "Construction",
+  stage: "The build",
+  headline: "Build with control.",
+  description:
+    "Experienced management across civil works, finishing and handover, with each stage completed in the right order.",
+  image: constructionImage,
+  imagePosition: "50% 48%",
+  href: "/construction",
+  action: "Explore Construction",
+  metrics: [
+    { value: "20", label: "years of experience" },
+    { value: "6 lakh+", label: "sq. ft. completed" },
+  ],
+};
+
+const interiors: Discipline = {
+  number: "03",
+  title: "Interiors",
+  stage: "At the core",
+  headline: "Shape how the space lives.",
+  description:
+    "Complete interiors for homes, workplaces and brand spaces, managed from the approved design to the final finish.",
+  image: interiorsImage,
+  imagePosition: "50% 54%",
+  href: "/interiors",
+  action: "Explore Interiors",
+  metrics: [
+    { value: "25", label: "years of craft" },
+    { value: "4,000+", label: "residential spaces" },
+  ],
+};
+
+const advertising: Discipline = {
+  number: "04",
+  title: "Advertising",
+  stage: "The market",
+  headline: "Take the vision to market.",
+  description:
+    "A direct pathway for brand, communication and campaign requirements within the wider ASR Group.",
+  image: advertisingImage,
+  imagePosition: "50% 45%",
+  href: "/contact",
+  action: "Discuss Advertising",
+};
+
+const connectedDisciplines = [realEstate, construction, interiors, advertising];
+const mobileDisciplines = [realEstate, construction, interiors, advertising];
+
+function ArrowIcon() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      className="h-4 w-4"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M4 10h11m-4.25-4.25L15 10l-4.25 4.25"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function DisciplineCard({
+  discipline,
+  featured = false,
+  className = "",
+}: {
+  discipline: Discipline;
+  featured?: boolean;
+  className?: string;
+}) {
+  const reduceMotion = useReducedMotion();
+  const titleId = `discipline-${discipline.title.toLowerCase().replaceAll(" ", "-")}`;
+
+  return (
+    <Link
+      href={discipline.href}
+      className={`group block rounded-[18px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#a7834e] ${className}`}
+      aria-labelledby={titleId}
+    >
+      <motion.article
+        className="relative h-full min-h-[inherit] overflow-hidden rounded-[18px] bg-[#111820] text-[#f4f0e8]"
+        initial={reduceMotion ? false : { opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ amount: 0.16, once: true }}
+        transition={{ duration: 0.85, ease }}
+      >
+        <Image
+          src={discipline.image}
+          alt=""
+          fill
+          placeholder="blur"
+          sizes={
+            featured
+              ? "(max-width: 1023px) 100vw, 66vw"
+              : "(max-width: 1023px) 100vw, 34vw"
+          }
+          className="object-cover saturate-[.68] brightness-[.82] contrast-[1.12] transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.018] group-hover:saturate-[.82] group-hover:brightness-[.88]"
+          style={{ objectPosition: discipline.imagePosition }}
+        />
+        <div
+          className="absolute inset-0 bg-[#091520]/15 mix-blend-multiply"
+          aria-hidden="true"
+        />
+        <div
+          className={`absolute inset-0 ${
+            featured
+              ? "bg-[linear-gradient(to_top,rgba(4,8,12,.96)_0%,rgba(4,8,12,.48)_50%,rgba(4,8,12,.12)_100%)]"
+              : "bg-[linear-gradient(to_top,rgba(4,8,12,.96)_0%,rgba(4,8,12,.58)_56%,rgba(4,8,12,.15)_100%)]"
+          }`}
+          aria-hidden="true"
+        />
+
+        <div
+          className={`relative z-10 flex h-full min-h-[inherit] flex-col justify-end ${
+            featured
+              ? "px-[clamp(1.5rem,4vw,4.8rem)] pb-[clamp(2rem,5vh,4rem)] pt-24"
+              : "px-[clamp(1.4rem,2.7vw,2.8rem)] pb-[clamp(1.8rem,4vh,2.8rem)] pt-20"
+          }`}
+        >
+          <div className="mb-auto flex items-center justify-between border-b border-white/28 pb-4 text-[0.62rem] font-semibold tracking-[0.17em] text-white/70 uppercase">
+            <span>{discipline.number}</span>
+            <span>{discipline.stage}</span>
+          </div>
+
+          <p className="mb-4 text-[0.58rem] font-semibold tracking-[0.18em] text-[#d0ad73] uppercase">
+            ASR {discipline.title}
+          </p>
+          <h3
+            id={titleId}
+            className={`max-w-[15ch] font-normal tracking-[-0.052em] ${
+              featured
+                ? "text-[clamp(3rem,5vw,6rem)] leading-[0.92]"
+                : "text-[clamp(2.25rem,3.15vw,3.8rem)] leading-[0.95]"
+            }`}
+          >
+            {discipline.headline}
+          </h3>
+
+          <div
+            className={`mt-6 grid items-end gap-6 ${
+              featured && discipline.metrics
+                ? "xl:grid-cols-[minmax(18rem,1fr)_auto]"
+                : ""
+            }`}
+          >
+            <p
+              className={`leading-[1.65] text-white/74 ${
+                featured
+                  ? "max-w-[35rem] text-[clamp(.88rem,1vw,1rem)]"
+                  : "max-w-[30rem] text-[0.86rem]"
+              }`}
+            >
+              {discipline.description}
+            </p>
+
+            {discipline.metrics ? (
+              <dl
+                className={`grid grid-cols-2 gap-6 border-t border-white/24 pt-4 ${
+                  featured ? "xl:min-w-[22rem]" : ""
+                }`}
+              >
+                {discipline.metrics.map((metric) => (
+                  <div key={metric.label}>
+                    <dt className="text-[0.56rem] tracking-[0.09em] text-white/56 uppercase">
+                      {metric.label}
+                    </dt>
+                    <dd
+                      className={`mt-1 leading-none tracking-[-0.05em] ${
+                        featured
+                          ? "text-[clamp(1.8rem,2.4vw,3rem)]"
+                          : "text-[clamp(1.55rem,2vw,2.25rem)]"
+                      }`}
+                    >
+                      {metric.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            ) : null}
+          </div>
+
+          <span className="mt-7 flex w-fit items-center gap-7 border-b border-[#c6a36b]/65 pb-2 text-[0.65rem] font-semibold tracking-[0.11em] text-white uppercase transition-colors group-hover:border-[#c6a36b] group-hover:text-[#d8b77f]">
+            {discipline.action}
+            <ArrowIcon />
+          </span>
+        </div>
+      </motion.article>
+    </Link>
+  );
+}
+
+function JourneyCard({ className = "" }: { className?: string }) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.article
-      className="relative min-h-[76svh] overflow-hidden rounded-[18px] bg-[#111820] text-[#f4f0e8]"
-      initial={{ opacity: 0, y: 32 }}
+      className={`relative overflow-hidden rounded-[18px] border border-[#111820]/10 bg-[#e9e3d9] text-[#111820] ${className}`}
+      initial={reduceMotion ? false : { opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ amount: 0.18, once: true }}
-      transition={{ duration: 0.9, ease }}
-      aria-labelledby={`mobile-${discipline.title.toLowerCase()}-title`}
+      viewport={{ amount: 0.16, once: true }}
+      transition={{ duration: 0.85, ease }}
+      aria-labelledby="journey-card-title"
     >
-      <Image
-        src={discipline.image}
-        alt=""
-        fill
-        placeholder="blur"
-        sizes="100vw"
-        className="object-cover"
-        style={{ objectPosition: discipline.imagePosition }}
-      />
+      <div className="absolute inset-0">
+        <Image
+          src={journeyImage}
+          alt=""
+          fill
+          placeholder="blur"
+          sizes="(max-width: 1023px) 100vw, 66vw"
+          className="object-cover object-center saturate-[.72] contrast-[1.06]"
+        />
+      </div>
       <div
-        className="absolute inset-0 bg-[linear-gradient(to_top,rgba(4,8,12,.94)_0%,rgba(4,8,12,.5)_52%,rgba(4,8,12,.14)_100%)]"
+        className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(233,227,217,.98)_0%,rgba(233,227,217,.94)_46%,rgba(233,227,217,.2)_68%,rgba(233,227,217,.82)_100%)]"
         aria-hidden="true"
       />
-      <div className="relative z-10 flex min-h-[76svh] flex-col justify-end px-6 pb-9 pt-24">
-        <div className="mb-auto flex items-center justify-between border-b border-white/30 pb-4 text-[0.68rem] tracking-[0.18em] text-white/72 uppercase">
-          <span>{discipline.number}</span>
-          <span>ASR {discipline.title}</span>
+
+      <div className="relative z-10 flex h-full min-h-[inherit] flex-col px-[clamp(1.5rem,4vw,4.8rem)] pb-[clamp(1.8rem,4vh,3.2rem)] pt-[clamp(1.6rem,4vh,3rem)]">
+        <div className="flex items-center justify-between border-b border-[#111820]/20 pb-4 text-[0.62rem] font-semibold tracking-[0.17em] text-[#4e575d] uppercase">
+          <span>ASR Group</span>
+          <span>Connected delivery</span>
         </div>
-        <h3
-          id={`mobile-${discipline.title.toLowerCase()}-title`}
-          className="max-w-[18ch] text-[clamp(2.25rem,9.5vw,3.6rem)] leading-[0.98] font-normal tracking-[-0.05em]"
-        >
-          {discipline.headline}
-        </h3>
-        <p className="mt-5 max-w-[36rem] text-sm leading-6 text-white/76">
-          {discipline.description}
-        </p>
-        <dl className="mt-8 grid grid-cols-2 gap-4 border-t border-white/25 pt-5">
-          {discipline.metrics.map((metric) => (
-            <div key={metric.label}>
-              <dt className="text-[0.68rem] leading-4 tracking-[0.08em] text-white/60 uppercase">
-                {metric.label}
-              </dt>
-              <dd className="mt-1 text-[clamp(1.8rem,8vw,2.8rem)] leading-none tracking-[-0.045em]">
-                {metric.value}
-              </dd>
-            </div>
+
+        <div className="mt-[clamp(2.6rem,8vh,6.5rem)]">
+          <p className="text-[0.6rem] font-semibold tracking-[0.19em] text-[#9a7645] uppercase">
+            One accountable journey
+          </p>
+          <h3
+            id="journey-card-title"
+            className="mt-5 max-w-[9ch] text-[clamp(3.5rem,6vw,7.2rem)] leading-[0.88] font-normal tracking-[-0.062em]"
+          >
+            One group. Every stage.
+          </h3>
+          <p className="mt-6 max-w-[31rem] text-[clamp(.9rem,1vw,1.02rem)] leading-7 text-[#485159]">
+            From finding the right property to construction, interiors and advertising, ASR
+            brings every stage together through one group.
+          </p>
+        </div>
+
+        <ol className="mt-auto grid grid-cols-2 gap-x-6 gap-y-4 border-t border-[#111820]/18 bg-[#e9e3d9]/78 pt-5 backdrop-blur-[3px] sm:grid-cols-4">
+          {mobileDisciplines.map((discipline) => (
+            <li key={discipline.title}>
+              <span className="text-[0.54rem] font-semibold tracking-[0.13em] text-[#9a7645] uppercase">
+                {discipline.number}
+              </span>
+              <span className="mt-1 block text-[0.64rem] font-semibold tracking-[0.08em] text-[#303940] uppercase">
+                {discipline.title}
+              </span>
+            </li>
           ))}
-        </dl>
-        <Link
-          href={discipline.href}
-          className="cta-primary mt-7 inline-flex min-h-12 w-fit items-center gap-8 rounded-[10px] px-6 text-[0.75rem] font-semibold"
-        >
-          Explore {discipline.title}
-          <span aria-hidden="true">→</span>
-        </Link>
+        </ol>
       </div>
     </motion.article>
   );
 }
 
 export default function DisciplinesSection() {
-  const scrollSection = useRef<HTMLDivElement>(null);
-  const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: scrollSection,
-    offset: ["start start", "end end"],
-  });
-
-  const splitTarget = useTransform(
-    scrollYProgress,
-    [0, 0.14, 0.34, 0.5, 0.72, 0.9, 1],
-    [50, 50, 55, 50, 45, 50, 50],
-  );
-  const split = useSpring(splitTarget, {
-    stiffness: 105,
-    damping: 26,
-    mass: 0.28,
-  });
-  const leftBasis = useMotionTemplate`${split}%`;
-
-  const interiorsContentOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.14, 0.26, 0.43, 0.54],
-    [0.7, 0.72, 1, 1, 0.7],
-  );
-  const constructionContentOpacity = useTransform(
-    scrollYProgress,
-    [0.44, 0.57, 0.7, 0.88, 1],
-    [0.7, 0.72, 1, 1, 0.7],
-  );
-  const interiorsImageScale = useTransform(scrollYProgress, [0, 0.42, 1], [1.045, 1, 1.025]);
-  const constructionImageScale = useTransform(scrollYProgress, [0, 0.65, 1], [1.035, 1, 1.015]);
-  const progressScale = reduceMotion ? 1 : scrollYProgress;
-
   return (
-    <section id="about" className="bg-[#f2eee6] text-[#111820]" aria-labelledby="disciplines-title">
-      <h2 id="disciplines-title" className="sr-only">
-        ASR Interiors and Construction
-      </h2>
-
-      <div className="flex h-[82px] items-center border-y border-[#111820]/12 bg-[#e9e3d9] px-6 text-[#111820] sm:h-[94px] sm:px-9 lg:px-[4.8rem]">
-        <div className="mx-auto flex w-full max-w-[1440px] items-center gap-5 sm:gap-8">
-          <span className="h-px flex-1 bg-[#111820]/22" aria-hidden="true" />
-          <p className="shrink-0 text-center text-[0.62rem] font-semibold tracking-[0.18em] uppercase sm:text-[0.68rem]">
-            Two disciplines <span className="px-1.5 text-[#a7834e]">·</span> One ASR standard
+    <section
+      id="about"
+      className="bg-[#f2eee6] text-[#111820]"
+      aria-labelledby="disciplines-title"
+    >
+      <div className="border-y border-[#111820]/12 bg-[#e9e3d9] px-6 py-10 sm:px-9 sm:py-12 lg:px-[4.8rem]">
+        <div className="mx-auto grid w-full max-w-[1440px] items-end gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,.55fr)]">
+          <h2
+            id="disciplines-title"
+            className="max-w-[12ch] text-[clamp(2.7rem,4.8vw,5.5rem)] leading-[0.94] font-normal tracking-[-0.058em]"
+          >
+            Interior-led. End-to-end capable.
+          </h2>
+          <p className="max-w-[34rem] text-[0.92rem] leading-7 text-[#4a5358] lg:justify-self-end">
+            Interiors are at the heart of ASR, supported by connected capabilities across Real
+            Estate, Construction and Advertising.
           </p>
-          <span className="h-px flex-1 bg-[#111820]/22" aria-hidden="true" />
         </div>
       </div>
 
-      <div ref={scrollSection} className="relative hidden h-[165svh] lg:block">
-        <div className="sticky top-0 h-[100svh] overflow-hidden bg-[#f2eee6] p-4 sm:p-5">
-          <div className="flex h-full gap-3">
-            <motion.article
-              className="relative h-full shrink-0 overflow-hidden rounded-[18px]"
-              style={{ flexBasis: reduceMotion ? "50%" : leftBasis }}
-              aria-labelledby="interiors-title"
-            >
-              <motion.div className="absolute inset-0" style={{ scale: reduceMotion ? 1 : interiorsImageScale }}>
-                <Image
-                  src={interiorsImage}
-                  alt=""
-                  fill
-                  placeholder="blur"
-                  sizes="58vw"
-                  className="object-cover"
-                  style={{ objectPosition: "50% 54%" }}
-                />
-              </motion.div>
-              <div
-                className="absolute inset-0 bg-[linear-gradient(to_top,rgba(4,8,12,.92)_0%,rgba(4,8,12,.42)_48%,rgba(4,8,12,.12)_100%)]"
-                aria-hidden="true"
-              />
-              <motion.div
-                className="relative z-10 flex h-full flex-col justify-end px-[clamp(2rem,4vw,4.8rem)] pb-[clamp(2.5rem,5vh,4rem)] pt-28 text-[#f4f0e8]"
-                style={{ opacity: reduceMotion ? 1 : interiorsContentOpacity }}
-              >
-                <div className="mb-auto flex items-center justify-between border-b border-white/30 pb-4 text-[0.68rem] tracking-[0.18em] text-white/72 uppercase">
-                  <span>01</span>
-                  <span>ASR Interiors</span>
-                </div>
-                <h3
-                  id="interiors-title"
-                  className="max-w-[14ch] text-[clamp(2.65rem,3.55vw,4.7rem)] leading-[0.96] font-normal tracking-[-0.052em]"
-                >
-                  Interiors, considered in every detail.
-                </h3>
-                <div className="mt-7 grid items-end gap-8 xl:grid-cols-[minmax(18rem,1fr)_auto]">
-                  <p className="max-w-[31rem] text-[clamp(.84rem,.92vw,.98rem)] leading-[1.62] text-white/72">
-                    Complete interior execution for homes, workplaces and brand
-                    environments—coordinated from approved design through the final finish.
-                  </p>
-                  <dl className="grid grid-cols-2 gap-7 border-t border-white/25 pt-4 xl:min-w-[22rem]">
-                    {disciplines[0].metrics.map((metric) => (
-                      <div key={metric.label}>
-                        <dt className="text-[0.62rem] tracking-[0.1em] text-white/58 uppercase">
-                          {metric.label}
-                        </dt>
-                        <dd className="mt-1 text-[clamp(1.65rem,2.1vw,2.7rem)] leading-none tracking-[-0.05em]">
-                          {metric.value}
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                </div>
-                <Link
-                  href="/interiors"
-                  className="cta-primary mt-6 inline-flex min-h-12 w-fit items-center gap-8 rounded-[10px] px-6 text-[0.75rem] font-semibold"
-                >
-                  Explore Interiors
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </motion.div>
-            </motion.article>
+      <div className="mx-auto hidden max-w-[1600px] grid-cols-[minmax(0,1.65fr)_minmax(23rem,.82fr)] items-start gap-3 p-4 lg:grid">
+        <JourneyCard className="sticky top-4 h-[calc(100svh-2rem)] min-h-[42rem]" />
 
-            <motion.article
-              className="relative h-full min-w-0 flex-1 overflow-hidden rounded-[18px]"
-              aria-labelledby="construction-title"
-            >
-              <motion.div className="absolute inset-0" style={{ scale: reduceMotion ? 1 : constructionImageScale }}>
-                <Image
-                  src={constructionImage}
-                  alt=""
-                  fill
-                  placeholder="blur"
-                  sizes="58vw"
-                  className="object-cover"
-                  style={{ objectPosition: "50% 48%" }}
-                />
-              </motion.div>
-              <div
-                className="absolute inset-0 bg-[linear-gradient(to_top,rgba(4,8,12,.94)_0%,rgba(4,8,12,.5)_50%,rgba(4,8,12,.17)_100%)]"
-                aria-hidden="true"
-              />
-              <motion.div
-                className="relative z-10 flex h-full flex-col justify-end px-[clamp(2rem,4vw,4.8rem)] pb-[clamp(2.5rem,5vh,4rem)] pt-28 text-[#f4f0e8]"
-                style={{ opacity: reduceMotion ? 1 : constructionContentOpacity }}
-              >
-                <div className="mb-auto flex items-center justify-between border-b border-white/30 pb-4 text-[0.68rem] tracking-[0.18em] text-white/72 uppercase">
-                  <span>02</span>
-                  <span>ASR Construction</span>
-                </div>
-                <h3
-                  id="construction-title"
-                  className="max-w-[14ch] text-[clamp(2.65rem,3.55vw,4.7rem)] leading-[0.96] font-normal tracking-[-0.052em]"
-                >
-                  Construction, controlled from start to handover.
-                </h3>
-                <div className="mt-7 grid items-end gap-8 xl:grid-cols-[minmax(18rem,1fr)_auto]">
-                  <p className="max-w-[31rem] text-[clamp(.84rem,.92vw,.98rem)] leading-[1.62] text-white/72">
-                    Experienced coordination across civil works, finishing and handover—where
-                    sequence, quality and accountability matter.
-                  </p>
-                  <dl className="grid grid-cols-2 gap-7 border-t border-white/25 pt-4 xl:min-w-[22rem]">
-                    {disciplines[1].metrics.map((metric) => (
-                      <div key={metric.label}>
-                        <dt className="text-[0.62rem] tracking-[0.1em] text-white/58 uppercase">
-                          {metric.label}
-                        </dt>
-                        <dd className="mt-1 text-[clamp(1.65rem,2.1vw,2.7rem)] leading-none tracking-[-0.05em]">
-                          {metric.value}
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                </div>
-                <Link
-                  href="/construction"
-                  className="cta-primary mt-6 inline-flex min-h-12 w-fit items-center gap-8 rounded-[10px] px-6 text-[0.75rem] font-semibold"
-                >
-                  Explore Construction
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </motion.div>
-            </motion.article>
-          </div>
-
-          <div className="absolute inset-x-5 bottom-2 z-20 h-px overflow-hidden rounded-full bg-[#111820]/14" aria-hidden="true">
-            <motion.div
-              className="h-full origin-left bg-[#c6a36b]"
-              style={{ scaleX: progressScale }}
+        <div className="space-y-3">
+          {connectedDisciplines.map((discipline) => (
+            <DisciplineCard
+              key={discipline.title}
+              discipline={discipline}
+              className={
+                discipline.title === "Interiors"
+                  ? "h-[88svh] min-h-[44rem]"
+                  : "h-[68svh] min-h-[35rem]"
+              }
             />
-          </div>
+          ))}
         </div>
       </div>
 
-      <div className="space-y-3 bg-[#f2eee6] px-3 pb-3 lg:hidden">
-        {disciplines.map((discipline) => (
-          <MobileDiscipline key={discipline.title} discipline={discipline} />
+      <div className="space-y-3 px-3 py-3 lg:hidden">
+        <JourneyCard className="min-h-[72svh]" />
+        {mobileDisciplines.map((discipline) => (
+          <DisciplineCard
+            key={discipline.title}
+            discipline={discipline}
+            featured={discipline.title === "Interiors"}
+            className={
+              discipline.title === "Interiors"
+                ? "min-h-[82svh]"
+                : "min-h-[68svh]"
+            }
+          />
         ))}
       </div>
     </section>

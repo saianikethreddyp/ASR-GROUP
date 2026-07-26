@@ -8,6 +8,7 @@ import InternalFooter from "@/components/InternalFooter";
 import InternalHeader from "@/components/InternalHeader";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+const ASR_WHATSAPP_NUMBER = "918008667766";
 
 const projectTeams = [
   {
@@ -21,8 +22,8 @@ const projectTeams = [
     helper: "Residential, commercial and institutional",
   },
   {
-    value: "not-sure",
-    label: "Not sure yet",
+    value: "real-estate",
+    label: "Real Estate / Layout",
     helper: "We will help route your enquiry",
   },
 ] as const;
@@ -95,14 +96,16 @@ export default function ContactPage({
   const formRef = useRef<HTMLFormElement>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
   const [submittedName, setSubmittedName] = useState("");
+  const [whatsappUrl, setWhatsappUrl] = useState("");
+  const [whatsappOpened, setWhatsappOpened] = useState(false);
   const [formStatus, setFormStatus] = useState<
-    "idle" | "submitting" | "error"
+    "idle" | "opening" | "error"
   >("idle");
   const [formError, setFormError] = useState("");
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (formStatus === "submitting") return;
+    if (formStatus === "opening") return;
 
     const formData = new FormData(event.currentTarget);
     const phoneNumber = String(formData.get("phone") || "");
@@ -116,47 +119,41 @@ export default function ContactPage({
     }
 
     const name = String(formData.get("fullName") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const teamValue = String(formData.get("team") || "");
+    const team =
+      projectTeams.find((projectTeam) => projectTeam.value === teamValue)
+        ?.label ?? teamValue;
+    const location = String(formData.get("location") || "").trim();
+    const projectBrief = String(formData.get("projectBrief") || "").trim();
+    const message = [
+      "Hello ASR Group, I would like to discuss a project.",
+      "",
+      `Name: ${name}`,
+      `Phone: ${phoneNumber}`,
+      `Email: ${email || "Not provided"}`,
+      `Interested in: ${team}`,
+      `Project location: ${location}`,
+      "",
+      "Project details:",
+      projectBrief,
+      "",
+      "Submitted through the ASR Group website.",
+    ].join("\n");
+    const nextWhatsappUrl = `https://wa.me/${ASR_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
     setFormError("");
-    setFormStatus("submitting");
-
-    try {
-      const response = await fetch("/api/enquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fullName: name,
-          phone: phoneNumber,
-          email: String(formData.get("email") || ""),
-          team: String(formData.get("team") || ""),
-          location: String(formData.get("location") || ""),
-          projectBrief: String(formData.get("projectBrief") || ""),
-        }),
-      });
-
-      const result = await response.json().catch(() => ({}));
-
-      if (!response.ok) {
-        setFormError(
-          result.error ??
-            "We could not send your enquiry. Please call the ASR team on +91 80086 67766.",
-        );
-        setFormStatus("error");
-        return;
-      }
-
-      setSubmittedName(name || "there");
-      setFormStatus("idle");
-    } catch {
-      setFormError(
-        "Your enquiry did not reach us — you may be offline. Please try again, or call the ASR team on +91 80086 67766.",
-      );
-      setFormStatus("error");
-    }
+    setFormStatus("opening");
+    setWhatsappUrl(nextWhatsappUrl);
+    setSubmittedName(name || "there");
+    setWhatsappOpened(true);
+    window.location.assign(nextWhatsappUrl);
   }
 
   function resetForm() {
     setSubmittedName("");
+    setWhatsappUrl("");
+    setWhatsappOpened(false);
     setFormError("");
     setFormStatus("idle");
     requestAnimationFrame(() => formRef.current?.querySelector<HTMLInputElement>("input")?.focus());
@@ -214,31 +211,34 @@ export default function ContactPage({
                       <Check aria-hidden="true" className="h-5 w-5" strokeWidth={2} />
                     </div>
                     <h2 className="font-display mt-9 max-w-[12ch] text-[clamp(3rem,4.5vw,5.3rem)] leading-[0.94] tracking-[-0.04em]">
-                      Thank you, {submittedName}.
+                      Your WhatsApp message is ready, {submittedName}.
                     </h2>
                     <p className="mt-6 max-w-[34rem] text-[0.98rem] leading-7 text-[#4d565d]">
-                      Your enquiry has reached us. The relevant ASR team will review it and call
-                      you on the number you provided, usually within one working day.
+                      {whatsappOpened
+                        ? "WhatsApp has opened with your project details prepared. Review the message and tap Send when you are ready."
+                        : "Your WhatsApp message is prepared. Use the button below to open it and review your details."}
                     </p>
                     <p className="mt-5 max-w-[34rem] text-[0.98rem] leading-7 text-[#4d565d]">
-                      Prefer to talk now?{" "}
-                      <a
-                        href="tel:+918008667766"
-                        className="font-semibold text-[#9a7645] underline underline-offset-4 transition-colors hover:text-[#111820]"
-                      >
-                        +91 80086 67766
-                      </a>
+                      ASR receives your information only after you press Send in WhatsApp.
                     </p>
                   </div>
 
                   <div className="mt-12 flex flex-wrap gap-3">
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cta-primary inline-flex min-h-12 items-center gap-8 rounded-[10px] px-6 text-[0.76rem] font-semibold"
+                    >
+                      Open WhatsApp again
+                      <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={1.8} />
+                    </a>
                     <button
                       type="button"
                       onClick={resetForm}
-                      className="cta-primary inline-flex min-h-12 items-center gap-8 rounded-[10px] px-6 text-[0.76rem] font-semibold"
+                      className="inline-flex min-h-12 items-center rounded-[10px] border border-[#111820]/22 px-6 text-[0.76rem] font-semibold transition-colors hover:border-[#111820]/45 hover:bg-[#f2eee6]"
                     >
-                      Send another enquiry
-                      <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={1.8} />
+                      Edit details
                     </button>
                     <Link
                       href="/"
@@ -263,7 +263,7 @@ export default function ContactPage({
                       Start the conversation.
                     </h2>
                     <p className="mt-4 max-w-[37rem] text-sm leading-6 text-[#596168]">
-                      Five short answers are enough to help us understand where to begin.
+                      Share a few project details to help us understand where to begin.
                     </p>
                   </div>
 
@@ -371,8 +371,7 @@ export default function ContactPage({
                   </div>
 
                   <p className="mt-5 max-w-[40rem] text-[0.66rem] leading-5 text-[#687076]">
-                    By sending this enquiry, you agree that ASR Group may contact you about your
-                    project. Your information will only be used to respond to this enquiry.
+                    Your information remains in this form until you continue to WhatsApp.
                   </p>
 
                   <AnimatePresence>
@@ -390,25 +389,31 @@ export default function ContactPage({
                     ) : null}
                   </AnimatePresence>
 
-                  <button
-                    type="submit"
-                    disabled={formStatus === "submitting"}
-                    aria-busy={formStatus === "submitting"}
-                    className="cta-primary group mt-7 inline-flex min-h-14 w-full items-center justify-between rounded-[10px] px-6 text-[0.78rem] font-semibold disabled:cursor-wait disabled:opacity-70 sm:w-auto sm:min-w-[17rem]"
-                  >
-                    {formStatus === "submitting"
-                      ? "Sending enquiry…"
-                      : "Send project enquiry"}
-                    <ArrowRight
-                      aria-hidden="true"
-                      className={`h-4 w-4 transition-transform duration-300 ${
-                        formStatus === "submitting"
-                          ? "animate-pulse"
-                          : "group-hover:translate-x-1"
-                      }`}
-                      strokeWidth={1.8}
-                    />
-                  </button>
+                  <div className="mt-7">
+                    <button
+                      type="submit"
+                      disabled={formStatus === "opening"}
+                      aria-busy={formStatus === "opening"}
+                      className="cta-primary group inline-flex min-h-14 w-full items-center justify-between rounded-[10px] px-6 text-[0.78rem] font-semibold disabled:cursor-wait disabled:opacity-70 sm:w-auto sm:min-w-[17rem]"
+                    >
+                      {formStatus === "opening"
+                        ? "Opening WhatsApp…"
+                        : "Continue to WhatsApp"}
+                      <ArrowRight
+                        aria-hidden="true"
+                        className={`h-4 w-4 transition-transform duration-300 ${
+                          formStatus === "opening"
+                            ? "animate-pulse"
+                            : "group-hover:translate-x-1"
+                        }`}
+                        strokeWidth={1.8}
+                      />
+                    </button>
+                    <p className="mt-3 max-w-[34rem] text-[0.68rem] leading-5 text-[#687076]">
+                      We&apos;ll open WhatsApp with these details prepared. Review the message and
+                      tap Send to contact ASR.
+                    </p>
+                  </div>
 
                 </motion.form>
               )}

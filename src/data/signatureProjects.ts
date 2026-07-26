@@ -32,9 +32,9 @@ export const signatureProjects: SignatureProject[] = [
     sector: "Government & institutional",
     location: "Telangana",
     summary:
-      "A prestigious institutional engagement completed for the C.M. Camp Office in Telangana.",
+      "Interior work completed for the C.M. Camp Office in Telangana.",
     detail:
-      "The C.M. Camp Office sits among ASR’s completed prestigious projects. The engagement reflects the coordination and finish discipline expected within a high-responsibility government environment.",
+      "The C.M. Camp Office is one of ASR’s completed government projects. The work required careful coordination and a high standard of finish.",
     image: "/media/projects/cm-camp-office-illustrative.jpg",
     imageAlt:
       "Illustrative architectural view of a formal executive office with walnut panelling and stone finishes",
@@ -58,9 +58,9 @@ export const signatureProjects: SignatureProject[] = [
     sector: "Heritage restoration",
     location: "Public Gardens, Hyderabad",
     summary:
-      "Restoration works undertaken for one of Hyderabad’s distinguished civic landmarks.",
+      "Restoration work completed at Jubilee Hall in Public Gardens, Hyderabad.",
     detail:
-      "ASR carried out restoration works for Jubilee Hall in Public Gardens, Hyderabad. Heritage work requires measured intervention, careful sequencing and respect for the existing architectural character.",
+      "ASR carried out restoration work at Jubilee Hall in Public Gardens, Hyderabad. The work was carefully planned to respect the building’s existing character.",
     image: "/media/projects/jubilee-hall-restoration-illustrative.jpg",
     imageAlt:
       "Illustrative blue-hour view of a restored historic civic hall with illuminated arched colonnades",
@@ -84,9 +84,9 @@ export const signatureProjects: SignatureProject[] = [
     sector: "Government & institutional",
     location: "Hyderabad",
     summary:
-      "Institutional project work delivered for the Telangana Legislative Assembly in Hyderabad.",
+      "Project work completed for the Telangana Legislative Assembly in Hyderabad.",
     detail:
-      "ASR’s work for the Telangana Legislative Assembly sits among its completed institutional projects — formal settings where quality, precision and accountability carry visible weight.",
+      "ASR’s work for the Telangana Legislative Assembly is one of the company’s completed government projects in Hyderabad.",
     image: "/media/projects/telangana-assembly-illustrative.jpg",
     imageAlt:
       "Illustrative architectural view of a formal assembly chamber with timber joinery and stone finishes",
@@ -108,11 +108,11 @@ export const signatureProjects: SignatureProject[] = [
     title: "BMW Service Station",
     discipline: "Interiors",
     sector: "Retail & brand environment",
-    location: "Hyderabad",
+    location: "Financial District, Hyderabad",
     summary:
-      "A branded automotive environment delivered to global brand standards.",
+      "A BMW customer and display environment completed to the brand’s standards.",
     detail:
-      "ASR has delivered BMW showroom and service-station environments. Brand environments demand disciplined execution across approved visual, material, operational and customer-experience standards — where a millimetre of misalignment is visible to every customer.",
+      "ASR has completed BMW showroom and service-station environments. The work brought together approved materials, lighting, display areas and customer spaces.",
     image: "/media/projects/bmw-service-station-brochure.jpg",
     imageAlt:
       "BMW display environment with a silver vehicle, timber wall finish and illuminated brand wall",
@@ -125,7 +125,7 @@ export const signatureProjects: SignatureProject[] = [
     facts: [
       { label: "Project", value: "BMW Service Station" },
       { label: "Sector", value: "Retail & brand environment" },
-      { label: "Location", value: "Hyderabad" },
+      { label: "Location", value: "Financial District, Hyderabad" },
       { label: "Status", value: "Completed" },
     ],
   },

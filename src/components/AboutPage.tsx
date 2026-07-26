@@ -25,7 +25,7 @@ const leaders = [
     name: "Siddhiq",
     role: "Director, Marketing",
     summary:
-      "Client relationships, and the first conversation on most ASR projects.",
+      "Client relationships and the first conversation on most ASR projects.",
   },
   {
     name: "M. Srinivasa Rao",
@@ -35,35 +35,51 @@ const leaders = [
   },
 ] as const;
 
-const proof = [
-  ["25 years", "In interiors"],
-  ["20 years", "In construction"],
-  ["6 lakh+ sq. ft.", "Constructed"],
-  ["4,000+", "Residential spaces"],
+const divisions = [
+  {
+    title: "ASR Interiors",
+    details: ["25 years of experience", "4,000+ residential spaces built"],
+    href: "/interiors",
+  },
+  {
+    title: "ASR Construction",
+    details: ["20 years of experience", "6 lakh+ sq. ft. completed"],
+    href: "/construction",
+  },
+  {
+    title: "ASR Real Estate",
+    details: ["Open plots and layouts", "Helping you find the right property"],
+    href: "#", // Awaiting external URL
+  },
+  {
+    title: "ASR Advertising",
+    details: ["Digital Out-of-Home Advertising"],
+    href: "#", // Awaiting external URL
+  },
 ] as const;
 
 const approach = [
   {
     number: "01",
-    title: "Understand the brief",
+    title: "Understand the project",
     body:
-      "We begin by understanding what the project must achieve—the people it serves, the way it must function, the priorities that shape it, and the responsibilities already in place.",
+      "We begin by understanding what the project must achieve, who will use it, how it must work and what matters most.",
     image: "/media/asr-aperture-material-study.jpg",
     alt: "Architectural drawings, materials and technical details used to understand a project brief",
   },
   {
     number: "02",
-    title: "Bring the disciplines together",
+    title: "Plan the work together",
     body:
-      "Design decisions, technical requirements, materials, specialist inputs, production, and site execution are coordinated around one shared direction.",
+      "We bring the design, technical requirements, materials, production and site work into one clear plan.",
     image: "/media/asr-interiors-capability.png",
     alt: "Warm interior material and joinery coordination study",
   },
   {
     number: "03",
-    title: "Carry the standard through",
+    title: "Check the work",
     body:
-      "The work is reviewed through execution so that the approved intent remains connected to what is finally delivered and handed over.",
+      "We review the work throughout the project so the finished result matches what was approved.",
     image: "/media/asr-construction-capability.png",
     alt: "Construction execution and finished architectural detailing",
   },
@@ -122,9 +138,8 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: reduceMotion ? 0.01 : 0.75, delay: 0.28, ease }}
             >
-              For more than two decades, ASR has worked across interiors and construction with
-              one consistent responsibility: to understand the intent, coordinate what the
-              project demands, and carry the agreed standard through execution.
+              For more than two decades, ASR has planned and completed interior and construction
+              projects. Our teams stay close to the work from the first discussion to completion.
             </motion.p>
 
             <motion.p
@@ -181,19 +196,14 @@ export default function AboutPage() {
         className="scroll-mt-8 px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32"
         aria-labelledby="leadership-title"
       >
-        <div className="mx-auto grid max-w-[1540px] gap-14 xl:grid-cols-[minmax(19rem,.44fr)_minmax(0,1.56fr)] xl:gap-16">
+        <div className="mx-auto flex max-w-[1540px] flex-col gap-12 xl:gap-14">
           <Reveal>
             <h2
               id="leadership-title"
-              className="font-display max-w-[10ch] text-[clamp(3.3rem,4.8vw,5.8rem)] leading-[0.96] tracking-[-0.042em]"
+              className="font-display text-[clamp(3.3rem,4.8vw,5.8rem)] leading-[0.96] tracking-[-0.042em]"
             >
-              The people behind the standard.
+              Meet the ASR team.
             </h2>
-            <p className="mt-7 max-w-[28rem] text-[0.98rem] leading-7 text-[#465058]">
-              A project becomes more dependable when responsibility is visible. ASR is led by
-              people who remain connected to the decisions, teams, and execution behind the
-              finished result.
-            </p>
           </Reveal>
 
           <div className="-mx-5 overflow-x-auto px-5 pb-5 sm:-mx-9 sm:px-9 xl:mx-0 xl:overflow-visible xl:px-0">
@@ -235,7 +245,7 @@ export default function AboutPage() {
           <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,.92fr)_minmax(30rem,1.08fr)] lg:gap-[clamp(3rem,7vw,8rem)]">
             <Reveal>
               <h2 className="font-display max-w-[12ch] text-[clamp(3.3rem,5vw,6rem)] leading-[0.94] tracking-[-0.043em]">
-                Two disciplines. One accountable way of working.
+                Two disciplines. One team working together.
               </h2>
               <div className="mt-8 max-w-[38rem] space-y-5 text-[0.98rem] leading-7 text-[#465058]">
                 <p>
@@ -243,8 +253,8 @@ export default function AboutPage() {
                   Interiors and Construction.
                 </p>
                 <p>
-                  Bringing these disciplines closer allows the team to consider the project as
-                  a whole rather than as a series of disconnected packages.
+                  Bringing these teams together helps ASR manage the project as a whole instead
+                  of splitting it into disconnected parts.
                 </p>
               </div>
             </Reveal>
@@ -262,30 +272,41 @@ export default function AboutPage() {
             </Reveal>
           </div>
 
-          <dl className="mt-16 grid border-y border-[#111820]/16 sm:grid-cols-2 xl:grid-cols-4">
-            {proof.map(([value, label], index) => (
+          <div className="mt-16 grid border-y border-[#111820]/16 sm:grid-cols-2 xl:grid-cols-4">
+            {divisions.map((division, index) => (
               <Reveal
-                key={value}
+                key={division.title}
                 delay={index * 0.07}
-                className={`py-7 sm:px-7 sm:first:pl-0 xl:py-9 ${
+                className={`flex flex-col py-7 sm:px-7 sm:first:pl-0 xl:py-9 ${
                   index > 0 ? "sm:border-l sm:border-[#111820]/12" : ""
                 }`}
               >
-                <dt className="font-display text-[clamp(2.45rem,3.4vw,4rem)] leading-[0.92] tracking-[-0.035em]">
-                  {value}
-                </dt>
-                <dd className="mt-4 max-w-[18rem] text-sm leading-6 text-[#505961]">{label}</dd>
+                <Link href={division.href} className="group flex h-full flex-col">
+                  <h3 className="font-display text-[clamp(1.8rem,2.5vw,2.5rem)] leading-[1.05] tracking-[-0.03em] transition-colors group-hover:text-[#9a7645]">
+                    {division.title}
+                  </h3>
+                  <div className="mt-5 flex-grow space-y-2">
+                    {division.details.map((detail, i) => (
+                      <p key={i} className="text-sm leading-6 text-[#505961]">
+                        {detail}
+                      </p>
+                    ))}
+                  </div>
+                  <div className="mt-6 flex items-center gap-2 text-[0.7rem] font-semibold tracking-[0.1em] text-[#9a7645] uppercase">
+                    Explore <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
+                  </div>
+                </Link>
               </Reveal>
             ))}
-          </dl>
+          </div>
         </div>
       </section>
 
       <section className="px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32">
         <div className="mx-auto max-w-[1440px]">
-          <Reveal>
-            <h2 className="font-display max-w-[13ch] text-[clamp(3.3rem,5vw,6rem)] leading-[0.94] tracking-[-0.043em]">
-              Intent is protected through coordination.
+          <Reveal className="flex justify-center text-center">
+            <h2 className="font-display max-w-[30ch] text-[clamp(3.3rem,5vw,6rem)] leading-[0.94] tracking-[-0.043em]">
+              How we manage each project.
             </h2>
           </Reveal>
 
@@ -323,9 +344,9 @@ export default function AboutPage() {
       </section>
 
       <ClosingCta
-        eyebrow="Start with clarity"
-        title="Let’s make the brief clearer."
-        body="Share what you know today. We’ll help define the scope and connect you with the right ASR team."
+        eyebrow="Start a project"
+        title="Tell us what you’re planning."
+        body="Share what you know today. We’ll help list the work required and connect you with the right ASR team."
       />
 
       <InternalFooter />

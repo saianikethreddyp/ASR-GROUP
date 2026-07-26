@@ -164,12 +164,11 @@ export default function SignatureProjects() {
               id="signature-work-title"
               className="mt-3 max-w-[18ch] text-[clamp(2rem,3.2vw,3.8rem)] leading-[1] tracking-[-0.048em]"
             >
-              Projects that define our standard.
+              Projects that show our experience.
             </h2>
           </div>
           <p className="hidden max-w-[28rem] text-sm leading-6 text-[#111820]/58 md:block">
-            A focused record of institutional trust, restoration expertise and precision-led
-            interior execution.
+            Selected government, restoration and interior projects completed by ASR.
           </p>
         </div>
       </div>

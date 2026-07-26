@@ -59,7 +59,7 @@ export default function GalleryPage({
             <h1 id="gallery-title" className="font-display max-w-[11ch] text-[clamp(4.2rem,7.5vw,8.7rem)] leading-[0.88] tracking-[-0.055em]">The work, in full view.</h1>
           </motion.div>
           <motion.p className="max-w-[35rem] text-[clamp(1rem,1.3vw,1.16rem)] leading-[1.72] text-[#465058] lg:pb-2" initial={reduceMotion ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0.01 : 0.78, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}>
-            Browse by category, or open a project to see its spaces, materials and details together.
+            Browse by category, or open a project to learn more about ASR&apos;s work.
           </motion.p>
         </div>
       </section>
@@ -108,7 +108,7 @@ export default function GalleryPage({
           <div className="mt-14 flex items-baseline justify-between gap-6">
             <h2 className="font-display text-[clamp(2.4rem,3.8vw,4.8rem)] leading-none tracking-[-0.04em]">Browse by project</h2>
             <p aria-live="polite" className="text-xs text-[#626a70]">
-              {filteredProjects.length} {filteredProjects.length === 1 ? "collection" : "collections"}
+              {filteredProjects.length} {filteredProjects.length === 1 ? "project" : "projects"}
             </p>
           </div>
 
@@ -147,8 +147,8 @@ export default function GalleryPage({
             ) : (
               <motion.div key="empty" className="mt-10 grid min-h-[23rem] place-items-center rounded-[18px] border border-[#111820]/16 px-6 text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                 <div>
-                  <h3 className="font-display text-[clamp(2.2rem,4vw,4.4rem)] leading-none tracking-[-0.04em]">This collection is being prepared.</h3>
-                  <p className="mx-auto mt-5 max-w-[34rem] text-sm leading-6 text-[#586168]">No project collections match this selection yet. Choose another category to continue exploring.</p>
+                  <h3 className="font-display text-[clamp(2.2rem,4vw,4.4rem)] leading-none tracking-[-0.04em]">No projects found.</h3>
+                  <p className="mx-auto mt-5 max-w-[34rem] text-sm leading-6 text-[#586168]">Try another category or search term.</p>
                   <button type="button" onClick={() => { selectCategory("All"); setQuery(""); }} className="mt-7 text-xs font-semibold text-[#9a7645] underline underline-offset-4">View all projects</button>
                 </div>
               </motion.div>
@@ -158,9 +158,9 @@ export default function GalleryPage({
       </section>
 
       <ClosingCta
-        eyebrow="Turn reference into direction"
-        title="Found a direction you like?"
-        body="Share the project or image. We’ll help translate it into a response suited to your space."
+        eyebrow="Start a project"
+        title="Seen something you like?"
+        body="Share the project or image with us and tell us about your space."
       />
       <InternalFooter />
     </article>

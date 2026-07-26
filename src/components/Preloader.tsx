@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./Preloader.module.css";
 
-const SESSION_KEY = "asr-intro-seen-v4";
+const SESSION_KEY = "asr-intro-seen-v7";
 const FULL_SEQUENCE_MS = 3500;
 const QUICK_SEQUENCE_MS = 520;
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -77,30 +77,33 @@ export default function Preloader() {
           aria-live="polite"
           aria-label="Loading ASR Group"
         >
-          {!quick ? (
-            <motion.div
-              className={styles.frame}
-              initial={{ opacity: 0, scale: 0.18 }}
-              animate={{
-                opacity: [0, 1, 1, 0],
-                scale: [0.18, 1, 1, 5.8],
-              }}
-              transition={{
-                duration: 3.38,
-                times: [0, 0.18, 0.82, 1],
-                ease: EASE,
-              }}
-              aria-hidden="true"
-            >
-              <span className={styles.corner} />
-              <span className={styles.corner} />
-              <span className={styles.corner} />
-              <span className={styles.corner} />
-            </motion.div>
-          ) : null}
+          <motion.div
+            className={styles.visual}
+            initial={{ opacity: 0, scale: 1.025 }}
+            animate={{
+              opacity: quick ? [0, 0.5] : [0, 0.78, 0.78, 0.38],
+              scale: quick ? 1 : [1.025, 1, 1, 1.015],
+            }}
+            transition={{
+              duration: quick ? 0.42 : 3.42,
+              times: quick ? [0, 1] : [0, 0.2, 0.82, 1],
+              ease: EASE,
+            }}
+            aria-hidden="true"
+          >
+            <Image
+              src="/images/generated/asr-four-disciplines-preloader.jpg"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className={styles.visualImage}
+            />
+            <span className={styles.visualWash} />
+          </motion.div>
 
           <motion.div
-            className="relative z-10 flex w-[min(72vw,22rem)] flex-col items-center"
+            className="relative z-10 flex w-[min(88vw,42rem)] flex-col items-center"
             initial={{ opacity: 0, y: quick ? 0 : 12 }}
             animate={{
               opacity: [0, 1, 1, 1],
@@ -122,20 +125,30 @@ export default function Preloader() {
             </motion.div>
 
             <motion.div
-              className="mt-6 flex items-center gap-4"
+              className="mt-6 flex flex-col items-center gap-3"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.62, delay: quick ? 0.08 : 1.02 }}
             >
-              <motion.span
-                className={styles.rule}
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.7, delay: quick ? 0.08 : 1.02, ease: EASE }}
-                aria-hidden="true"
-              />
-              <span className="whitespace-nowrap text-[0.58rem] font-semibold tracking-[0.28em] text-[#26303a] uppercase sm:text-[0.65rem]">
-                Interiors · Construction
+              <div className="flex items-center gap-4">
+                <motion.span
+                  className={styles.rule}
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: quick ? 0.08 : 1.02,
+                    ease: EASE,
+                  }}
+                  aria-hidden="true"
+                />
+                <span className="whitespace-nowrap text-[0.62rem] font-semibold tracking-[0.24em] text-[#26303a] uppercase sm:text-[0.7rem]">
+                  Everything, under one roof
+                </span>
+              </div>
+
+              <span className={styles.disciplines}>
+                Real Estate <i /> Construction <i /> Interiors <i /> Advertising
               </span>
             </motion.div>
           </motion.div>
