@@ -21,7 +21,11 @@ const businessUnits = [
     href: "https://avaniprojectsindia.com/",
     external: true,
   },
-  { name: "ASR Advertising", href: null, external: false },
+  {
+    name: "ASR Advertising",
+    href: "https://airakonnect.com/",
+    external: true,
+  },
 ] as const;
 
 const ease = [0.22, 1, 0.36, 1] as const;

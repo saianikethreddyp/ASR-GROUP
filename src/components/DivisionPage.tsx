@@ -58,7 +58,7 @@ export default function DivisionPage({ division }: { division: Division }) {
             >
               {division.title}
             </h1>
-            <p className="mt-7 max-w-[720px] text-[clamp(0.98rem,1.2vw,1.13rem)] leading-[1.7] text-white/76">
+            <p className="mt-7 max-w-[720px] text-[clamp(1.125rem,1.3vw,1.25rem)] leading-[1.618] text-white/76">
               {division.introduction}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -106,7 +106,7 @@ export default function DivisionPage({ division }: { division: Division }) {
             <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">
               Find your starting point
             </p>
-            <h2 className="max-w-[12ch] text-[clamp(3.1rem,5vw,6rem)]">
+            <h2 className="text-balance text-[clamp(2.7rem,3.5vw,4.5rem)] lg:whitespace-nowrap">
               {division.audienceTitle}
             </h2>
           </Reveal>
@@ -122,8 +122,8 @@ export default function DivisionPage({ division }: { division: Division }) {
                 <p className="text-[0.62rem] font-semibold tracking-[0.15em] text-[#9a7645]">
                   0{index + 1}
                 </p>
-                <h3 className="mt-5 text-[clamp(2rem,3vw,3.3rem)]">{audience.title}</h3>
-                <p className="mt-5 max-w-[34rem] text-sm leading-7 text-[#505961]">
+                <h3 className="mt-5 text-balance text-[clamp(2rem,3vw,3.3rem)]">{audience.title}</h3>
+                <p className="mt-5 max-w-[34rem] text-[clamp(1rem,1.15vw,1.125rem)] leading-[1.618] text-[#505961]">
                   {audience.body}
                 </p>
               </Reveal>
@@ -138,10 +138,10 @@ export default function DivisionPage({ division }: { division: Division }) {
             <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">
               Scope
             </p>
-            <h2 className="max-w-[12ch] text-[clamp(3rem,4.7vw,5.7rem)]">
+            <h2 className="max-w-[18ch] text-balance text-[clamp(3rem,4.7vw,5.7rem)]">
               {division.scopeTitle}
             </h2>
-            <p className="mt-7 max-w-[35rem] text-[0.98rem] leading-7 text-[#505961]">
+            <p className="mt-7 max-w-[35rem] text-[clamp(1rem,1.15vw,1.125rem)] leading-[1.618] text-[#505961]">
               {division.scopeIntroduction}
             </p>
           </Reveal>
@@ -167,10 +167,10 @@ export default function DivisionPage({ division }: { division: Division }) {
       <section className="bg-[#081523] px-5 py-20 text-[#f2eee6] sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32">
         <div className="mx-auto max-w-[1540px]">
           <Reveal className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,.65fr)] lg:items-end lg:gap-20">
-            <h2 className="max-w-[12ch] text-[clamp(3.1rem,5vw,6rem)]">
+            <h2 className="max-w-[18ch] text-balance text-[clamp(3.1rem,5vw,6rem)]">
               {division.outcomeTitle}
             </h2>
-            <p className="max-w-[36rem] text-[0.97rem] leading-7 text-white/64">
+            <p className="max-w-[36rem] text-[clamp(1rem,1.15vw,1.125rem)] leading-[1.618] text-white/64">
               {division.outcomeBody}
             </p>
           </Reveal>
@@ -185,7 +185,7 @@ export default function DivisionPage({ division }: { division: Division }) {
                   0{index + 1}
                 </p>
                 <h3 className="mt-6 text-[clamp(2rem,2.8vw,3rem)]">{step.title}</h3>
-                <p className="mt-5 text-sm leading-6 text-white/58">{step.body}</p>
+                <p className="mt-5 text-[clamp(1rem,1.15vw,1.125rem)] leading-[1.618] text-white/58">{step.body}</p>
               </Reveal>
             ))}
           </div>
@@ -204,12 +204,12 @@ export default function DivisionPage({ division }: { division: Division }) {
               </p>
               <h2
                 id={`${division.slug}-clients-title`}
-                className="max-w-[13ch] text-[clamp(3.1rem,5vw,6rem)]"
+                className="max-w-[18ch] text-balance text-[clamp(3.1rem,5vw,6rem)]"
               >
                 {division.clientsTitle}
               </h2>
             </div>
-            <p className="max-w-[35rem] text-[0.95rem] leading-7 text-[#505961] lg:pb-2">
+            <p className="max-w-[35rem] text-[clamp(1rem,1.15vw,1.125rem)] leading-[1.618] text-[#505961] lg:pb-2">
               {division.clientsIntroduction}
             </p>
           </Reveal>
@@ -259,12 +259,12 @@ export default function DivisionPage({ division }: { division: Division }) {
                 </p>
                 <h2
                   id="relevant-work-title"
-                  className="max-w-[12ch] text-[clamp(3.1rem,5vw,6rem)]"
+                  className="max-w-[18ch] text-balance text-[clamp(3.1rem,5vw,6rem)]"
                 >
                   Completed work. Clear responsibility.
                 </h2>
               </div>
-              <p className="max-w-[35rem] text-[0.95rem] leading-7 text-[#505961] lg:pb-2">
+              <p className="max-w-[35rem] text-[clamp(1rem,1.15vw,1.125rem)] leading-[1.618] text-[#505961] lg:pb-2">
                 Completed {division.name.toLowerCase()} projects with the available scope,
                 location and visual record kept together.
               </p>
@@ -328,12 +328,12 @@ export default function DivisionPage({ division }: { division: Division }) {
                 <p className="text-[0.62rem] font-semibold tracking-[0.17em] text-[#9a7645] uppercase">
                   Current work
                 </p>
-                <h3 className="mt-5 max-w-[13ch] text-[clamp(2.5rem,4vw,4.5rem)]">
+                <h3 className="mt-5 max-w-[18ch] text-balance text-[clamp(2.5rem,4vw,4.5rem)]">
                   Ongoing project details stay client-approved.
                 </h3>
               </div>
               <div>
-                <p className="max-w-[34rem] text-[0.92rem] leading-7 text-[#505961]">
+                <p className="max-w-[34rem] text-[clamp(1rem,1.15vw,1.125rem)] leading-[1.618] text-[#505961]">
                   ASR publishes project names and images only when they are cleared for
                   release. Speak with the team to discuss relevant current experience for
                   your {division.slug === "interiors" ? "space" : "build"}.
@@ -357,10 +357,10 @@ export default function DivisionPage({ division }: { division: Division }) {
             <p className="text-[0.62rem] font-semibold tracking-[0.16em] text-[#9a7645] uppercase">
               Relevant work
             </p>
-            <h2 className="mt-5 max-w-[12ch] text-[clamp(3rem,4.7vw,5.6rem)]">
+            <h2 className="mt-5 max-w-[18ch] text-balance text-[clamp(3rem,4.7vw,5.6rem)]">
               {division.galleryTitle}
             </h2>
-            <p className="mt-6 max-w-[40rem] text-sm leading-7 text-[#505961]">
+            <p className="mt-6 max-w-[40rem] text-[clamp(1rem,1.15vw,1.125rem)] leading-[1.618] text-[#505961]">
               {division.galleryBody}
             </p>
             <Link
@@ -376,10 +376,10 @@ export default function DivisionPage({ division }: { division: Division }) {
             <p className="text-[0.62rem] font-semibold tracking-[0.16em] text-[#c6a36b] uppercase">
               The connected discipline
             </p>
-            <h2 className="mt-5 max-w-[12ch] text-[clamp(2.7rem,4vw,4.8rem)]">
+            <h2 className="mt-5 max-w-[18ch] text-balance text-[clamp(2.7rem,4vw,4.8rem)]">
               {division.relatedTitle}
             </h2>
-            <p className="mt-6 max-w-[35rem] text-sm leading-7 text-white/62">
+            <p className="mt-6 max-w-[35rem] text-[clamp(1rem,1.15vw,1.125rem)] leading-[1.618] text-white/62">
               {division.relatedBody}
             </p>
             <Link
@@ -399,12 +399,12 @@ export default function DivisionPage({ division }: { division: Division }) {
             <p className="mb-4 text-[0.62rem] font-semibold tracking-[0.17em] text-[#c6a36b] uppercase">
               Start a project
             </p>
-            <h2 className="max-w-[14ch] text-[clamp(2.35rem,3.8vw,4.35rem)]">
+            <h2 className="max-w-[18ch] text-balance text-[clamp(2.35rem,3.8vw,4.35rem)]">
               {division.closingTitle}
             </h2>
           </div>
           <div>
-            <p className="max-w-[35rem] text-[0.94rem] leading-7 text-white/66">
+            <p className="max-w-[35rem] text-[clamp(1rem,1.15vw,1.125rem)] leading-[1.618] text-white/66">
               {division.closingBody}
             </p>
             <Link
