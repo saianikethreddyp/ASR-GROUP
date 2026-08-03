@@ -3,9 +3,10 @@ import DivisionPage from "@/components/DivisionPage";
 import { divisions } from "@/data/divisions";
 
 export const metadata: Metadata = {
-  title: "ASR Interiors | Premium Interior Execution in Hyderabad",
+  title: "Turnkey Interior Designers in Hyderabad | ASR Interio",
   description:
-    "Explore ASR Group interior services for premium homes, workplaces, branded environments, hospitality spaces, kitchens, wardrobes and custom joinery.",
+    "ASR Interio delivers turnkey home, office, retail and hospitality interiors in Hyderabad, including kitchens, wardrobes, custom joinery and project management.",
+  alternates: { canonical: "/interiors" },
 };
 
 export default function InteriorsPage() {

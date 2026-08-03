@@ -7,13 +7,60 @@ import { useEffect, useState } from "react";
 
 const navItems = [
   ["About Us", "/about"],
-  ["Clients", "/clients"],
-  ["Projects", "/projects"],
+  ["Interiors", "/interiors"],
+  ["Construction", "/construction"],
   ["Gallery", "/gallery"],
   ["Contact Us", "/contact"],
 ] as const;
 
+const businessUnits = [
+  { name: "ASR Interio", href: "/interiors", external: false },
+  { name: "ASR Home LLP", href: "/construction", external: false },
+  {
+    name: "ASR Real Estate",
+    href: "https://avaniprojectsindia.com/",
+    external: true,
+  },
+  { name: "ASR Advertising", href: null, external: false },
+] as const;
+
 const ease = [0.22, 1, 0.36, 1] as const;
+
+type BusinessUnit = (typeof businessUnits)[number];
+
+function CompanyTickerItem({
+  unit,
+  unitIndex,
+  interactive = true,
+}: {
+  unit: BusinessUnit;
+  unitIndex: number;
+  interactive?: boolean;
+}) {
+  const content = (
+    <>
+      <span className="hero-company-number">0{unitIndex + 1}</span>
+      <span className="hero-company-name">{unit.name}</span>
+      <span className="hero-company-divider" aria-hidden="true" />
+    </>
+  );
+
+  if (interactive && unit.href) {
+    return (
+      <Link
+        href={unit.href}
+        target={unit.external ? "_blank" : undefined}
+        rel={unit.external ? "noreferrer" : undefined}
+        aria-label={unit.external ? `${unit.name} — opens external website` : unit.name}
+        className="hero-company-item"
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return <span className="hero-company-item">{content}</span>;
+}
 
 export default function HeroHome() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,23 +93,33 @@ export default function HeroHome() {
   return (
     <section
       id="hero"
-      className="relative isolate min-h-[100svh] overflow-hidden bg-[#09111c] text-[#f4f0e8]"
+      className="hero-film relative isolate min-h-[100svh] overflow-hidden bg-[#080d12] text-white"
       aria-labelledby="hero-title"
     >
       <video
-        className="hero-video absolute inset-0 h-full w-full object-cover object-[38%_center]"
+        className="hero-film-video"
         autoPlay
-        loop
         muted
+        loop
         playsInline
-        preload="auto"
-        poster="/media/asr-monumental-hero-poster.jpg"
+        preload="metadata"
+        poster="/media/asr-continuous-hero-poster.jpg"
         aria-hidden="true"
       >
-        <source src="/media/asr-monumental-hero.webm" type="video/webm" />
-        <source src="/media/asr-monumental-hero.mp4" type="video/mp4" />
+        <source src="/media/asr-continuous-hero.webm" type="video/webm" />
+        <source src="/media/asr-continuous-hero.mp4" type="video/mp4" />
       </video>
-      <div className="hero-contrast" aria-hidden="true" />
+
+      <Image
+        src="/media/asr-continuous-hero-poster.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="hero-film-poster"
+      />
+
+      <div className="hero-film-overlay" aria-hidden="true" />
 
       <motion.header
         className="absolute inset-x-0 top-0 z-30 px-4 pt-4 sm:px-6 sm:pt-6 lg:px-9"
@@ -70,31 +127,41 @@ export default function HeroHome() {
         animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: -18 }}
         transition={{ ...enter, delay: reduceMotion ? 0 : 0.08 }}
       >
-        <div className="relative mx-auto flex h-[76px] max-w-[1540px] items-center justify-between overflow-hidden rounded-[17px] border border-white/20 bg-[linear-gradient(135deg,rgba(8,21,35,.84)_0%,rgba(8,21,35,.64)_100%)] px-4 shadow-[inset_0_1px_0_rgba(255,255,255,.14),0_18px_50px_rgba(0,0,0,.2)] backdrop-blur-[20px] backdrop-saturate-150 sm:h-[90px] sm:px-6">
+        <div
+          className={`relative mx-auto flex h-[64px] max-w-[1540px] items-center justify-between rounded-[12px] border px-4 backdrop-blur-[14px] transition-colors sm:h-[70px] sm:px-5 ${
+            menuOpen
+              ? "border-[#111820]/10 bg-white text-[#111820]"
+              : "border-white/15 bg-[#07111c]/25 text-white shadow-[0_10px_36px_rgba(0,0,0,.12)]"
+          }`}
+        >
           <Link
             href="#hero"
             className="relative z-10 block w-[116px] shrink-0 sm:w-[136px]"
             aria-label="ASR Group home"
           >
             <Image
-              src="/brand/asr-group-2024-header-reversed.svg"
+              src={
+                menuOpen
+                  ? "/brand/asr-group-2024-header.png"
+                  : "/brand/asr-group-2024-header-reversed.svg"
+              }
               alt="ASR Group"
               width={410}
               height={180}
               priority
-              className="h-auto w-full object-contain drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]"
+              className="h-auto w-full object-contain"
             />
           </Link>
 
           <nav
-            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-[clamp(1.5rem,3vw,3.8rem)] lg:flex"
+            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-[clamp(.85rem,1.7vw,2.2rem)] xl:flex"
             aria-label="Primary navigation"
           >
             {navItems.map(([label, href]) => (
               <Link
                 key={label}
                 href={href}
-                className="group relative py-3 text-[0.9rem] font-medium tracking-[-0.01em] text-white/90"
+                className="group relative py-3 text-[0.76rem] font-medium tracking-[-0.01em] text-white/82"
               >
                 {label}
                 <span className="absolute inset-x-0 bottom-1 h-px origin-left scale-x-0 bg-[#c6a36b] transition-transform duration-300 group-hover:scale-x-100" />
@@ -104,26 +171,32 @@ export default function HeroHome() {
 
           <Link
             href="/contact"
-            className="cta-primary hidden min-h-12 min-w-[11.5rem] items-center justify-center rounded-[10px] px-8 text-[0.82rem] font-semibold sm:flex"
+            className="hidden min-h-10 items-center justify-center rounded-[8px] border border-white/30 bg-black/10 px-6 text-[0.75rem] font-semibold text-white backdrop-blur-[10px] transition-colors hover:border-[#d6b477]/70 hover:bg-[#d6b477]/16 xl:flex"
           >
             Start a project
           </Link>
 
           <button
             type="button"
-            className="relative z-10 grid h-11 w-11 place-items-center rounded-[10px] border border-white/20 bg-white/5 sm:hidden"
+            className={`relative z-10 grid h-10 w-10 place-items-center rounded-[8px] border xl:hidden ${
+              menuOpen ? "border-[#111820]/15 bg-white" : "border-white/25 bg-black/10"
+            }`}
             onClick={() => setMenuOpen((current) => !current)}
             aria-expanded={menuOpen}
             aria-controls="hero-mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
             <span
-              className={`absolute h-px w-5 bg-white transition-transform duration-300 ${
+              className={`absolute h-px w-5 transition-transform duration-300 ${
+                menuOpen ? "bg-[#111820]" : "bg-white"
+              } ${
                 menuOpen ? "translate-y-0 rotate-45" : "-translate-y-[4px]"
               }`}
             />
             <span
-              className={`absolute h-px w-5 bg-white transition-transform duration-300 ${
+              className={`absolute h-px w-5 transition-transform duration-300 ${
+                menuOpen ? "bg-[#111820]" : "bg-white"
+              } ${
                 menuOpen ? "translate-y-0 -rotate-45" : "translate-y-[4px]"
               }`}
             />
@@ -135,19 +208,19 @@ export default function HeroHome() {
         {menuOpen ? (
           <motion.div
             id="hero-mobile-menu"
-            className="fixed inset-0 z-20 flex flex-col bg-[#081523] px-6 pb-8 pt-28 sm:hidden"
+            className="fixed inset-0 z-20 flex flex-col bg-white px-6 pb-8 pt-28 text-[#111820] xl:hidden"
             initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
             animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
             exit={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.45, ease }}
           >
-            <nav className="mt-auto border-t border-white/15" aria-label="Mobile navigation">
+            <nav className="mt-auto border-t border-[#111820]/15" aria-label="Mobile navigation">
               {navItems.map(([label, href], index) => (
                 <Link
                   key={label}
                   href={href}
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-between border-b border-white/15 py-4 text-2xl font-light tracking-[-0.035em]"
+                  className="flex items-center justify-between border-b border-[#111820]/15 py-4 text-2xl font-light tracking-[-0.035em]"
                 >
                   {label}
                   <span className="text-[0.58rem] tracking-[0.2em] text-[#c6a36b]">
@@ -166,12 +239,12 @@ export default function HeroHome() {
         ) : null}
       </AnimatePresence>
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1600px] items-end px-5 pb-6 pt-32 sm:px-9 sm:pb-8 lg:px-[4.8rem] lg:pb-11">
-        <div className="grid w-full items-end gap-8 lg:grid-cols-[minmax(0,1fr)_auto]">
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1600px] items-end px-5 pb-32 pt-32 sm:px-9 sm:pb-36 lg:px-[4.8rem]">
+        <div className="w-full text-left">
           <div className="max-w-[760px]">
             <motion.h1
               id="hero-title"
-              className="text-[clamp(3.6rem,6.8vw,6.9rem)] leading-[0.88] font-normal tracking-[-0.062em] text-[#f6f2eb] [text-shadow:0_3px_35px_rgba(0,0,0,.5)]"
+              className="font-display text-[clamp(3rem,6.8vw,7.25rem)] leading-[0.86] tracking-[-0.055em] text-white drop-shadow-[0_3px_26px_rgba(0,0,0,.32)]"
               initial={{ opacity: 0, y: 42, clipPath: "inset(0 0 28% 0)" }}
               animate={
                 introComplete
@@ -180,48 +253,61 @@ export default function HeroHome() {
               }
               transition={{ ...enter, delay: reduceMotion ? 0 : 0.16 }}
             >
-              <span className="block">Everything,</span>
-              <span className="block">under one roof.</span>
+              Everything Under One Roof.
             </motion.h1>
-
             <motion.p
-              className="mt-5 max-w-[550px] text-[clamp(0.95rem,1.25vw,1.18rem)] leading-[1.55] font-normal tracking-[-0.018em] text-white/88 [text-shadow:0_2px_16px_rgba(0,0,0,.7)]"
-              initial={{ opacity: 0, y: 16 }}
-              animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+              className="mt-4 text-[0.68rem] font-semibold tracking-[0.24em] text-white/74 uppercase drop-shadow-[0_2px_14px_rgba(0,0,0,.3)] sm:mt-5 sm:text-[0.76rem]"
+              initial={{ opacity: 0, y: 14 }}
+              animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
               transition={{ ...enter, delay: reduceMotion ? 0 : 0.34 }}
             >
-              Interior-led, with connected capabilities across Real Estate, Construction and
-              Advertising—brought together through one accountable group.
+              Inspire the Future
             </motion.p>
-
-            <motion.div
-              className="mt-6 flex flex-wrap gap-3 sm:gap-4"
-              initial={{ opacity: 0, y: 16 }}
-              animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-              transition={{ ...enter, delay: reduceMotion ? 0 : 0.46 }}
-            >
-              <Link
-                href="#projects"
-                className="cta-primary flex min-h-12 min-w-[11.5rem] items-center justify-center rounded-[10px] px-8 text-[0.82rem] font-semibold"
-              >
-                View our work
-              </Link>
-              <Link
-                href="/about"
-                className="flex min-h-12 min-w-[10.5rem] items-center justify-center rounded-[10px] border border-white/55 bg-[#0a1521]/25 px-8 text-[0.82rem] font-medium text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[#111820]"
-              >
-                Discover ASR
-              </Link>
-            </motion.div>
           </div>
         </div>
       </div>
 
-      <div
-        className="absolute bottom-1.5 right-1.5 z-10 hidden min-h-12 items-center rounded-[12px] border border-white/40 bg-[#0a1521]/45 px-7 text-sm font-light tracking-[0.01em] text-white/95 shadow-[inset_0_1px_0_rgba(255,255,255,.12)] backdrop-blur-sm lg:flex"
+      <motion.div
+        className="hero-company-rail absolute inset-x-5 bottom-4 z-10 sm:inset-x-9 sm:bottom-5 lg:inset-x-[4.8rem]"
+        initial={{ opacity: 0, y: 16 }}
+        animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+        transition={{ ...enter, delay: reduceMotion ? 0 : 0.58 }}
       >
-        Four disciplines · One accountable group
-      </div>
+        <nav
+          aria-label="ASR Group companies"
+          className="flex h-full items-center"
+        >
+          <span className="hero-company-label" aria-hidden="true">
+            <span className="sm:hidden">ASR</span>
+            <span className="hidden sm:inline">Our companies</span>
+          </span>
+
+          <div className="hero-company-window">
+            <div className="hero-company-track">
+              <div className="hero-company-sequence">
+                {businessUnits.map((unit, unitIndex) => (
+                  <CompanyTickerItem
+                    key={unit.name}
+                    unit={unit}
+                    unitIndex={unitIndex}
+                  />
+                ))}
+              </div>
+
+              <div className="hero-company-sequence" aria-hidden="true">
+                {businessUnits.map((unit, unitIndex) => (
+                  <CompanyTickerItem
+                    key={`${unit.name}-duplicate`}
+                    unit={unit}
+                    unitIndex={unitIndex}
+                    interactive={false}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </nav>
+      </motion.div>
     </section>
   );
 }

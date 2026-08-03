@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import AboutPage from "@/components/AboutPage";
 
 export const metadata: Metadata = {
-  title: "About ASR Group | The People Behind Our Work",
+  title: "About ASR Group | Hyderabad Interiors & Construction Team",
   description:
-    "Meet the founders and leadership behind ASR Group and learn how decades of experience in interiors and construction shape every project.",
+    "Meet the ASR Group team behind turnkey interiors and construction in Hyderabad, with decades of experience across homes, workplaces and built environments.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutRoute() {

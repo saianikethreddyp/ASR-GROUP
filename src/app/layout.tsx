@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/newsreader";
+import "@fontsource-variable/instrument-sans";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import Preloader from "@/components/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
+import { businessStructuredData, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "ASR Group | Interiors & Construction",
+  metadataBase: new URL(siteUrl),
+  title: "ASR Group | Turnkey Interiors & Construction in Hyderabad",
   description:
-    "ASR Homes LLP delivers premium interiors and construction in Hyderabad — homes, workplaces, branded environments and complete buildings, through one accountable team.",
+    "ASR Group delivers turnkey residential and commercial interiors and construction in Hyderabad, with one accountable team from planning to handover.",
   keywords: [
     "ASR Group",
     "turnkey interiors Hyderabad",
@@ -18,16 +21,38 @@ export const metadata: Metadata = {
     "commercial interiors",
   ],
   openGraph: {
-    title: "ASR Group — From structure to soul.",
-    description: "Construction, interiors and specialist systems coordinated through one accountable team.",
+    title: "ASR Group | Turnkey Interiors & Construction in Hyderabad",
+    description:
+      "Residential and commercial interiors and construction, coordinated by one accountable Hyderabad team.",
     type: "website",
+    url: "/",
+    siteName: "ASR Group",
+    images: [
+      {
+        url: "/media/asr-land-to-interior-sketch.png",
+        alt: "ASR Group — interiors and construction in Hyderabad",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "ASR Group | Turnkey Interiors & Construction in Hyderabad",
+    description:
+      "Residential and commercial interiors and construction, coordinated by one accountable Hyderabad team.",
+    images: ["/media/asr-land-to-interior-sketch.png"],
+  },
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessStructuredData) }}
+        />
         <Preloader />
         <a className="skip-link" href="#main-content">Skip to content</a>
         <SmoothScroll>
