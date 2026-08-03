@@ -3,9 +3,10 @@ import DivisionPage from "@/components/DivisionPage";
 import { divisions } from "@/data/divisions";
 
 export const metadata: Metadata = {
-  title: "ASR Construction | Integrated Project Delivery in Hyderabad",
+  title: "Construction Company in Hyderabad | ASR Home LLP",
   description:
-    "Explore ASR Group construction capabilities across residential, commercial and institutional projects, civil works, specialist systems and handover.",
+    "ASR Home LLP delivers residential, commercial and institutional construction in Hyderabad, coordinating civil works, specialist systems, project management and handover.",
+  alternates: { canonical: "/construction" },
 };
 
 export default function ConstructionPage() {

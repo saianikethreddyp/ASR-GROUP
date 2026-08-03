@@ -7,7 +7,6 @@ export type Division = {
   image: string;
   imageAlt: string;
   imagePosition: string;
-  imageNote: string;
   metrics: ReadonlyArray<{
     value: string;
     label: string;
@@ -26,6 +25,12 @@ export type Division = {
     title: string;
     body: string;
   }>;
+  clientsTitle: string;
+  clientsIntroduction: string;
+  clients: ReadonlyArray<{
+    name: string;
+    industry: string;
+  }>;
   galleryHref: string;
   galleryLabel: string;
   galleryTitle: string;
@@ -42,16 +47,14 @@ export const divisions: Record<Division["slug"], Division> = {
   interiors: {
     slug: "interiors",
     name: "Interiors",
-    eyebrow: "ASR Interiors",
+    eyebrow: "ASR Interio",
     title: "Finished exactly as drawn.",
     introduction:
       "Homes, workplaces, retail and hospitality interiors—designed, made and installed by one ASR team. What you approve on paper is what gets handed over.",
     image: "/media/asr-interiors-capability.png",
     imageAlt:
-      "Representative warm interior showing coordinated materials, lighting and joinery",
+      "Warm interior showing coordinated materials, lighting and joinery",
     imagePosition: "50% 54%",
-    imageNote:
-      "Representative visual, not project photography.",
     metrics: [
       { value: "25 years", label: "Interior experience" },
       {
@@ -118,6 +121,22 @@ export const divisions: Record<Division["slug"], Division> = {
           "We check the completed work against the approved design before handover.",
       },
     ],
+    clientsTitle: "Experience across spaces that have to perform.",
+    clientsIntroduction:
+      "Selected organizations represented in ASR Interio’s workplace, institutional, healthcare, retail, hospitality and branded-environment experience.",
+    clients: [
+      { name: "ICRISAT", industry: "Institutions & Public" },
+      { name: "Wipro", industry: "Technology & Business" },
+      { name: "Rallis India", industry: "Industry & Enterprise" },
+      { name: "Hetero Drugs", industry: "Healthcare & Pharma" },
+      { name: "BMW", industry: "Automotive & Enterprise" },
+      { name: "Reliance Fresh", industry: "Retail & Commercial" },
+      { name: "Hotel Halliburton", industry: "Hospitality" },
+      {
+        name: "United Nations Organization project",
+        industry: "Institutions & Public",
+      },
+    ],
     galleryHref: "/gallery",
     galleryLabel: "View interior work",
     galleryTitle: "See the materials, details and finished environments.",
@@ -135,16 +154,14 @@ export const divisions: Record<Division["slug"], Division> = {
   construction: {
     slug: "construction",
     name: "Construction",
-    eyebrow: "ASR Construction",
+    eyebrow: "ASR Home LLP",
     title: "Strong where it doesn’t show.",
     introduction:
       "Residential, commercial and institutional builds. One ASR team carries the structure, the services and the finish—and the responsibility for all three.",
     image: "/media/asr-construction-capability.png",
     imageAlt:
-      "Representative construction environment showing structure and architectural delivery",
+      "Construction environment showing structure and architectural delivery",
     imagePosition: "50% 48%",
-    imageNote:
-      "Representative visual, not project photography.",
     metrics: [
       { value: "20 years", label: "Construction experience" },
       {
@@ -210,6 +227,19 @@ export const divisions: Record<Division["slug"], Division> = {
         body:
           "We review the completed work and prepare the project for handover.",
       },
+    ],
+    clientsTitle: "Experience across complex built environments.",
+    clientsIntroduction:
+      "Selected developers, infrastructure organizations and industrial businesses represented in ASR Home LLP’s wider project experience.",
+    clients: [
+      { name: "India Cements", industry: "Industry & Enterprise" },
+      { name: "K. Raheja IT Park", industry: "Development" },
+      { name: "Karnataka Thermal Power", industry: "Infrastructure" },
+      { name: "TCI Constructions", industry: "Development" },
+      { name: "DSR Constructions", industry: "Development" },
+      { name: "Manjeera Group", industry: "Development" },
+      { name: "Ramky", industry: "Development" },
+      { name: "Indu Projects", industry: "Development" },
     ],
     galleryHref: "/gallery?category=Construction",
     galleryLabel: "View construction work",

@@ -1,13 +1,11 @@
 import Link from "next/link";
 
 const links = [
+  ["About Us", "/about"],
   ["Interiors", "/interiors"],
   ["Construction", "/construction"],
-  ["About", "/about"],
-  ["Clients", "/clients"],
-  ["Projects", "/projects"],
   ["Gallery", "/gallery"],
-  ["Contact", "/contact"],
+  ["Contact Us", "/contact"],
 ] as const;
 
 export default function InternalFooter() {

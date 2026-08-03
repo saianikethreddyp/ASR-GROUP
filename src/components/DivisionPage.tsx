@@ -7,12 +7,16 @@ import InternalFooter from "@/components/InternalFooter";
 import InternalHeader from "@/components/InternalHeader";
 import Reveal from "@/components/Reveal";
 import type { Division } from "@/data/divisions";
+import { signatureProjects } from "@/data/signatureProjects";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function DivisionPage({ division }: { division: Division }) {
   const reduceMotion = useReducedMotion();
   const contactHref = `/contact?division=${division.slug}#enquiry-form`;
+  const relevantProjects = signatureProjects.filter(
+    (project) => project.discipline === division.name,
+  );
 
   return (
     <article className="min-h-screen bg-[#f2eee6] text-[#111820]">
@@ -20,7 +24,10 @@ export default function DivisionPage({ division }: { division: Division }) {
         className="relative isolate min-h-[92svh] overflow-hidden bg-[#081523] px-5 pb-10 pt-36 text-[#f2eee6] sm:px-9 sm:pb-12 sm:pt-44 lg:px-[4.8rem] lg:pb-16 lg:pt-48"
         aria-labelledby="division-title"
       >
-        <InternalHeader />
+        <InternalHeader
+          activeLabel={division.slug === "interiors" ? "Interiors" : "Construction"}
+          tone="dark"
+        />
         <Image
           src={division.image}
           alt=""
@@ -89,9 +96,6 @@ export default function DivisionPage({ division }: { division: Division }) {
                 </div>
               ))}
             </dl>
-            <p className="max-w-[30rem] text-[0.6rem] leading-5 text-white/48 sm:text-right">
-              {division.imageNote}
-            </p>
           </motion.div>
         </div>
       </section>
@@ -187,6 +191,165 @@ export default function DivisionPage({ division }: { division: Division }) {
           </div>
         </div>
       </section>
+
+      <section
+        className="bg-[#f2eee6] px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32"
+        aria-labelledby={`${division.slug}-clients-title`}
+      >
+        <div className="mx-auto max-w-[1540px]">
+          <Reveal className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(21rem,.55fr)] lg:items-end lg:gap-20">
+            <div>
+              <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">
+                Selected clients
+              </p>
+              <h2
+                id={`${division.slug}-clients-title`}
+                className="max-w-[13ch] text-[clamp(3.1rem,5vw,6rem)]"
+              >
+                {division.clientsTitle}
+              </h2>
+            </div>
+            <p className="max-w-[35rem] text-[0.95rem] leading-7 text-[#505961] lg:pb-2">
+              {division.clientsIntroduction}
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid grid-cols-1 border-l border-t border-[#111820]/14 sm:grid-cols-2 lg:grid-cols-4">
+            {division.clients.map((client, index) => (
+              <motion.div
+                key={client.name}
+                className="relative flex min-h-[11rem] flex-col justify-end border-b border-r border-[#111820]/14 p-6 sm:min-h-[13rem] sm:p-7"
+                initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.32 }}
+                transition={{
+                  duration: reduceMotion ? 0.01 : 0.58,
+                  delay: (index % 4) * 0.05,
+                  ease,
+                }}
+              >
+                <p className="absolute left-6 top-6 text-[0.65rem] font-semibold tracking-[0.15em] text-[#9a7645] uppercase sm:left-7 sm:top-7">
+                  {(index + 1).toString().padStart(2, "0")}
+                </p>
+                <div>
+                  <p className="mb-2 text-[0.64rem] font-medium tracking-[0.08em] text-[#626b71] uppercase">
+                    {client.industry}
+                  </p>
+                  <h3 className="font-display text-[clamp(1.65rem,2.2vw,2.35rem)] leading-[1.04] tracking-[-0.025em] text-[#111820]">
+                    {client.name}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {relevantProjects.length > 0 ? (
+        <section
+          id="relevant-work"
+          className="bg-[#f2eee6] px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32"
+          aria-labelledby="relevant-work-title"
+        >
+          <div className="mx-auto max-w-[1540px]">
+            <Reveal className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(21rem,.58fr)] lg:items-end lg:gap-20">
+              <div>
+                <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">
+                  Selected project record
+                </p>
+                <h2
+                  id="relevant-work-title"
+                  className="max-w-[12ch] text-[clamp(3.1rem,5vw,6rem)]"
+                >
+                  Completed work. Clear responsibility.
+                </h2>
+              </div>
+              <p className="max-w-[35rem] text-[0.95rem] leading-7 text-[#505961] lg:pb-2">
+                Completed {division.name.toLowerCase()} projects with the available scope,
+                location and visual record kept together.
+              </p>
+            </Reveal>
+
+            <div
+              className={`mt-14 grid gap-4 ${
+                relevantProjects.length === 1
+                  ? "max-w-[48rem]"
+                  : "md:grid-cols-2 xl:grid-cols-3"
+              }`}
+            >
+              {relevantProjects.map((project, index) => (
+                <Reveal key={project.slug} delay={(index % 3) * 0.06}>
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="group block overflow-hidden rounded-[18px] border border-[#111820]/12 bg-[#e9e3d9] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9a7645]"
+                    aria-label={`View ${project.title} project record`}
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[#d9d1c5]">
+                      <Image
+                        src={project.image}
+                        alt={project.imageAlt}
+                        fill
+                        sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
+                        className="object-cover saturate-[.82] transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                      />
+                    </div>
+                    <div className="p-6 sm:p-7">
+                      <div className="flex items-center justify-between gap-5 text-[0.58rem] font-semibold tracking-[0.13em] text-[#7c633f] uppercase">
+                        <span>{project.sector}</span>
+                        <span>{project.status}</span>
+                      </div>
+                      <h3 className="mt-5 text-[clamp(2rem,2.8vw,3rem)]">
+                        {project.title}
+                      </h3>
+                      <p className="mt-3 text-sm text-[#596168]">{project.location}</p>
+                      <p className="mt-5 border-t border-[#111820]/14 pt-5 text-sm leading-6 text-[#444e55]">
+                        {project.scope}
+                      </p>
+                      <div className="mt-6 flex items-center justify-between gap-5 text-[0.62rem] font-semibold tracking-[0.1em] text-[#8f6c3d] uppercase">
+                        <span>View project record</span>
+                        <span
+                          aria-hidden="true"
+                          className="transition-transform duration-300 group-hover:translate-x-1"
+                        >
+                          →
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                  <p className="mt-3 px-1 text-[0.66rem] leading-5 text-[#6a7277]">
+                    {project.imageNote}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal className="mt-16 grid gap-8 rounded-[18px] border border-[#111820]/12 bg-[#e9e3d9] px-6 py-10 sm:px-10 sm:py-12 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,.72fr)] lg:items-end lg:px-12">
+              <div>
+                <p className="text-[0.62rem] font-semibold tracking-[0.17em] text-[#9a7645] uppercase">
+                  Current work
+                </p>
+                <h3 className="mt-5 max-w-[13ch] text-[clamp(2.5rem,4vw,4.5rem)]">
+                  Ongoing project details stay client-approved.
+                </h3>
+              </div>
+              <div>
+                <p className="max-w-[34rem] text-[0.92rem] leading-7 text-[#505961]">
+                  ASR publishes project names and images only when they are cleared for
+                  release. Speak with the team to discuss relevant current experience for
+                  your {division.slug === "interiors" ? "space" : "build"}.
+                </p>
+                <Link
+                  href={contactHref}
+                  className="mt-7 inline-flex items-center gap-7 text-[0.68rem] font-semibold tracking-[0.11em] text-[#8f6c3d] uppercase"
+                >
+                  Discuss your {division.slug === "interiors" ? "interior" : "project"}
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      ) : null}
 
       <section className="px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32">
         <div className="mx-auto grid max-w-[1540px] gap-5 lg:grid-cols-[1.15fr_.85fr]">

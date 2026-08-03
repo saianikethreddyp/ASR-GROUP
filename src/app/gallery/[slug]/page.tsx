@@ -1,35 +1,41 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import GalleryCollectionPage from "@/components/GalleryCollectionPage";
-import { getSignatureProject, signatureProjects } from "@/data/signatureProjects";
+import { notFound, permanentRedirect } from "next/navigation";
+import GalleryAlbumPage from "@/components/GalleryAlbumPage";
+import { galleryAlbums, getGalleryAlbum } from "@/data/galleryAlbums";
+import { getSignatureProject } from "@/data/signatureProjects";
 
 type GalleryCollectionProps = {
   params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
-  return signatureProjects.map((project) => ({ slug: project.slug }));
+  return galleryAlbums.map((album) => ({ slug: album.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: GalleryCollectionProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = getSignatureProject(slug);
+  const album = getGalleryAlbum(slug);
 
-  if (!project) return {};
+  if (!album) return {};
 
   return {
-    title: `${project.title} Gallery | ASR Group`,
-    description: project.summary,
+    title: `${album.title} Project Gallery | ASR Group`,
+    description: `Browse ASR Group's ${album.title} project gallery, including available interior and construction images from the project record.`,
+    alternates: { canonical: `/gallery/${album.slug}` },
   };
 }
 
 export default async function Page({ params }: GalleryCollectionProps) {
   const { slug } = await params;
-  const project = getSignatureProject(slug);
+  const album = getGalleryAlbum(slug);
 
-  if (!project) notFound();
+  if (!album) {
+    const project = getSignatureProject(slug);
+    if (project) permanentRedirect(`/projects/${slug}`);
+    notFound();
+  }
 
-  return <GalleryCollectionPage project={project} />;
+  return <GalleryAlbumPage album={album} />;
 }

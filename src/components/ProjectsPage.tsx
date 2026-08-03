@@ -8,207 +8,272 @@ import ClosingCta from "@/components/ClosingCta";
 import InternalFooter from "@/components/InternalFooter";
 import InternalHeader from "@/components/InternalHeader";
 import Reveal from "@/components/Reveal";
+import { getGalleryAlbumForProject } from "@/data/galleryAlbums";
 import { signatureProjects } from "@/data/signatureProjects";
 
-const primaryFilters = ["All Projects", "Interiors", "Construction"] as const;
-const interiorFilters = [
-  "All Interiors",
-  "Branded Environments",
-  "Institutional",
+const filters = ["All Projects", "Interiors", "Construction"] as const;
+type ProjectFilter = (typeof filters)[number];
+
+const projectSpan = [
+  "lg:col-span-7",
+  "lg:col-span-5",
+  "lg:col-span-5",
+  "lg:col-span-7",
 ] as const;
 
-type PrimaryFilter = (typeof primaryFilters)[number];
-type InteriorFilter = (typeof interiorFilters)[number];
-
-const workTypes = [
-  {
-    title: "Residential Interiors",
-    category: "Interiors · Residential",
-    description:
-      "Complete home interiors, from space planning and custom woodwork to lighting, materials, kitchens, wardrobes and final installation.",
-    image: "/media/asr-interiors-capability.png",
-    alt: "Warm residential interior showing joinery, materials, and lighting",
-    href: "/gallery",
-  },
-  {
-    title: "Corporate & Commercial Interiors",
-    category: "Interiors · Corporate & Commercial",
-    description:
-      "Workplaces and commercial spaces planned around daily use, technical needs and the organization they represent.",
-    image: "/media/asr-aperture-material-study.jpg",
-    alt: "Architectural material and technical coordination study",
-    href: "/gallery",
-  },
-  {
-    title: "Construction",
-    category: "Construction · Residential & Commercial",
-    description:
-      "Buildings managed across planning, civil works, engineering needs, specialist work, finishing and handover.",
-    image: "/media/asr-construction-capability.png",
-    alt: "Construction capability and architectural delivery",
-    href: "/gallery?category=Construction",
-  },
+const projectRatio = [
+  "aspect-[16/10]",
+  "aspect-[4/3]",
+  "aspect-[4/3]",
+  "aspect-[16/10]",
 ] as const;
 
 export default function ProjectsPage() {
-  const [primaryFilter, setPrimaryFilter] = useState<PrimaryFilter>("All Projects");
-  const [interiorFilter, setInteriorFilter] = useState<InteriorFilter>("All Interiors");
+  const [activeFilter, setActiveFilter] =
+    useState<ProjectFilter>("All Projects");
   const reduceMotion = useReducedMotion();
-  const featuredProject =
-    signatureProjects.find((project) => project.slug === "bmw-service-station") ??
-    signatureProjects[0];
 
-  const visibleProjects = useMemo(() => {
-    return signatureProjects.filter((project) => {
-      if (primaryFilter !== "All Projects" && project.discipline !== primaryFilter) {
-        return false;
-      }
-      if (primaryFilter !== "Interiors" || interiorFilter === "All Interiors") {
-        return true;
-      }
-      if (interiorFilter === "Institutional") {
-        return project.galleryCategory === "Institutional";
-      }
-      return project.galleryCategory === interiorFilter;
-    });
-  }, [interiorFilter, primaryFilter]);
+  const visibleProjects = useMemo(
+    () =>
+      signatureProjects.filter(
+        (project) =>
+          activeFilter === "All Projects" ||
+          project.discipline === activeFilter,
+      ),
+    [activeFilter],
+  );
 
-  const selectPrimary = (filter: PrimaryFilter) => {
-    setPrimaryFilter(filter);
-    if (filter !== "Interiors") setInteriorFilter("All Interiors");
-  };
+  const photographedProjectCount = signatureProjects.filter(
+    (project) => !project.illustrative,
+  ).length;
 
   return (
     <article className="min-h-screen bg-[#f2eee6] text-[#111820]">
-      <section className="relative px-5 pb-18 pt-36 sm:px-9 sm:pb-24 sm:pt-44 lg:px-[4.8rem] lg:pb-32 lg:pt-52" aria-labelledby="projects-title">
+      <section
+        className="relative px-5 pb-16 pt-36 sm:px-9 sm:pb-20 sm:pt-44 lg:px-[4.8rem] lg:pb-24 lg:pt-48"
+        aria-labelledby="projects-title"
+      >
         <InternalHeader activeLabel="Projects" />
-        <div className="mx-auto grid max-w-[1540px] gap-11 lg:grid-cols-[minmax(0,1.12fr)_minmax(23rem,.88fr)] lg:items-end lg:gap-16">
-          <motion.div initial={reduceMotion ? false : { opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0.01 : 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}>
-            <p className="mb-6 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Projects</p>
-            <h1 id="projects-title" className="font-display display-heading-long max-w-[12ch] text-[clamp(4rem,7vw,8.2rem)] leading-[0.89] tracking-[-0.055em]">Find the work most relevant to what you are planning.</h1>
-          </motion.div>
+        <div className="mx-auto grid max-w-[1540px] gap-10 lg:grid-cols-[minmax(0,1.04fr)_minmax(25rem,.96fr)] lg:items-end lg:gap-16">
           <motion.div
-            className="lg:pb-2"
+            initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: reduceMotion ? 0.01 : 0.85,
+              delay: 0.08,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            <p className="mb-6 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">
+              Projects
+            </p>
+            <h1
+              id="projects-title"
+              className="font-display display-heading-long max-w-[10.5ch] text-[clamp(3.8rem,6.4vw,7.5rem)] tracking-[-0.05em]"
+            >
+              Work that proves what ASR can deliver.
+            </h1>
+            <p className="mt-7 max-w-[42rem] text-[clamp(1rem,1.25vw,1.14rem)] leading-[1.72] text-[#465058]">
+              Explore completed Interiors and Construction work by sector,
+              location and ASR&apos;s responsibility.
+            </p>
+          </motion.div>
+
+          <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: reduceMotion ? 0.01 : 0.78, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              duration: reduceMotion ? 0.01 : 0.78,
+              delay: 0.24,
+              ease: [0.22, 1, 0.36, 1],
+            }}
           >
             <div className="relative aspect-[16/10] overflow-hidden rounded-[18px] bg-[#d8d0c4]">
               <Image
                 src="/media/projects/bmw-service-station-brochure.jpg"
-                alt="BMW customer environment represented in ASR's project record"
+                alt="BMW customer environment completed by ASR Group"
                 fill
                 priority
-                sizes="(max-width: 1024px) 100vw, 42vw"
+                sizes="(max-width: 1024px) 100vw, 46vw"
                 className="object-cover"
               />
             </div>
-            <p className="mt-6 max-w-[35rem] text-[clamp(1rem,1.2vw,1.12rem)] leading-[1.72] text-[#465058]">
-              Selected work across Interiors and Construction. Open any project to see its spaces, materials and details together.
-            </p>
+            <div className="mt-4 flex items-center justify-between gap-5 text-xs text-[#626a70]">
+              <p>BMW Service Station</p>
+              <p>Financial District, Hyderabad</p>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32">
-        <div className="mx-auto max-w-[1540px]">
-          <Reveal>
-            <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Featured work</p>
-            <h2 className="font-display max-w-[12ch] text-[clamp(3.2rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">A closer look at our work.</h2>
-          </Reveal>
-          <Reveal className="mt-12 overflow-hidden rounded-[18px] bg-[#081523] text-[#f2eee6]" delay={0.08}>
-            <div className="grid lg:grid-cols-[minmax(0,1.2fr)_minmax(26rem,.8fr)]">
-              <div className="relative aspect-[16/11] min-h-[26rem] lg:aspect-auto">
-                <Image src={featuredProject.image} alt={featuredProject.imageAlt} fill sizes="(max-width: 1024px) 100vw, 60vw" className="object-cover" />
-              </div>
-              <div className="flex flex-col justify-between px-6 py-9 sm:px-10 sm:py-12 lg:px-12 lg:py-14">
-                <div>
-                  <p className="text-[0.62rem] font-semibold tracking-[0.15em] text-[#c6a36b] uppercase">{featuredProject.discipline} · {featuredProject.galleryCategory}</p>
-                  <h3 className="font-display mt-5 text-[clamp(3rem,4.4vw,5.4rem)] leading-[0.92] tracking-[-0.045em]">{featuredProject.title}</h3>
-                  <p className="mt-5 text-xs font-semibold text-white/52">{featuredProject.location}</p>
-                  <p className="mt-7 max-w-[34rem] text-[0.98rem] leading-7 text-white/66">A BMW customer environment bringing together approved materials, lighting, display areas and customer spaces.</p>
-                  <p className="mt-5 text-[0.66rem] leading-5 text-white/44">{featuredProject.imageNote}</p>
-                </div>
-                <Link href={`/gallery/${featuredProject.slug}`} className="cta-primary group mt-10 inline-flex min-h-14 w-fit items-center gap-10 rounded-[10px] px-7 text-[0.78rem] font-semibold">View project <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span></Link>
-              </div>
+      <section className="px-5 sm:px-9 lg:px-[4.8rem]">
+        <Reveal className="mx-auto grid max-w-[1540px] border-y border-[#111820]/16 sm:grid-cols-3">
+          {[
+            ["Disciplines", "Interiors + Construction"],
+            ["Project records", String(signatureProjects.length).padStart(2, "0")],
+            [
+              "Photography",
+              `${String(photographedProjectCount).padStart(2, "0")} verified set`,
+            ],
+          ].map(([label, value], index) => (
+            <div
+              key={label}
+              className={`py-6 sm:px-7 sm:py-7 ${
+                index > 0
+                  ? "border-t border-[#111820]/16 sm:border-l sm:border-t-0"
+                  : ""
+              }`}
+            >
+              <p className="text-[0.58rem] font-semibold tracking-[0.14em] text-[#777d82] uppercase">
+                {label}
+              </p>
+              <p className="mt-2 text-sm font-semibold text-[#30383f]">
+                {value}
+              </p>
             </div>
-          </Reveal>
-        </div>
+          ))}
+        </Reveal>
       </section>
 
       <section className="px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32">
         <div className="mx-auto max-w-[1540px]">
-          <Reveal className="flex flex-col gap-7 border-y border-[#111820]/16 py-5 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex flex-wrap gap-2">
-              {primaryFilters.map((filter) => (
-                <button key={filter} type="button" onClick={() => selectPrimary(filter)} aria-pressed={primaryFilter === filter} className={`min-h-11 rounded-full border px-5 text-xs font-semibold transition-colors ${primaryFilter === filter ? "border-[#111820] bg-[#111820] text-[#f2eee6]" : "border-[#111820]/18 text-[#465058] hover:border-[#111820]/42 hover:text-[#111820]"}`}>
-                  {filter}
-                </button>
-              ))}
+          <Reveal className="grid gap-9 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+            <div>
+              <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">
+                Selected records
+              </p>
+              <h2 className="font-display max-w-[11ch] text-[clamp(3rem,5vw,5.8rem)] tracking-[-0.045em]">
+                Find the experience closest to your brief.
+              </h2>
             </div>
-            <p aria-live="polite" className="text-xs text-[#626a70]">{visibleProjects.length} {visibleProjects.length === 1 ? "project" : "projects"}</p>
+            <p className="max-w-[31rem] text-sm leading-6 text-[#586168]">
+              Compare completed work by discipline, location and ASR&apos;s
+              responsibility.
+            </p>
           </Reveal>
 
-          <AnimatePresence initial={false}>
-            {primaryFilter === "Interiors" ? (
-              <motion.div className="flex flex-wrap gap-x-6 gap-y-3 border-b border-[#111820]/16 py-5" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }}>
-                {interiorFilters.map((filter) => (
-                  <button key={filter} type="button" onClick={() => setInteriorFilter(filter)} aria-pressed={interiorFilter === filter} className={`text-xs font-semibold transition-colors ${interiorFilter === filter ? "text-[#9a7645]" : "text-[#687077] hover:text-[#111820]"}`}>{filter}</button>
-                ))}
-              </motion.div>
-            ) : null}
-          </AnimatePresence>
+          <Reveal className="mt-12 flex flex-col gap-5 border-y border-[#111820]/16 py-5 sm:flex-row sm:items-center sm:justify-between">
+            <div className="-mx-5 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:px-0">
+              {filters.map((filter) => {
+                const active = activeFilter === filter;
+                return (
+                  <button
+                    key={filter}
+                    type="button"
+                    onClick={() => setActiveFilter(filter)}
+                    aria-pressed={active}
+                    className={`min-h-11 shrink-0 rounded-full border px-5 text-xs font-semibold transition-colors ${
+                      active
+                        ? "border-[#111820] bg-[#111820] text-[#f2eee6]"
+                        : "border-[#111820]/18 text-[#465058] hover:border-[#111820]/42 hover:text-[#111820]"
+                    }`}
+                  >
+                    {filter}
+                  </button>
+                );
+              })}
+            </div>
+            <p aria-live="polite" className="text-xs text-[#626a70]">
+              {visibleProjects.length}{" "}
+              {visibleProjects.length === 1 ? "project" : "projects"}
+            </p>
+          </Reveal>
 
-          <div className="mt-14">
-            <AnimatePresence mode="popLayout">
+          <AnimatePresence mode="popLayout">
+            <motion.div
+              layout
+              className="mt-12 grid gap-x-5 gap-y-16 lg:grid-cols-12"
+            >
               {visibleProjects.map((project, index) => (
-                <motion.article key={project.slug} layout initial={reduceMotion ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} exit={reduceMotion ? undefined : { opacity: 0, y: 10 }} transition={{ duration: reduceMotion ? 0.01 : 0.45, delay: index * 0.04 }} className="border-b border-[#111820]/18 py-8 first:border-t lg:py-10">
-                  <Link href={`/gallery/${project.slug}`} className="group grid gap-7 lg:grid-cols-[4rem_minmax(17rem,.52fr)_minmax(20rem,.78fr)_minmax(17rem,.7fr)] lg:items-center lg:gap-10">
-                    <p className="text-[0.66rem] font-semibold tracking-[0.14em] text-[#9a7645]">0{index + 1}</p>
-                    <div>
-                      <h2 className="font-display text-[clamp(2.2rem,3.4vw,4rem)] leading-[0.95] tracking-[-0.04em]">{project.title}</h2>
-                      <p className="mt-3 text-xs text-[#626a70]">{project.discipline} · {project.galleryCategory}</p>
+                <motion.article
+                  layout
+                  key={project.slug}
+                  className={projectSpan[index % projectSpan.length]}
+                  initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={reduceMotion ? undefined : { opacity: 0, y: 10 }}
+                  transition={{
+                    duration: reduceMotion ? 0.01 : 0.45,
+                    delay: index * 0.04,
+                  }}
+                >
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="group block h-full"
+                  >
+                    <div
+                      className={`relative overflow-hidden rounded-[18px] bg-[#d8d0c4] ${
+                        projectRatio[index % projectRatio.length]
+                      }`}
+                    >
+                      <Image
+                        src={project.image}
+                        alt={project.imageAlt}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 58vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                      />
+                      <div className="absolute inset-x-4 bottom-4 flex justify-end">
+                        <span className="rounded-full bg-[#f2eee6]/92 px-3 py-2 text-[0.58rem] font-semibold tracking-[0.1em] text-[#111820] uppercase backdrop-blur-sm">
+                          {project.status}
+                        </span>
+                      </div>
                     </div>
-                    <p className="max-w-[38rem] text-sm leading-6 text-[#505961]">{project.summary}</p>
-                    <div className="flex items-center justify-between gap-5 lg:justify-end">
-                      <p className="text-xs text-[#626a70]">{project.location}</p>
-                      <span aria-hidden="true" className="text-xl text-[#9a7645] transition-transform duration-300 group-hover:translate-x-1">→</span>
+
+                    <div className="mt-6 border-t border-[#111820]/18 pt-5">
+                      <div className="flex items-start justify-between gap-6">
+                        <div>
+                          <p className="text-[0.6rem] font-semibold tracking-[0.14em] text-[#9a7645] uppercase">
+                            {project.discipline} · {project.galleryCategory}
+                          </p>
+                          <h3 className="font-display mt-3 text-[clamp(2.3rem,3.4vw,4.1rem)] tracking-[-0.04em]">
+                            {project.title}
+                          </h3>
+                        </div>
+                        <span
+                          aria-hidden="true"
+                          className="mt-1 text-xl text-[#9a7645] transition-transform duration-300 group-hover:translate-x-1"
+                        >
+                          →
+                        </span>
+                      </div>
+                      <p className="mt-4 max-w-[42rem] text-sm leading-6 text-[#505961]">
+                        {project.summary}
+                      </p>
+                      <dl className="mt-6 grid gap-4 border-t border-[#111820]/14 pt-4 text-xs sm:grid-cols-2">
+                        <div>
+                          <dt className="text-[#777d82]">Location</dt>
+                          <dd className="mt-1 font-semibold text-[#30383f]">
+                            {project.location}
+                          </dd>
+                        </div>
+                        <div>
+                          <dt className="text-[#777d82]">ASR scope</dt>
+                          <dd className="mt-1 font-semibold leading-5 text-[#30383f]">
+                            {project.scope}
+                          </dd>
+                        </div>
+                      </dl>
+                      <p className="mt-6 text-xs font-semibold text-[#9a7645]">
+                        View case study
+                      </p>
+                      {getGalleryAlbumForProject(project.slug) ? (
+                        <p className="mt-2 text-[0.66rem] text-[#70777c]">
+                          Gallery album available
+                        </p>
+                      ) : null}
                     </div>
                   </Link>
                 </motion.article>
               ))}
-            </AnimatePresence>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32">
-        <div className="mx-auto max-w-[1540px]">
-          <Reveal>
-            <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Explore by work type</p>
-            <h2 className="font-display max-w-[12ch] text-[clamp(3.2rem,5vw,6rem)] leading-[0.94] tracking-[-0.045em]">More ways to find relevant work.</h2>
-          </Reveal>
-          <div className="mt-14 grid gap-5 lg:grid-cols-3">
-            {workTypes.map((workType, index) => (
-              <Reveal key={workType.title} delay={index * 0.07}>
-                <article className="h-full">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-[18px] bg-[#d8d0c4]">
-                    <Image src={workType.image} alt={workType.alt} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover" />
-                  </div>
-                  <p className="mt-5 text-[0.62rem] font-semibold tracking-[0.13em] text-[#9a7645] uppercase">{workType.category}</p>
-                  <h3 className="font-display mt-3 text-[clamp(2rem,2.8vw,3.4rem)] leading-[0.96] tracking-[-0.035em]">{workType.title}</h3>
-                  <p className="mt-5 text-sm leading-6 text-[#505961]">{workType.description}</p>
-                  <Link href={workType.href} className="mt-6 inline-flex items-center gap-5 text-xs font-semibold text-[#9a7645]">View gallery <span aria-hidden="true">→</span></Link>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 
       <ClosingCta
-        title="Have a project in mind?"
-        body="Share the type, location and current stage. We’ll help identify the most useful next step."
+        title="Planning something similar?"
+        body="Share the project type, location and current stage. We’ll help identify the most useful next step."
       />
       <InternalFooter />
     </article>
