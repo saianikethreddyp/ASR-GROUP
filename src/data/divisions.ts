@@ -67,22 +67,22 @@ export const divisions: Record<Division["slug"], Division> = {
       {
         title: "A complete home",
         body:
-          "For homeowners who want the layout, materials, kitchens, wardrobes and custom woodwork planned as one complete home.",
+          "ASR plans the layout, materials, kitchens, wardrobes and custom woodwork as one complete home.",
       },
       {
         title: "A workplace",
         body:
-          "For organizations that need office interiors designed around their people, daily work, technical needs and identity.",
+          "ASR designs office interiors around your people, daily work, technical needs and identity.",
       },
       {
         title: "A customer-facing space",
         body:
-          "For shops, restaurants, hotels and brand spaces where layout, lighting and details must support the business.",
+          "ASR plans shops, restaurants, hotels and brand spaces where every detail supports the business.",
       },
       {
         title: "Focused custom work",
         body:
-          "For kitchens, wardrobes and custom woodwork with practical storage, dependable hardware and careful finishing.",
+          "ASR makes kitchens, wardrobes and custom woodwork with practical storage and careful finishing.",
       },
     ],
     scopeTitle: "One plan for the complete interior.",
@@ -174,22 +174,22 @@ export const divisions: Record<Division["slug"], Division> = {
       {
         title: "Residential construction",
         body:
-          "For owners planning a home, villa or residential development that needs one team from the early building stages through finishing.",
+          "ASR builds homes, villas and residential developments from the early stages through finishing.",
       },
       {
         title: "Commercial construction",
         body:
-          "For business and commercial projects where the structure, services, schedule, daily needs and finishes must work together.",
+          "ASR manages commercial projects so the structure, services, schedule and finishes work together.",
       },
       {
         title: "Institutional environments",
         body:
-          "For public and institutional projects that require careful planning, clear responsibility and respect for the setting.",
+          "ASR delivers public and institutional projects with careful planning and clear responsibility.",
       },
       {
         title: "Structural and specialist works",
         body:
-          "For structural steel, glazing, ACP, metal work and related specialist work that must fit the wider build.",
+          "ASR coordinates structural steel, glazing, ACP, metal work and related specialist work with the wider build.",
       },
     ],
     scopeTitle: "The main parts of the build, managed together.",

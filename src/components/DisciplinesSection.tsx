@@ -62,7 +62,8 @@ const businessStages: BusinessStage[] = [
       "Brand and communication thinking that carries the completed vision into the market.",
     image: advertisingImage,
     imagePosition: "50% 45%",
-    href: null,
+    href: "https://airakonnect.com/",
+    external: true,
   },
 ];
 
@@ -192,13 +193,13 @@ export default function DisciplinesSection() {
         >
           <div>
             <p className="text-[0.62rem] font-semibold tracking-[0.2em] text-[#9a7645] uppercase">
-              Everything under one roof
+              What we do
             </p>
             <h2
               id="disciplines-title"
-              className="mt-5 max-w-[11ch] text-[clamp(3.5rem,6.5vw,7.4rem)] leading-[0.9] tracking-[-0.055em]"
+              className="mt-5 whitespace-nowrap text-[clamp(1.25rem,5vw,6rem)] leading-[0.9] tracking-[-0.055em]"
             >
-              One Group. Every Stage.
+              Four businesses. One group.
             </h2>
           </div>
           <div className="lg:justify-self-end lg:pb-2">
