@@ -261,7 +261,7 @@ export default function GalleryPage() {
                         Estate.
                       </p>
                       <Link
-                        href="https://avaniprojectsindia.com/"
+                        href="https://avaniprojectsindia.com/gallery/"
                         target="_blank"
                         rel="noreferrer"
                         className="mt-6 inline-flex items-center gap-7 text-xs font-semibold text-[#9a7645]"

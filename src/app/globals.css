@@ -172,6 +172,12 @@ button {
     linear-gradient(90deg, rgba(5, 10, 16, 0.42) 0%, rgba(5, 10, 16, 0.14) 48%, rgba(5, 10, 16, 0.04) 78%);
 }
 
+.hero-title {
+  font-size: clamp(1.55rem, 6.8vw, 7.25rem) !important;
+  line-height: 0.86 !important;
+  letter-spacing: -0.055em !important;
+}
+
 .hero-brand-title {
   font-family: var(--font-brand) !important;
   font-weight: 500 !important;
@@ -180,7 +186,7 @@ button {
 }
 
 .hero-company-rail {
-  height: 2.2rem;
+  height: 3.5rem;
   overflow: hidden;
   border-block: 1px solid rgba(255, 255, 255, 0.13);
   background: rgba(5, 13, 21, 0.3);
@@ -193,7 +199,7 @@ button {
   z-index: 2;
   display: grid;
   height: 100%;
-  min-width: 2.8rem;
+  min-width: 4.5rem;
   place-items: center;
   border-right: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(6, 15, 24, 0.72);
@@ -232,7 +238,7 @@ button {
 
 .hero-company-item {
   display: inline-flex;
-  height: 2.2rem;
+  height: 3.5rem;
   flex: none;
   align-items: center;
   gap: 0.5rem;
@@ -242,13 +248,13 @@ button {
 
 .hero-company-number {
   color: #d6b477;
-  font-size: 0.49rem;
+  font-size: 0.56rem;
   font-weight: 750;
   letter-spacing: 0.14em;
 }
 
 .hero-company-name {
-  font-size: 0.62rem;
+  font-size: 0.76rem;
   font-weight: 650;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -278,21 +284,21 @@ a.hero-company-item:focus-visible .hero-company-name {
 @media (min-width: 640px) {
   .hero-company-rail,
   .hero-company-item {
-    height: 2.5rem;
+    height: 4rem;
   }
 
   .hero-company-label {
-    min-width: 8.25rem;
+    min-width: 10rem;
     padding-inline: 1rem;
     font-size: 0.56rem;
   }
 
   .hero-company-number {
-    font-size: 0.52rem;
+    font-size: 0.58rem;
   }
 
   .hero-company-name {
-    font-size: 0.68rem;
+    font-size: 0.84rem;
   }
 }
 

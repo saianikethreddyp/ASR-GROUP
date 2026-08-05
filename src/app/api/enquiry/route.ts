@@ -127,7 +127,7 @@ export async function POST(request: Request) {
     return Response.json(
       {
         error:
-          "Enter a valid phone or WhatsApp number so the ASR team can respond.",
+          "Enter a valid phone or WhatsApp number so the ASR Group can respond.",
       },
       { status: 400 },
     );
@@ -152,7 +152,7 @@ export async function POST(request: Request) {
     return Response.json(
       {
         error:
-          "We could not record your enquiry just now. Please call the ASR team on +91 80086 67766 and we will pick it up straight away.",
+          "We could not record your enquiry just now. Please call the ASR Group on +91 80086 67766 and we will pick it up straight away.",
       },
       { status: 502 },
     );

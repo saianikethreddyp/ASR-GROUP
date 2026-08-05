@@ -50,13 +50,13 @@ export const divisions: Record<Division["slug"], Division> = {
     eyebrow: "ASR Interio",
     title: "Finished exactly as drawn.",
     introduction:
-      "Homes, workplaces, retail and hospitality interiors—designed, made and installed by one ASR team. What you approve on paper is what gets handed over.",
+      "Homes, workplaces, retail and hospitality interiors—designed, made and installed by ASR Group. What you approve on paper is what gets handed over.",
     image: "/media/asr-interiors-capability.png",
     imageAlt:
       "Warm interior showing coordinated materials, lighting and joinery",
     imagePosition: "50% 54%",
     metrics: [
-      { value: "25 years", label: "Interior experience" },
+      { value: "25+ years", label: "Interior experience" },
       {
         value: "4,000+",
         label: "Residential spaces",
@@ -103,22 +103,22 @@ export const divisions: Record<Division["slug"], Division> = {
       {
         title: "Understand",
         body:
-          "We begin with the people, purpose, priorities and practical requirements behind the space.",
+          "We learn how you want the space to look and work.",
       },
       {
         title: "Plan",
         body:
-          "We agree on the design, work required, materials, services and responsibilities.",
+          "We agree on the design, materials, work and responsibilities.",
       },
       {
-        title: "Coordinate",
+        title: "Make",
         body:
-          "We coordinate production, material orders, specialist work and installation on site.",
+          "We coordinate materials, specialist work and installation on site.",
       },
       {
-        title: "Deliver",
+        title: "Finish",
         body:
-          "We check the completed work against the approved design before handover.",
+          "We check the finished space against the approved design before handover.",
       },
     ],
     clientsTitle: "Experience across spaces that have to perform.",
@@ -157,13 +157,13 @@ export const divisions: Record<Division["slug"], Division> = {
     eyebrow: "ASR Home LLP",
     title: "Strong where it doesn’t show.",
     introduction:
-      "Residential, commercial and institutional builds. One ASR team carries the structure, the services and the finish—and the responsibility for all three.",
+      "Residential, commercial and institutional builds. ASR Group carries the structure, the services and the finish—and the responsibility for all three.",
     image: "/media/asr-construction-capability.png",
     imageAlt:
       "Construction environment showing structure and architectural delivery",
     imagePosition: "50% 48%",
     metrics: [
-      { value: "20 years", label: "Construction experience" },
+      { value: "20+ years", label: "Construction experience" },
       {
         value: "6 lakh+ sq. ft.",
         label: "Constructed",
@@ -208,24 +208,24 @@ export const divisions: Record<Division["slug"], Division> = {
       "Construction becomes harder when planning, engineering, specialist contractors and site teams work separately. ASR keeps responsibilities clear and decisions connected through completion.",
     process: [
       {
-        title: "Define",
+        title: "Understand",
         body:
-          "We clarify the project purpose, current stage, available drawings, priorities and responsibilities already in place.",
+          "We clarify the project, drawings, priorities and responsibilities.",
       },
       {
         title: "Plan",
         body:
-          "We agree on the work, schedule, engineering needs, materials and specialist requirements before construction moves ahead.",
+          "We agree on the work, schedule, materials and technical requirements.",
       },
       {
-        title: "Execute",
+        title: "Build",
         body:
-          "We manage civil works, services, specialist contractors and finishing against the agreed plan.",
+          "We manage civil work, services, specialists and finishing against the plan.",
       },
       {
-        title: "Hand over",
+        title: "Finish",
         body:
-          "We review the completed work and prepare the project for handover.",
+          "We check the completed work and prepare the project for handover.",
       },
     ],
     clientsTitle: "Experience across complex built environments.",

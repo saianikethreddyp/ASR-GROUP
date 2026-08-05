@@ -46,7 +46,7 @@ const businessStages: BusinessStage[] = [
   },
   {
     number: "03",
-    stage: "Finish",
+    stage: "Design",
     company: "ASR Interio",
     description:
       "Interiors shaped around how each home, workplace or brand space should live.",
@@ -197,20 +197,15 @@ export default function DisciplinesSection() {
             </p>
             <h2
               id="disciplines-title"
-              className="mt-5 whitespace-nowrap text-[clamp(1.25rem,5vw,6rem)] leading-[0.9] tracking-[-0.055em]"
+              className="mt-5 max-w-[17ch] text-[clamp(2.8rem,5vw,6rem)] leading-[0.9] tracking-[-0.055em]"
             >
-              Four businesses. One group.
+              Simple, good interiors and construction.
             </h2>
           </div>
           <div className="lg:justify-self-end lg:pb-2">
-            <div className="flex flex-wrap gap-x-7 gap-y-3 border-t border-[#111820]/18 pt-5 text-[0.58rem] font-semibold tracking-[0.14em] text-[#4f5a60] uppercase">
-              {businessStages.map((business) => (
-                <span key={business.stage}>
-                  <span className="mr-2 text-[#9a7645]">{business.number}</span>
-                  {business.stage}
-                </span>
-              ))}
-            </div>
+            <p className="max-w-[27rem] border-t border-[#111820]/18 pt-5 text-[clamp(1rem,1.2vw,1.15rem)] leading-7 text-[#4f5a60]">
+              ASR Group brings the work together from the first plan to the finished space.
+            </p>
           </div>
         </motion.div>
       </div>

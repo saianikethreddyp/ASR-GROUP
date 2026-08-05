@@ -38,12 +38,12 @@ const leaders = [
 const divisions = [
   {
     title: "ASR Interiors",
-    details: ["25 years of experience", "4,000+ residential spaces built"],
+    details: ["25+ years of experience", "4,000+ residential spaces built"],
     href: "/interiors",
   },
   {
     title: "ASR Construction",
-    details: ["20 years of experience", "6 lakh+ sq. ft. completed"],
+    details: ["20+ years of experience", "6 lakh+ sq. ft. completed"],
     href: "/construction",
   },
   {
@@ -148,7 +148,7 @@ export default function AboutPage() {
               animate={{ opacity: 1 }}
               transition={{ duration: reduceMotion ? 0.01 : 0.7, delay: 0.42 }}
             >
-              25 years in Interiors <span className="px-2 text-[#111820]/28">·</span> 20 years
+              25+ years in Interiors <span className="px-2 text-[#111820]/28">·</span> 20+ years
               in Construction
             </motion.p>
 
@@ -202,7 +202,7 @@ export default function AboutPage() {
               id="leadership-title"
               className="font-display text-[clamp(3.3rem,4.8vw,5.8rem)] leading-[0.96] tracking-[-0.042em]"
             >
-              Meet the ASR team.
+              Meet the ASR Group.
             </h2>
           </Reveal>
 
@@ -346,7 +346,7 @@ export default function AboutPage() {
       <ClosingCta
         eyebrow="Start a project"
         title="Tell us what you’re planning."
-        body="Share what you know today. We’ll help list the work required and connect you with the right ASR team."
+        body="Share what you know today. We’ll help list the work required and connect you with the right ASR Group contact."
       />
 
       <InternalFooter />

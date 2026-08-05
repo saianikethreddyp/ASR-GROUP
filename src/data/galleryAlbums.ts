@@ -68,11 +68,11 @@ function createAlbum(
 }
 
 export const galleryAlbums: GalleryAlbum[] = [
-  createAlbum("bmw-service-station", [
+  createAlbum("bmw-showroom-jubilee-hills", [
     {
       id: "customer-display-environment",
       src: "/media/projects/bmw-service-station-brochure.jpg",
-      alt: "BMW display environment with a silver vehicle, timber wall finish and illuminated brand wall",
+      alt: "BMW showroom environment with a silver vehicle, timber wall finish and illuminated brand wall",
       caption:
         "Customer and display environment bringing together lighting, approved materials and brand presentation.",
       group: "Customer & Display Areas",

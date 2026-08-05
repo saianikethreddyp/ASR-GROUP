@@ -91,7 +91,7 @@ export default function ProjectsPage() {
             <div className="relative aspect-[16/10] overflow-hidden rounded-[18px] bg-[#d8d0c4]">
               <Image
                 src="/media/projects/bmw-service-station-brochure.jpg"
-                alt="BMW customer environment completed by ASR Group"
+                alt="BMW showroom environment completed by ASR Group"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 46vw"
@@ -99,8 +99,8 @@ export default function ProjectsPage() {
               />
             </div>
             <div className="mt-4 flex items-center justify-between gap-5 text-xs text-[#626a70]">
-              <p>BMW Service Station</p>
-              <p>Financial District, Hyderabad</p>
+              <p>BMW Showroom</p>
+              <p>Jubilee Hills, Hyderabad</p>
             </div>
           </motion.div>
         </div>
