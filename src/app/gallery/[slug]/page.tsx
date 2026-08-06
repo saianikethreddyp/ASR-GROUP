@@ -21,8 +21,10 @@ export async function generateMetadata({
   if (!album) return {};
 
   return {
-    title: `${album.title} Project Gallery | ASR Group`,
-    description: `Browse ASR Group's ${album.title} project gallery, including available interior and construction images from the project record.`,
+    title: `${album.title} Gallery | ASR Group`,
+    description: album.context
+      ? `${album.summary} ${album.context}.`
+      : `Browse ASR Group's ${album.title} project gallery, including available interior and construction images from the project record.`,
     alternates: { canonical: `/gallery/${album.slug}` },
   };
 }

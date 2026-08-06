@@ -215,14 +215,15 @@ export default function GalleryPage() {
                       <AlbumCover album={album} eager={index === 0} />
                       <div className="border-t border-[#111820]/18 pt-6">
                         <p className="text-[0.6rem] font-semibold tracking-[0.14em] text-[#9a7645] uppercase">
-                          {album.category} · {album.images.length}{" "}
-                          {album.images.length === 1 ? "image" : "images"}
+                          {album.context ?? `${album.category} · ${album.images.length} ${album.images.length === 1 ? "image" : "images"}`}
                         </p>
                         <h3 className="font-display mt-4 text-[clamp(2.8rem,4.6vw,5.5rem)] tracking-[-0.045em]">
                           {album.title}
                         </h3>
                         <p className="mt-4 text-xs font-semibold text-[#626a70]">
-                          {album.location}
+                          {album.clientName
+                            ? `Client: ${album.clientName} · ${album.location}`
+                            : album.location}
                         </p>
                         <p className="mt-6 max-w-[38rem] text-sm leading-7 text-[#505961]">
                           {album.summary}
