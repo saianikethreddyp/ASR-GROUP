@@ -245,10 +245,10 @@ export default function HeroHome() {
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1600px] items-end px-5 pb-32 pt-32 sm:px-9 sm:pb-36 lg:px-[4.8rem]">
         <div className="w-full text-left">
-          <div className="max-w-[760px]">
+          <div className="w-full text-center">
             <motion.h1
               id="hero-title"
-              className="font-display text-[clamp(3rem,6.8vw,7.25rem)] leading-[0.86] tracking-[-0.055em] text-white drop-shadow-[0_3px_26px_rgba(0,0,0,.32)]"
+              className="hero-title font-display whitespace-nowrap text-white drop-shadow-[0_3px_26px_rgba(0,0,0,.32)]"
               initial={{ opacity: 0, y: 42, clipPath: "inset(0 0 28% 0)" }}
               animate={
                 introComplete

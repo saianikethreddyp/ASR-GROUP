@@ -148,12 +148,14 @@ export default function GalleryAlbumPage({
               >
                 ← All albums
               </Link>
-              <Link
-                href={`/projects/${album.projectSlug}`}
-                className="text-xs font-semibold text-[#596168] transition-colors hover:text-[#9a7645]"
-              >
-                View project record
-              </Link>
+              {album.projectSlug ? (
+                <Link
+                  href={`/projects/${album.projectSlug}`}
+                  className="text-xs font-semibold text-[#596168] transition-colors hover:text-[#9a7645]"
+                >
+                  View project record
+                </Link>
+              ) : null}
             </div>
 
             <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(22rem,.62fr)] lg:items-end lg:gap-16">
@@ -166,9 +168,23 @@ export default function GalleryAlbumPage({
                 </h1>
               </div>
               <div className="lg:pb-2">
-                <p className="text-sm font-semibold leading-6 text-[#596168]">
-                  {album.category} · {album.location}
-                </p>
+                {album.context ? (
+                  <p className="text-[0.67rem] font-semibold tracking-[0.16em] text-[#9a7645] uppercase">
+                    {album.context}
+                  </p>
+                ) : null}
+                <dl className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold leading-6 text-[#596168]">
+                  {album.clientName ? (
+                    <div className="flex gap-2">
+                      <dt className="text-[#777d82]">Client</dt>
+                      <dd>{album.clientName}</dd>
+                    </div>
+                  ) : null}
+                  <div className="flex gap-2">
+                    <dt className="text-[#777d82]">Location</dt>
+                    <dd>{album.location}</dd>
+                  </div>
+                </dl>
                 <p className="mt-5 max-w-[34rem] text-sm leading-7 text-[#505961]">
                   {album.summary}
                 </p>
@@ -210,7 +226,9 @@ export default function GalleryAlbumPage({
 
               <div className="mt-8 grid gap-x-5 gap-y-14 md:grid-cols-12">
                 {images.map(({ image, albumIndex }, imageIndex) => {
+                  const isFloorPlan = image.kind === "floor-plan";
                   const wide =
+                    isFloorPlan ||
                     images.length === 1 ||
                     imageIndex % 3 === 0 ||
                     image.width / image.height > 1.55;
@@ -227,7 +245,9 @@ export default function GalleryAlbumPage({
                           onClick={(event) =>
                             openImage(albumIndex, event.currentTarget)
                           }
-                          className="group relative block w-full overflow-hidden rounded-[18px] bg-[#d8d0c4] text-left"
+                          className={`group relative block w-full overflow-hidden rounded-[18px] text-left ${
+                            isFloorPlan ? "bg-[#e7dfd4] p-4 sm:p-8" : "bg-[#d8d0c4]"
+                          }`}
                           style={{ aspectRatio: `${image.width} / ${image.height}` }}
                           aria-label={`Open image ${albumIndex + 1} of ${album.images.length}: ${image.caption}`}
                         >
@@ -238,7 +258,11 @@ export default function GalleryAlbumPage({
                             priority={albumIndex === 0}
                             sizes={wide ? "100vw" : "(max-width: 768px) 100vw, 50vw"}
                             style={{ objectPosition: image.objectPosition }}
-                            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.012]"
+                            className={
+                              isFloorPlan
+                                ? "object-contain p-4 sm:p-8"
+                                : "object-cover transition-transform duration-700 ease-out group-hover:scale-[1.012]"
+                            }
                           />
                         </button>
                         <figcaption className="mt-5 flex flex-col justify-between gap-3 border-t border-[#111820]/16 pt-4 text-sm sm:flex-row sm:items-start">
@@ -253,7 +277,7 @@ export default function GalleryAlbumPage({
                             className="shrink-0 text-xs font-semibold text-[#9a7645]"
                             aria-label={`Open image ${albumIndex + 1} full screen`}
                           >
-                            Open full screen ↗
+                            {isFloorPlan ? "Open full plan ↗" : "Open full screen ↗"}
                           </button>
                         </figcaption>
                       </figure>
@@ -270,32 +294,46 @@ export default function GalleryAlbumPage({
         <Reveal className="mx-auto grid max-w-[1540px] gap-9 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,.55fr)] lg:items-end">
           <div>
             <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#c6a36b] uppercase">
-              Project context
+              {album.projectSlug ? "Project context" : "Start a project"}
             </p>
             <h2 className="font-display max-w-[11ch] text-[clamp(3rem,5vw,5.8rem)] tracking-[-0.045em]">
-              See the work behind the images.
+              {album.projectSlug
+                ? "See the work behind the images."
+                : "Planning a similar interior?"}
             </h2>
           </div>
           <div>
             <p className="text-sm leading-7 text-white/62">
-              Open the project record for ASR&apos;s responsibility, sector,
-              status and delivery context.
+              {album.projectSlug
+                ? "Open the project record for ASR's responsibility, sector, status and delivery context."
+                : "Tell ASR about your space, location and priorities. We’ll help define the interior work and the right next step."}
             </p>
-            <Link
-              href={`/projects/${album.projectSlug}`}
-              className="cta-primary mt-7 inline-flex min-h-14 items-center gap-10 rounded-[10px] px-7 text-[0.78rem] font-semibold"
-            >
-              View project record <span aria-hidden="true">→</span>
-            </Link>
+            {album.projectSlug ? (
+              <Link
+                href={`/projects/${album.projectSlug}`}
+                className="cta-primary mt-7 inline-flex min-h-14 items-center gap-10 rounded-[10px] px-7 text-[0.78rem] font-semibold"
+              >
+                View project record <span aria-hidden="true">→</span>
+              </Link>
+            ) : (
+              <Link
+                href="/contact"
+                className="cta-primary mt-7 inline-flex min-h-14 items-center gap-10 rounded-[10px] px-7 text-[0.78rem] font-semibold"
+              >
+                Discuss your space <span aria-hidden="true">→</span>
+              </Link>
+            )}
           </div>
         </Reveal>
       </section>
 
-      <ClosingCta
-        eyebrow="Start a project"
-        title="Seen a useful reference?"
-        body="Share this album with us and tell us what matters for your own space."
-      />
+      {album.projectSlug ? (
+        <ClosingCta
+          eyebrow="Start a project"
+          title="Seen a useful reference?"
+          body="Share this album with us and tell us what matters for your own space."
+        />
+      ) : null}
       <InternalFooter />
 
       <AnimatePresence>
@@ -387,7 +425,11 @@ export default function GalleryAlbumPage({
                         alt=""
                         fill
                         sizes="96px"
-                        className="object-cover"
+                        className={
+                          image.kind === "floor-plan"
+                            ? "object-contain bg-[#e7dfd4] p-1"
+                            : "object-cover"
+                        }
                       />
                     </button>
                   ))}
@@ -398,12 +440,14 @@ export default function GalleryAlbumPage({
                 <p className="max-w-[42rem] text-[0.68rem] leading-5 text-white/58">
                   {activeImage.caption}
                 </p>
-                <Link
-                  href={`/projects/${album.projectSlug}`}
-                  className="shrink-0 text-xs font-semibold text-[#c6a36b]"
-                >
-                  View project record →
-                </Link>
+                {album.projectSlug ? (
+                  <Link
+                    href={`/projects/${album.projectSlug}`}
+                    className="shrink-0 text-xs font-semibold text-[#c6a36b]"
+                  >
+                    View project record →
+                  </Link>
+                ) : null}
               </div>
             </div>
           </motion.div>

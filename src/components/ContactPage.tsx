@@ -112,7 +112,7 @@ export default function ContactPage({
     const phoneDigits = phoneNumber.replace(/\D/g, "");
 
     if (phoneDigits.length < 8) {
-      setFormError("Enter a valid phone or WhatsApp number so the ASR team can respond.");
+      setFormError("Enter a valid phone or WhatsApp number so the ASR Group can respond.");
       setFormStatus("error");
       requestAnimationFrame(() => phoneRef.current?.focus());
       return;

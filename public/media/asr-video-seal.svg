@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
+  <circle cx="44" cy="44" r="41" fill="#040b12" stroke="#f5f1e8" stroke-width="3"/>
+  <circle cx="44" cy="44" r="35.5" fill="none" stroke="#c69652" stroke-width="3"/>
+  <text x="44" y="43" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" letter-spacing="2.6" text-anchor="middle">ASR</text>
+  <path d="M27 49.5h34" stroke="#c69652" stroke-width="2"/>
+  <text x="44" y="61" fill="#f5f1e8" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="700" letter-spacing="2.3" text-anchor="middle">GROUP</text>
+</svg>
