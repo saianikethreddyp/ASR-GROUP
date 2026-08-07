@@ -121,7 +121,7 @@ export default function AboutPage() {
         <InternalHeader activeLabel="About Us" />
 
         <div className="mx-auto grid min-h-[calc(100svh-9rem)] max-w-[1540px] items-center gap-12 lg:grid-cols-[minmax(0,.98fr)_minmax(31rem,1.02fr)] lg:gap-[clamp(3rem,5vw,6rem)]">
-          <div className="relative z-10 max-w-[48rem]">
+          <div className="relative z-10 max-w-[48rem] min-w-0">
             <motion.h1
               id="about-hero-title"
               className="font-display display-heading-long max-w-[12ch] text-[clamp(3.7rem,5.75vw,6.6rem)] leading-[0.94] font-normal tracking-[-0.045em]"
@@ -133,7 +133,7 @@ export default function AboutPage() {
             </motion.h1>
 
             <motion.p
-              className="mt-7 max-w-[39rem] text-[clamp(0.96rem,1.15vw,1.12rem)] leading-[1.72] text-[#465058]"
+              className="type-lead mt-7 max-w-[39rem] text-[#465058]"
               initial={reduceMotion ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: reduceMotion ? 0.01 : 0.75, delay: 0.28, ease }}

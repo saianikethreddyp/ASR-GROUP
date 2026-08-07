@@ -73,7 +73,7 @@ export default function ProjectsPage() {
             >
               Work that proves what ASR can deliver.
             </h1>
-            <p className="mt-7 max-w-[42rem] text-[clamp(1rem,1.25vw,1.14rem)] leading-[1.72] text-[#465058]">
+            <p className="type-lead mt-7 max-w-[42rem] text-[#465058]">
               Explore completed Interiors and Construction work by sector,
               location and ASR&apos;s responsibility.
             </p>

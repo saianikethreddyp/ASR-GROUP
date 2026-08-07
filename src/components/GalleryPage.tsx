@@ -126,7 +126,7 @@ export default function GalleryPage() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <p className="max-w-[35rem] text-[clamp(1rem,1.3vw,1.16rem)] leading-[1.72] text-[#465058]">
+            <p className="type-lead max-w-[35rem] text-[#465058]">
               Open a project album to explore its complete available set of
               spaces, materials and details together.
             </p>

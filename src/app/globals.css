@@ -8,11 +8,13 @@
   --font-sans: "Manrope Variable", "Inter", Helvetica, Arial, sans-serif;
   --font-display: "Newsreader Variable", Georgia, "Times New Roman", serif;
   --font-brand: "Instrument Sans Variable", "Manrope Variable", Helvetica, Arial, sans-serif;
-  --type-label: 0.625rem;
-  --type-body: 1rem;
+  --type-label: clamp(0.6875rem, 0.15vw + 0.65rem, 0.75rem);
+  --type-caption: clamp(0.8125rem, 0.15vw + 0.775rem, 0.875rem);
+  --type-body: clamp(1rem, 0.15vw + 0.9625rem, 1.0625rem);
+  --type-lead: clamp(1.125rem, 0.3vw + 1.05rem, 1.25rem);
   --type-subsection: clamp(1.618rem, 2.618vw, 2.618rem);
   --type-section: clamp(2.618rem, 4.326vw, 4.236rem);
-  --type-page: clamp(4.236rem, 7vw, 6.854rem);
+  --type-page: clamp(3.5rem, 7vw, 6.854rem);
 }
 
 * {
@@ -42,6 +44,33 @@ body {
 
 button {
   font: inherit;
+}
+
+/*
+ * Shared supporting-copy roles.
+ * Existing uppercase utility usage already describes labels and metadata,
+ * while compact leading-5 paragraphs are captions and helper text. Keeping
+ * these mappings here prevents page-level arbitrary sizes from drifting.
+ */
+:is(.uppercase, .type-label) {
+  font-size: var(--type-label) !important;
+  line-height: 1.45;
+}
+
+p:not(.uppercase):not(.font-display) {
+  font-size: var(--type-body);
+  line-height: 1.65;
+}
+
+p[class*="leading-5"]:not(.uppercase):not(.font-display),
+.type-caption {
+  font-size: var(--type-caption);
+  line-height: 1.55;
+}
+
+.type-lead {
+  font-size: var(--type-lead) !important;
+  line-height: 1.618 !important;
 }
 
 .font-display {
@@ -93,6 +122,11 @@ button {
 
   :where(h1) {
     font-size: var(--type-page) !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 12vw, 3.5rem) !important;
+    line-height: 0.94 !important;
   }
 }
 
@@ -173,9 +207,9 @@ button {
 }
 
 .hero-title {
-  font-size: clamp(1.55rem, 6.8vw, 7.25rem) !important;
-  line-height: 0.86 !important;
-  letter-spacing: -0.055em !important;
+  /* The homepage uses the same H1 scale as every other page. */
+  line-height: 0.92 !important;
+  letter-spacing: -0.045em !important;
 }
 
 .hero-brand-title {
@@ -204,7 +238,7 @@ button {
   border-right: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(6, 15, 24, 0.72);
   color: #d6b477;
-  font-size: 0.52rem;
+  font-size: var(--type-label);
   font-weight: 750;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -248,7 +282,7 @@ button {
 
 .hero-company-number {
   color: #d6b477;
-  font-size: 0.56rem;
+  font-size: var(--type-label);
   font-weight: 750;
   letter-spacing: 0.14em;
 }
@@ -290,11 +324,6 @@ a.hero-company-item:focus-visible .hero-company-name {
   .hero-company-label {
     min-width: 10rem;
     padding-inline: 1rem;
-    font-size: 0.56rem;
-  }
-
-  .hero-company-number {
-    font-size: 0.58rem;
   }
 
   .hero-company-name {

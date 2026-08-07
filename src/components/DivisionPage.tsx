@@ -58,7 +58,7 @@ export default function DivisionPage({ division }: { division: Division }) {
             >
               {division.title}
             </h1>
-            <p className="mt-7 max-w-[720px] text-[clamp(1.125rem,1.3vw,1.25rem)] leading-[1.618] text-white/76">
+            <p className="type-lead mt-7 max-w-[720px] text-white/76">
               {division.introduction}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -152,7 +152,7 @@ export default function DivisionPage({ division }: { division: Division }) {
                 className="grid grid-cols-[2.8rem_1fr] items-center gap-4 border-b border-[#111820]/18 py-5 sm:grid-cols-[4rem_1fr] sm:py-6"
                 delay={(index % 3) * 0.035}
               >
-                <span className="text-[0.62rem] font-semibold tracking-[0.14em] text-[#9a7645]">
+                <span className="type-label font-semibold tracking-[0.14em] text-[#9a7645]">
                   0{index + 1}
                 </span>
                 <p className="font-display text-[clamp(1.55rem,2.4vw,2.7rem)] leading-tight">
@@ -353,7 +353,7 @@ export default function DivisionPage({ division }: { division: Division }) {
 
       <section className="px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32">
         <div className="mx-auto grid max-w-[1540px] gap-5 lg:grid-cols-[1.15fr_.85fr]">
-          <Reveal className="flex min-h-[28rem] flex-col justify-end rounded-[18px] bg-[#dcd4c8] p-7 sm:p-10 lg:p-12">
+          <Reveal className="flex min-h-[28rem] min-w-0 flex-col justify-end rounded-[18px] bg-[#dcd4c8] p-7 sm:p-10 lg:p-12">
             <p className="text-[0.62rem] font-semibold tracking-[0.16em] text-[#9a7645] uppercase">
               Relevant work
             </p>
@@ -372,7 +372,7 @@ export default function DivisionPage({ division }: { division: Division }) {
             </Link>
           </Reveal>
 
-          <Reveal className="flex min-h-[28rem] flex-col justify-end rounded-[18px] bg-[#111820] p-7 text-[#f2eee6] sm:p-10 lg:p-12" delay={0.07}>
+          <Reveal className="flex min-h-[28rem] min-w-0 flex-col justify-end rounded-[18px] bg-[#111820] p-7 text-[#f2eee6] sm:p-10 lg:p-12" delay={0.07}>
             <p className="text-[0.62rem] font-semibold tracking-[0.16em] text-[#c6a36b] uppercase">
               The connected discipline
             </p>

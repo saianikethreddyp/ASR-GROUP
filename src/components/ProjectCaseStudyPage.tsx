@@ -60,7 +60,7 @@ export default function ProjectCaseStudyPage({
             </div>
 
             <div className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,.6fr)] lg:items-end lg:gap-16">
-              <div>
+              <div className="min-w-0">
                 <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">
                   Project case study
                 </p>
@@ -130,7 +130,7 @@ export default function ProjectCaseStudyPage({
             <h2 className="font-display max-w-[12ch] text-[clamp(3rem,5vw,5.8rem)] tracking-[-0.045em]">
               Context and responsibility.
             </h2>
-            <p className="mt-8 max-w-[48rem] text-[clamp(1rem,1.25vw,1.16rem)] leading-8 text-[#465058]">
+            <p className="type-lead mt-8 max-w-[48rem] text-[#465058]">
               {project.detail}
             </p>
             <div className="mt-10 border-l-2 border-[#c6a36b] pl-6">

@@ -248,7 +248,7 @@ export default function HeroHome() {
           <div className="w-full text-center">
             <motion.h1
               id="hero-title"
-              className="hero-title font-display whitespace-nowrap text-white drop-shadow-[0_3px_26px_rgba(0,0,0,.32)]"
+              className="hero-title mx-auto font-display text-white drop-shadow-[0_3px_26px_rgba(0,0,0,.32)] sm:whitespace-nowrap"
               initial={{ opacity: 0, y: 42, clipPath: "inset(0 0 28% 0)" }}
               animate={
                 introComplete
@@ -257,10 +257,11 @@ export default function HeroHome() {
               }
               transition={{ ...enter, delay: reduceMotion ? 0 : 0.16 }}
             >
-              Everything Under One Roof.
+              <span className="block sm:inline">Everything</span>{" "}
+              <span className="block sm:inline">Under One Roof.</span>
             </motion.h1>
             <motion.p
-              className="mt-4 text-[0.68rem] font-semibold tracking-[0.24em] text-white/74 uppercase drop-shadow-[0_2px_14px_rgba(0,0,0,.3)] sm:mt-5 sm:text-[0.76rem]"
+              className="mt-4 text-[0.72rem] font-semibold tracking-[0.24em] text-white/74 uppercase drop-shadow-[0_2px_14px_rgba(0,0,0,.3)] sm:mt-5 sm:text-[0.78rem]"
               initial={{ opacity: 0, y: 14 }}
               animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
               transition={{ ...enter, delay: reduceMotion ? 0 : 0.34 }}
