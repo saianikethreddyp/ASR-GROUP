@@ -265,12 +265,8 @@ export default function HeroHome() {
             <motion.h1
               id="hero-title"
               className="hero-title mx-auto font-display text-white drop-shadow-[0_3px_26px_rgba(0,0,0,.32)] sm:whitespace-nowrap"
-              initial={{ opacity: 0, y: 42, clipPath: "inset(0 0 28% 0)" }}
-              animate={
-                introComplete
-                  ? { opacity: 1, y: 0, clipPath: "inset(0 0 0% 0)" }
-                  : { opacity: 0, y: 42, clipPath: "inset(0 0 28% 0)" }
-              }
+              initial={{ opacity: 0, y: 42 }}
+              animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 42 }}
               transition={{ ...enter, delay: reduceMotion ? 0 : 0.28 }}
             >
               <span className="block sm:inline">Everything</span>{" "}
