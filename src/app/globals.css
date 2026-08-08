@@ -126,7 +126,7 @@ p[class*="leading-5"]:not(.uppercase):not(.font-display),
 
   .hero-title {
     font-size: clamp(2.5rem, 12vw, 3.5rem) !important;
-    line-height: 0.94 !important;
+    line-height: 1.02 !important;
   }
 }
 
@@ -207,8 +207,9 @@ p[class*="leading-5"]:not(.uppercase):not(.font-display),
 }
 
 .hero-title {
-  /* The homepage uses the same H1 scale as every other page. */
-  line-height: 0.92 !important;
+  /* Preserve the headline's full Newsreader glyph bounds during its entrance. */
+  padding-block: 0.06em;
+  line-height: 1.02 !important;
   letter-spacing: -0.045em !important;
 }
 
