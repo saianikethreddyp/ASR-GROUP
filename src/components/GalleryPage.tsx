@@ -15,6 +15,13 @@ import {
 } from "@/data/galleryAlbums";
 
 type AlbumFilter = "All" | GalleryAlbum["category"];
+type InteriorFilter = "All Interiors" | NonNullable<GalleryAlbum["segment"]>;
+
+const interiorFilters: InteriorFilter[] = [
+  "All Interiors",
+  "Residential",
+  "Commercial & Institutional",
+];
 
 function AlbumCover({
   album,
@@ -72,6 +79,8 @@ function AlbumCover({
 
 export default function GalleryPage() {
   const [activeFilter, setActiveFilter] = useState<AlbumFilter>("All");
+  const [activeInteriorFilter, setActiveInteriorFilter] =
+    useState<InteriorFilter>("All Interiors");
   const reduceMotion = useReducedMotion();
   const filters: AlbumFilter[] = ["All", ...galleryAlbumCategories];
 
@@ -79,9 +88,12 @@ export default function GalleryPage() {
     () =>
       galleryAlbums.filter(
         (album) =>
-          activeFilter === "All" || album.category === activeFilter,
+          (activeFilter === "All" || album.category === activeFilter) &&
+          (activeFilter !== "Interiors" ||
+            activeInteriorFilter === "All Interiors" ||
+            album.segment === activeInteriorFilter),
       ),
-    [activeFilter],
+    [activeFilter, activeInteriorFilter],
   );
 
   const visibleImages = visibleAlbums.reduce(
@@ -126,7 +138,7 @@ export default function GalleryPage() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <p className="max-w-[35rem] text-[clamp(1rem,1.3vw,1.16rem)] leading-[1.72] text-[#465058]">
+            <p className="type-lead max-w-[35rem] text-[#465058]">
               Open a project album to explore its complete available set of
               spaces, materials and details together.
             </p>
@@ -185,6 +197,40 @@ export default function GalleryPage() {
             </p>
           </Reveal>
 
+          {activeFilter === "Interiors" ? (
+            <motion.div
+              className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center"
+              initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: reduceMotion ? 0.01 : 0.35 }}
+              aria-label="Interior project type"
+            >
+              <p className="text-[0.6rem] font-semibold tracking-[0.14em] text-[#777d82] uppercase">
+                Interior project type
+              </p>
+              <div className="-mx-5 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:px-0">
+                {interiorFilters.map((filter) => {
+                  const active = activeInteriorFilter === filter;
+                  return (
+                    <button
+                      key={filter}
+                      type="button"
+                      onClick={() => setActiveInteriorFilter(filter)}
+                      aria-pressed={active}
+                      className={`min-h-10 shrink-0 rounded-full border px-4 text-[0.7rem] font-semibold transition-colors ${
+                        active
+                          ? "border-[#9a7645] bg-[#9a7645] text-white"
+                          : "border-[#111820]/16 text-[#596168] hover:border-[#9a7645]/55 hover:text-[#7a5b34]"
+                      }`}
+                    >
+                      {filter}
+                    </button>
+                  );
+                })}
+              </div>
+            </motion.div>
+          ) : null}
+
           <div className="mt-8 flex items-baseline justify-between gap-6">
             <h2 className="font-display text-[clamp(2.6rem,4vw,4.8rem)] tracking-[-0.04em]">
               {activeFilter === "Real Estate Layouts"
@@ -210,10 +256,10 @@ export default function GalleryPage() {
                   >
                     <Link
                       href={`/gallery/${album.slug}`}
-                      className="group grid gap-7 lg:grid-cols-[minmax(0,1.24fr)_minmax(22rem,.76fr)] lg:items-end lg:gap-12"
+                      className="group mx-auto grid w-full gap-7 lg:max-w-[1120px] lg:grid-cols-[minmax(0,.82fr)_minmax(22rem,.72fr)] lg:items-center lg:gap-14"
                     >
                       <AlbumCover album={album} eager={index === 0} />
-                      <div className="border-t border-[#111820]/18 pt-6">
+                      <div className="border-t border-[#111820]/18 pt-6 lg:self-center">
                         <p className="text-[0.6rem] font-semibold tracking-[0.14em] text-[#9a7645] uppercase">
                           {album.context ?? `${album.category} · ${album.images.length} ${album.images.length === 1 ? "image" : "images"}`}
                         </p>

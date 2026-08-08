@@ -88,19 +88,17 @@ export default function Footer() {
               Contact
             </p>
             <address className="mt-5 text-sm leading-6 text-white/62 not-italic">
-              Plot Nos. 8–9, Krithika Layout
+              4th Floor, Sri Arcade Bldg
               <br />
-              Madhapur, Hyderabad
+              Plot No. 34, Jayabheri Enclave
               <br />
-              Telangana 500081
+              Gachibowli, Hyderabad 500032
             </address>
             <div className="mt-5 flex flex-col items-start gap-3 text-sm text-white/76">
               <a className="transition-colors hover:text-white" href="tel:+918008667766">
-                Turnkey: +91 80086 67766
+                +91 80086 67766
               </a>
-              <a className="transition-colors hover:text-white" href="tel:+919908606867">
-                Kitchens: +91 99086 06867
-              </a>
+              <p className="text-white/55">Hyderabad · Bangalore · Vijayawada</p>
             </div>
           </div>
         </div>

@@ -54,6 +54,7 @@ export type GalleryAlbum = {
   title: string;
   discipline: SignatureProject["discipline"];
   category: GalleryAlbumCategory;
+  segment?: "Residential" | "Commercial & Institutional";
   location: string;
   clientName?: string;
   context?: string;
@@ -84,6 +85,10 @@ function createAlbum(
     discipline: project.discipline,
     category:
       project.discipline === "Interiors" ? "Interiors" : "Construction",
+    segment:
+      project.discipline === "Interiors"
+        ? "Commercial & Institutional"
+        : undefined,
     location: project.location,
     summary: project.summary,
     scope: project.scope,
@@ -96,6 +101,7 @@ function createInteriorAlbum(input: InteriorAlbumInput): GalleryAlbum {
     ...input,
     discipline: "Interiors",
     category: "Interiors",
+    segment: "Residential",
   };
 }
 

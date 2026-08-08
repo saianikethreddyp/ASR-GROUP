@@ -111,14 +111,14 @@ export const divisions: Record<Division["slug"], Division> = {
           "We agree on the design, materials, work and responsibilities.",
       },
       {
-        title: "Make",
+        title: "Design",
         body:
-          "We coordinate materials, specialist work and installation on site.",
+          "We develop the approved design, materials and details into one coordinated direction.",
       },
       {
-        title: "Finish",
+        title: "Handover",
         body:
-          "We check the finished space against the approved design before handover.",
+          "We complete the installation, check the finished space and hand it over against the approved design.",
       },
     ],
     clientsTitle: "Experience across spaces that have to perform.",
@@ -223,9 +223,9 @@ export const divisions: Record<Division["slug"], Division> = {
           "We manage civil work, services, specialists and finishing against the plan.",
       },
       {
-        title: "Finish",
+        title: "Handover",
         body:
-          "We check the completed work and prepare the project for handover.",
+          "We complete the final checks, close the agreed work and hand over the project clearly.",
       },
     ],
     clientsTitle: "Experience across complex built environments.",

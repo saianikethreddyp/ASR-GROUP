@@ -26,16 +26,16 @@ export const businessStructuredData = {
   telephone: "+91-80086-67766",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Plot Nos. 8–9, Krithika Layout, Madhapur",
+    streetAddress: "4th Floor, Sri Arcade Bldg, Plot No. 34, Jayabheri Enclave, Gachibowli",
     addressLocality: "Hyderabad",
     addressRegion: "Telangana",
-    postalCode: "500081",
+    postalCode: "500032",
     addressCountry: "IN",
   },
-  areaServed: {
+  areaServed: ["Hyderabad", "Bangalore", "Vijayawada"].map((name) => ({
     "@type": "City",
-    name: "Hyderabad",
-  },
+    name,
+  })),
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "ASR Group services",

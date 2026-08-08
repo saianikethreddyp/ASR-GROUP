@@ -58,7 +58,7 @@ export default function DivisionPage({ division }: { division: Division }) {
             >
               {division.title}
             </h1>
-            <p className="mt-7 max-w-[720px] text-[clamp(1.125rem,1.3vw,1.25rem)] leading-[1.618] text-white/76">
+            <p className="type-lead mt-7 max-w-[720px] text-white/76">
               {division.introduction}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -152,7 +152,7 @@ export default function DivisionPage({ division }: { division: Division }) {
                 className="grid grid-cols-[2.8rem_1fr] items-center gap-4 border-b border-[#111820]/18 py-5 sm:grid-cols-[4rem_1fr] sm:py-6"
                 delay={(index % 3) * 0.035}
               >
-                <span className="text-[0.62rem] font-semibold tracking-[0.14em] text-[#9a7645]">
+                <span className="type-label font-semibold tracking-[0.14em] text-[#9a7645]">
                   0{index + 1}
                 </span>
                 <p className="font-display text-[clamp(1.55rem,2.4vw,2.7rem)] leading-tight">
@@ -278,10 +278,14 @@ export default function DivisionPage({ division }: { division: Division }) {
               }`}
             >
               {relevantProjects.map((project, index) => (
-                <Reveal key={project.slug} delay={(index % 3) * 0.06}>
+                <Reveal
+                  key={project.slug}
+                  className="h-full"
+                  delay={(index % 3) * 0.06}
+                >
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="group block overflow-hidden rounded-[18px] border border-[#111820]/12 bg-[#e9e3d9] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9a7645]"
+                    className="group flex h-full flex-col overflow-hidden rounded-[18px] border border-[#111820]/12 bg-[#e9e3d9] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9a7645]"
                     aria-label={`View ${project.title} project record`}
                   >
                     <div className="relative aspect-[4/3] overflow-hidden bg-[#d9d1c5]">
@@ -293,7 +297,7 @@ export default function DivisionPage({ division }: { division: Division }) {
                         className="object-cover saturate-[.82] transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                       />
                     </div>
-                    <div className="p-6 sm:p-7">
+                    <div className="flex flex-1 flex-col p-6 sm:p-7">
                       <div className="flex items-center justify-between gap-5 text-[0.58rem] font-semibold tracking-[0.13em] text-[#7c633f] uppercase">
                         <span>{project.sector}</span>
                         <span>{project.status}</span>
@@ -305,7 +309,7 @@ export default function DivisionPage({ division }: { division: Division }) {
                       <p className="mt-5 border-t border-[#111820]/14 pt-5 text-sm leading-6 text-[#444e55]">
                         {project.scope}
                       </p>
-                      <div className="mt-6 flex items-center justify-between gap-5 text-[0.62rem] font-semibold tracking-[0.1em] text-[#8f6c3d] uppercase">
+                      <div className="mt-auto flex items-center justify-between gap-5 pt-6 text-[0.62rem] font-semibold tracking-[0.1em] text-[#8f6c3d] uppercase">
                         <span>View project record</span>
                         <span
                           aria-hidden="true"
@@ -316,9 +320,6 @@ export default function DivisionPage({ division }: { division: Division }) {
                       </div>
                     </div>
                   </Link>
-                  <p className="mt-3 px-1 text-[0.66rem] leading-5 text-[#6a7277]">
-                    {project.imageNote}
-                  </p>
                 </Reveal>
               ))}
             </div>
@@ -353,7 +354,7 @@ export default function DivisionPage({ division }: { division: Division }) {
 
       <section className="px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32">
         <div className="mx-auto grid max-w-[1540px] gap-5 lg:grid-cols-[1.15fr_.85fr]">
-          <Reveal className="flex min-h-[28rem] flex-col justify-end rounded-[18px] bg-[#dcd4c8] p-7 sm:p-10 lg:p-12">
+          <Reveal className="flex min-h-[28rem] min-w-0 flex-col justify-end rounded-[18px] bg-[#dcd4c8] p-7 sm:p-10 lg:p-12">
             <p className="text-[0.62rem] font-semibold tracking-[0.16em] text-[#9a7645] uppercase">
               Relevant work
             </p>
@@ -372,7 +373,7 @@ export default function DivisionPage({ division }: { division: Division }) {
             </Link>
           </Reveal>
 
-          <Reveal className="flex min-h-[28rem] flex-col justify-end rounded-[18px] bg-[#111820] p-7 text-[#f2eee6] sm:p-10 lg:p-12" delay={0.07}>
+          <Reveal className="flex min-h-[28rem] min-w-0 flex-col justify-end rounded-[18px] bg-[#111820] p-7 text-[#f2eee6] sm:p-10 lg:p-12" delay={0.07}>
             <p className="text-[0.62rem] font-semibold tracking-[0.16em] text-[#c6a36b] uppercase">
               The connected discipline
             </p>

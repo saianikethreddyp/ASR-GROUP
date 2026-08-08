@@ -132,7 +132,7 @@ export default function GalleryAlbumPage({
     <article className="min-h-screen bg-[#f2eee6] text-[#111820]">
       <section className="relative px-5 pb-10 pt-36 sm:px-9 sm:pb-12 sm:pt-44 lg:px-[4.8rem] lg:pb-12 lg:pt-44">
         <InternalHeader activeLabel="Gallery" />
-        <div className="mx-auto max-w-[1540px]">
+        <div className="mx-auto max-w-[1540px] lg:max-w-[1080px]">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -200,7 +200,7 @@ export default function GalleryAlbumPage({
       </section>
 
       <section className="px-5 pb-24 sm:px-9 sm:pb-28 lg:px-[4.8rem] lg:pb-36">
-        <div className="mx-auto max-w-[1540px]">
+        <div className="mx-auto max-w-[1540px] lg:max-w-[1080px]">
           {groupedImages.map(({ group, images }, groupIndex) => (
             <section
               key={group}

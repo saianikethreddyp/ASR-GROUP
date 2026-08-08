@@ -199,7 +199,7 @@ export default function DisciplinesSection() {
               id="disciplines-title"
               className="mt-5 max-w-[17ch] text-[clamp(2.8rem,5vw,6rem)] leading-[0.9] tracking-[-0.055em]"
             >
-              Simple, good interiors and construction.
+              One group. One team.
             </h2>
           </div>
           <div className="lg:justify-self-end lg:pb-2">

@@ -77,9 +77,9 @@ const approach = [
   },
   {
     number: "03",
-    title: "Check the work",
+    title: "Handover the project",
     body:
-      "We review the work throughout the project so the finished result matches what was approved.",
+      "We complete the final checks, confirm the approved work and hand over the finished project clearly.",
     image: "/media/asr-construction-capability.png",
     alt: "Construction execution and finished architectural detailing",
   },
@@ -120,11 +120,11 @@ export default function AboutPage() {
       >
         <InternalHeader activeLabel="About Us" />
 
-        <div className="mx-auto grid min-h-[calc(100svh-9rem)] max-w-[1540px] items-center gap-12 lg:grid-cols-[minmax(0,.98fr)_minmax(31rem,1.02fr)] lg:gap-[clamp(3rem,5vw,6rem)]">
-          <div className="relative z-10 max-w-[48rem]">
+        <div className="mx-auto flex min-h-[calc(100svh-9rem)] max-w-[1540px] items-center">
+          <div className="relative z-10 w-full max-w-[82rem] min-w-0">
             <motion.h1
               id="about-hero-title"
-              className="font-display display-heading-long max-w-[12ch] text-[clamp(3.7rem,5.75vw,6.6rem)] leading-[0.94] font-normal tracking-[-0.045em]"
+              className="font-display display-heading-long max-w-[18ch] text-[clamp(3.7rem,5.75vw,6.6rem)] leading-[0.94] font-normal tracking-[-0.045em]"
               initial={reduceMotion ? false : { opacity: 0, y: 34 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: reduceMotion ? 0.01 : 0.9, delay: 0.12, ease }}
@@ -133,7 +133,7 @@ export default function AboutPage() {
             </motion.h1>
 
             <motion.p
-              className="mt-7 max-w-[39rem] text-[clamp(0.96rem,1.15vw,1.12rem)] leading-[1.72] text-[#465058]"
+              className="type-lead mt-7 max-w-[50rem] text-[#465058]"
               initial={reduceMotion ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: reduceMotion ? 0.01 : 0.75, delay: 0.28, ease }}
@@ -172,22 +172,6 @@ export default function AboutPage() {
             </motion.div>
           </div>
 
-          <motion.div
-            className="relative aspect-[4/5] min-h-[31rem] overflow-hidden rounded-[18px] bg-[#d8d0c4] lg:h-[min(76svh,51rem)] lg:min-h-[38rem] lg:aspect-auto"
-            initial={reduceMotion ? false : { opacity: 0.65, scale: 0.985, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: reduceMotion ? 0.01 : 1.05, delay: 0.16, ease }}
-          >
-            <Image
-              src="/media/asr-aperture-material-study.jpg"
-              alt="Architectural material study with walnut, stone, brass and technical drawings"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              preload
-              loading="eager"
-              className="object-cover object-[67%_center]"
-            />
-          </motion.div>
         </div>
       </section>
 
@@ -242,37 +226,21 @@ export default function AboutPage() {
 
       <section className="px-5 py-20 sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-32">
         <div className="mx-auto max-w-[1440px]">
-          <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,.92fr)_minmax(30rem,1.08fr)] lg:gap-[clamp(3rem,7vw,8rem)]">
-            <Reveal>
-              <h2 className="font-display max-w-[12ch] text-[clamp(3.3rem,5vw,6rem)] leading-[0.94] tracking-[-0.043em]">
-                Two disciplines. One team working together.
+          <Reveal className="mb-12 grid gap-6 lg:mb-16 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,.62fr)] lg:items-end">
+            <div>
+              <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">
+                ASR Group companies
+              </p>
+              <h2 className="font-display max-w-[13ch] text-[clamp(3.3rem,5vw,6rem)] leading-[0.94] tracking-[-0.043em]">
+                Four companies. One ASR Group.
               </h2>
-              <div className="mt-8 max-w-[38rem] space-y-5 text-[0.98rem] leading-7 text-[#465058]">
-                <p>
-                  ASR&apos;s experience has developed across two closely connected fields:
-                  Interiors and Construction.
-                </p>
-                <p>
-                  Bringing these teams together helps ASR manage the project as a whole instead
-                  of splitting it into disconnected parts.
-                </p>
-              </div>
-            </Reveal>
+            </div>
+            <p className="max-w-[35rem] text-[0.98rem] leading-7 text-[#465058] lg:pb-1">
+              Explore the businesses that make up ASR Group and find the one closest to your requirement.
+            </p>
+          </Reveal>
 
-            <Reveal delay={0.08}>
-              <div className="relative aspect-[16/10] overflow-hidden rounded-[18px] bg-[#d8d0c4]">
-                <Image
-                  src="/media/asr-aperture-material-study.jpg"
-                  alt="Material study bringing together stone, timber, brass and technical coordination"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 52vw"
-                  className="object-cover"
-                />
-              </div>
-            </Reveal>
-          </div>
-
-          <div className="mt-16 grid border-y border-[#111820]/16 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="grid border-y border-[#111820]/16 sm:grid-cols-2 xl:grid-cols-4">
             {divisions.map((division, index) => (
               <Reveal
                 key={division.title}

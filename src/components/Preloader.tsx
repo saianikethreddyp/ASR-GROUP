@@ -160,7 +160,7 @@ export default function Preloader() {
               animate={{ opacity: [0, 0.72, 0.72] }}
               transition={{ duration: 2.72, delay: 0.58, times: [0, 0.28, 1] }}
             >
-              Hyderabad, India
+              Hyderabad · Vijayawada · Bangalore
             </motion.p>
           ) : null}
         </motion.div>

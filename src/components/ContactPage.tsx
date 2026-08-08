@@ -77,10 +77,15 @@ function DirectContact({ className = "" }: { className?: string }) {
           ASR Group
         </p>
         <address className="mt-2 text-sm leading-6 text-[#505961] not-italic">
-          Krithika Layout, Madhapur
+          4th Floor, Sri Arcade Bldg, Plot No. 34
           <br />
-          Hyderabad, Telangana 500081
+          Jayabheri Enclave, Gachibowli
+          <br />
+          Hyderabad, Telangana 500032
         </address>
+        <p className="mt-3 text-sm leading-6 text-[#6b7278]">
+          Projects across Hyderabad, Bangalore and Vijayawada
+        </p>
       </div>
 
     </div>
@@ -180,7 +185,7 @@ export default function ContactPage({
             >
               Tell us what you&apos;re planning.
             </h1>
-            <p className="mt-7 max-w-[34rem] text-[clamp(0.98rem,1.2vw,1.12rem)] leading-[1.72] text-[#465058]">
+            <p className="type-lead mt-7 max-w-[34rem] text-[#465058]">
               You do not need to have every detail resolved. Share what you know today, and our
               team will help identify the most useful next step.
             </p>
@@ -321,7 +326,7 @@ export default function ContactPage({
                           />
                           <span className="flex min-h-[6.5rem] flex-col rounded-[11px] border border-[#111820]/15 bg-[#f7f3ec] p-4 transition-[border-color,background-color,box-shadow] peer-checked:border-[#a77d45] peer-checked:bg-[#f2eadf] peer-checked:shadow-[inset_0_0_0_1px_#a77d45] peer-focus-visible:outline-2 peer-focus-visible:outline-offset-3 peer-focus-visible:outline-[#b58b51] hover:border-[#111820]/30">
                             <span className="text-[0.82rem] font-semibold">{team.label}</span>
-                            <span className="mt-2 text-[0.68rem] leading-5 text-[#697076]">
+                            <span className="type-caption mt-2 text-[#697076]">
                               {team.helper}
                             </span>
                           </span>

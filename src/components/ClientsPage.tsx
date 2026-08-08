@@ -90,7 +90,7 @@ export default function ClientsPage() {
       <section className="relative px-5 pb-20 pt-36 sm:px-9 sm:pb-24 sm:pt-44 lg:px-[4.8rem] lg:pb-32 lg:pt-52" aria-labelledby="clients-title">
         <InternalHeader activeLabel="Clients" />
         <div className="mx-auto grid max-w-[1540px] gap-12 lg:grid-cols-[minmax(0,1.24fr)_minmax(20rem,.76fr)] lg:items-end lg:gap-20">
-          <motion.div initial={reduceMotion ? false : { opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0.01 : 0.9, delay: 0.1, ease }}>
+          <motion.div className="min-w-0" initial={reduceMotion ? false : { opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0.01 : 0.9, delay: 0.1, ease }}>
             <p className="mb-6 text-[0.67rem] font-semibold tracking-[0.18em] text-[#9a7645] uppercase">Clients</p>
             <h1 id="clients-title" className="font-display display-heading-long max-w-[13ch] text-[clamp(3.8rem,6.7vw,7.7rem)] leading-[0.91] tracking-[-0.05em]">
               Experience across spaces that matter.
@@ -183,7 +183,6 @@ export default function ClientsPage() {
                     </div>
                     <span className="mt-1 text-[#9a7645] transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
                   </div>
-                  <p className="mt-4 text-[0.68rem] leading-5 text-[#687077]">Illustrative visual, not project photography.</p>
                 </Link>
               </Reveal>
             ))}
