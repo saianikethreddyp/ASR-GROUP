@@ -77,10 +77,15 @@ function DirectContact({ className = "" }: { className?: string }) {
           ASR Group
         </p>
         <address className="mt-2 text-sm leading-6 text-[#505961] not-italic">
-          Krithika Layout, Madhapur
+          4th Floor, Sri Arcade Bldg, Plot No. 34
           <br />
-          Hyderabad, Telangana 500081
+          Jayabheri Enclave, Gachibowli
+          <br />
+          Hyderabad, Telangana 500032
         </address>
+        <p className="mt-3 text-sm leading-6 text-[#6b7278]">
+          Projects across Hyderabad, Bangalore and Vijayawada
+        </p>
       </div>
 
     </div>

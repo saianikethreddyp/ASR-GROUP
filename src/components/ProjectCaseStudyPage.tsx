@@ -99,9 +99,8 @@ export default function ProjectCaseStudyPage({
               className="object-cover"
             />
           </motion.div>
-          <div className="mt-4 flex flex-col justify-between gap-2 text-[0.68rem] leading-5 text-[#667077] sm:flex-row">
+          <div className="mt-4 text-[0.68rem] leading-5 text-[#667077]">
             <p>{project.imageGroup}</p>
-            <p>{project.imageNote}</p>
           </div>
         </div>
       </section>

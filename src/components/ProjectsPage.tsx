@@ -14,20 +14,6 @@ import { signatureProjects } from "@/data/signatureProjects";
 const filters = ["All Projects", "Interiors", "Construction"] as const;
 type ProjectFilter = (typeof filters)[number];
 
-const projectSpan = [
-  "lg:col-span-7",
-  "lg:col-span-5",
-  "lg:col-span-5",
-  "lg:col-span-7",
-] as const;
-
-const projectRatio = [
-  "aspect-[16/10]",
-  "aspect-[4/3]",
-  "aspect-[4/3]",
-  "aspect-[16/10]",
-] as const;
-
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] =
     useState<ProjectFilter>("All Projects");
@@ -182,13 +168,13 @@ export default function ProjectsPage() {
           <AnimatePresence mode="popLayout">
             <motion.div
               layout
-              className="mt-12 grid gap-x-5 gap-y-16 lg:grid-cols-12"
+              className="mt-12 grid gap-x-5 gap-y-16 lg:grid-cols-3"
             >
               {visibleProjects.map((project, index) => (
                 <motion.article
                   layout
                   key={project.slug}
-                  className={projectSpan[index % projectSpan.length]}
+                  className="min-w-0"
                   initial={reduceMotion ? false : { opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={reduceMotion ? undefined : { opacity: 0, y: 10 }}
@@ -202,9 +188,7 @@ export default function ProjectsPage() {
                     className="group block h-full"
                   >
                     <div
-                      className={`relative overflow-hidden rounded-[18px] bg-[#d8d0c4] ${
-                        projectRatio[index % projectRatio.length]
-                      }`}
+                      className="relative aspect-[4/3] overflow-hidden rounded-[18px] bg-[#d8d0c4]"
                     >
                       <Image
                         src={project.image}

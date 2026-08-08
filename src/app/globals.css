@@ -331,6 +331,47 @@ a.hero-company-item:focus-visible .hero-company-name {
   }
 }
 
+@media (min-width: 1024px) {
+  .hero-company-window {
+    overflow: visible;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .hero-company-track,
+  .hero-company-sequence {
+    width: 100%;
+  }
+
+  .hero-company-track {
+    animation: none;
+  }
+
+  .hero-company-sequence {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .hero-company-sequence[aria-hidden="true"] {
+    display: none;
+  }
+
+  .hero-company-item {
+    min-width: 0;
+    justify-content: center;
+    padding-inline: 0.75rem;
+  }
+
+  .hero-company-name {
+    font-size: clamp(0.66rem, 0.72vw, 0.78rem);
+    letter-spacing: 0.1em;
+  }
+
+  .hero-company-divider {
+    display: none;
+  }
+}
+
 @media (max-width: 640px) {
   .hero-film-video,
   .hero-film-poster {

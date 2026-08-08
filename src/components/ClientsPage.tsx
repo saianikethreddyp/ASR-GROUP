@@ -183,7 +183,6 @@ export default function ClientsPage() {
                     </div>
                     <span className="mt-1 text-[#9a7645] transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
                   </div>
-                  <p className="mt-4 text-[0.68rem] leading-5 text-[#687077]">Illustrative visual, not project photography.</p>
                 </Link>
               </Reveal>
             ))}

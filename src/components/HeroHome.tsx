@@ -246,6 +246,22 @@ export default function HeroHome() {
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1600px] items-end px-5 pb-32 pt-32 sm:px-9 sm:pb-36 lg:px-[4.8rem]">
         <div className="w-full text-left">
           <div className="w-full text-center">
+            <motion.p
+              className="hero-brand-title mb-3 text-[clamp(1.05rem,1.65vw,1.65rem)] text-white/94 drop-shadow-[0_2px_14px_rgba(0,0,0,.3)]"
+              initial={{ opacity: 0, y: 12 }}
+              animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+              transition={{ ...enter, delay: reduceMotion ? 0 : 0.12 }}
+            >
+              ASR Group
+            </motion.p>
+            <motion.p
+              className="mb-5 text-[0.68rem] font-semibold tracking-[0.24em] text-white/74 uppercase drop-shadow-[0_2px_14px_rgba(0,0,0,.3)] sm:mb-6 sm:text-[0.76rem]"
+              initial={{ opacity: 0, y: 12 }}
+              animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+              transition={{ ...enter, delay: reduceMotion ? 0 : 0.2 }}
+            >
+              Inspire the Future
+            </motion.p>
             <motion.h1
               id="hero-title"
               className="hero-title mx-auto font-display text-white drop-shadow-[0_3px_26px_rgba(0,0,0,.32)] sm:whitespace-nowrap"
@@ -255,19 +271,11 @@ export default function HeroHome() {
                   ? { opacity: 1, y: 0, clipPath: "inset(0 0 0% 0)" }
                   : { opacity: 0, y: 42, clipPath: "inset(0 0 28% 0)" }
               }
-              transition={{ ...enter, delay: reduceMotion ? 0 : 0.16 }}
+              transition={{ ...enter, delay: reduceMotion ? 0 : 0.28 }}
             >
               <span className="block sm:inline">Everything</span>{" "}
               <span className="block sm:inline">Under One Roof.</span>
             </motion.h1>
-            <motion.p
-              className="mt-4 text-[0.72rem] font-semibold tracking-[0.24em] text-white/74 uppercase drop-shadow-[0_2px_14px_rgba(0,0,0,.3)] sm:mt-5 sm:text-[0.78rem]"
-              initial={{ opacity: 0, y: 14 }}
-              animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
-              transition={{ ...enter, delay: reduceMotion ? 0 : 0.34 }}
-            >
-              Inspire the Future
-            </motion.p>
           </div>
         </div>
       </div>

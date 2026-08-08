@@ -278,10 +278,14 @@ export default function DivisionPage({ division }: { division: Division }) {
               }`}
             >
               {relevantProjects.map((project, index) => (
-                <Reveal key={project.slug} delay={(index % 3) * 0.06}>
+                <Reveal
+                  key={project.slug}
+                  className="h-full"
+                  delay={(index % 3) * 0.06}
+                >
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="group block overflow-hidden rounded-[18px] border border-[#111820]/12 bg-[#e9e3d9] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9a7645]"
+                    className="group flex h-full flex-col overflow-hidden rounded-[18px] border border-[#111820]/12 bg-[#e9e3d9] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9a7645]"
                     aria-label={`View ${project.title} project record`}
                   >
                     <div className="relative aspect-[4/3] overflow-hidden bg-[#d9d1c5]">
@@ -293,7 +297,7 @@ export default function DivisionPage({ division }: { division: Division }) {
                         className="object-cover saturate-[.82] transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                       />
                     </div>
-                    <div className="p-6 sm:p-7">
+                    <div className="flex flex-1 flex-col p-6 sm:p-7">
                       <div className="flex items-center justify-between gap-5 text-[0.58rem] font-semibold tracking-[0.13em] text-[#7c633f] uppercase">
                         <span>{project.sector}</span>
                         <span>{project.status}</span>
@@ -305,7 +309,7 @@ export default function DivisionPage({ division }: { division: Division }) {
                       <p className="mt-5 border-t border-[#111820]/14 pt-5 text-sm leading-6 text-[#444e55]">
                         {project.scope}
                       </p>
-                      <div className="mt-6 flex items-center justify-between gap-5 text-[0.62rem] font-semibold tracking-[0.1em] text-[#8f6c3d] uppercase">
+                      <div className="mt-auto flex items-center justify-between gap-5 pt-6 text-[0.62rem] font-semibold tracking-[0.1em] text-[#8f6c3d] uppercase">
                         <span>View project record</span>
                         <span
                           aria-hidden="true"
@@ -316,9 +320,6 @@ export default function DivisionPage({ division }: { division: Division }) {
                       </div>
                     </div>
                   </Link>
-                  <p className="mt-3 px-1 text-[0.66rem] leading-5 text-[#6a7277]">
-                    {project.imageNote}
-                  </p>
                 </Reveal>
               ))}
             </div>
