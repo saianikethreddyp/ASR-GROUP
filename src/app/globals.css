@@ -215,9 +215,16 @@ p[class*="leading-5"]:not(.uppercase):not(.font-display),
 
 .hero-brand-title {
   font-family: var(--font-brand) !important;
+  font-size: clamp(1.625rem, 2.45vw, 1.875rem) !important;
+  line-height: 1.15 !important;
   font-weight: 500 !important;
   letter-spacing: 0.045em !important;
   text-transform: uppercase !important;
+}
+
+.hero-tagline {
+  font-size: clamp(0.6rem, 0.8vw, 0.64rem) !important;
+  line-height: 1.45 !important;
 }
 
 .hero-company-rail {
