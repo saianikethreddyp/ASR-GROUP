@@ -24,6 +24,7 @@ export const businessStructuredData = {
   description:
     "ASR Group delivers residential and commercial interiors and construction in Hyderabad through one accountable team.",
   telephone: "+91-80086-67766",
+  email: "info@asrgroupindia.in",
   address: {
     "@type": "PostalAddress",
     streetAddress: "4th Floor, Sri Arcade Bldg, Plot No. 34, Jayabheri Enclave, Gachibowli",

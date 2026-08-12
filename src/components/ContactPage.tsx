@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Check, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Check, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import { FormEvent, useRef, useState } from "react";
 import InternalFooter from "@/components/InternalFooter";
@@ -68,6 +68,19 @@ function DirectContact({ className = "" }: { className?: string }) {
           className="mt-2 inline-block text-[1rem] font-semibold transition-colors hover:text-[#9a7645]"
         >
           +91 80086 67766
+        </a>
+      </div>
+
+      <div>
+        <Mail aria-hidden="true" className="h-5 w-5 text-[#a77d45]" strokeWidth={1.7} />
+        <p className="mt-4 text-[0.64rem] font-semibold tracking-[0.12em] text-[#7a603d] uppercase">
+          Email
+        </p>
+        <a
+          href="mailto:info@asrgroupindia.in"
+          className="mt-2 inline-block text-[1rem] font-semibold transition-colors hover:text-[#9a7645]"
+        >
+          info@asrgroupindia.in
         </a>
       </div>
 
