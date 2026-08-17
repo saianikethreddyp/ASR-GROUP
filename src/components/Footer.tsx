@@ -95,7 +95,7 @@ export default function Footer() {
               Gachibowli, Hyderabad 500032
             </address>
             <div className="mt-4 flex flex-col items-start gap-2.5 !text-[0.8125rem] text-white/76">
-              <a className="transition-colors hover:text-white" href="tel:+918008667766">
+              <a className="transition-colors hover:text-white" href="tel:+918006997799">
                 +91 80086 67766
               </a>
               <a className="transition-colors hover:text-white" href="mailto:info@asrgroupindia.in">
