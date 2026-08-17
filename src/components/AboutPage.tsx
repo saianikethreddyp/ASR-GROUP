@@ -11,7 +11,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 const leaders = [
   {
-    name: "A. S. Ram Raju",
+    name: "A. S. Rama Raju",
     role: "Managing Director",
     summary: "Direction across ASR Group’s interior and construction activities.",
   },
