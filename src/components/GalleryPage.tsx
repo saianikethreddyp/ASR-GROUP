@@ -15,13 +15,12 @@ import {
 } from "@/data/galleryAlbums";
 
 type AlbumFilter = "All" | GalleryAlbum["category"];
-type InteriorFilter = "All Interiors" | NonNullable<GalleryAlbum["segment"]>;
+type SegmentFilter = "All" | NonNullable<GalleryAlbum["segment"]>;
 
-const interiorFilters: InteriorFilter[] = [
-  "All Interiors",
-  "Residential",
-  "Commercial & Institutional",
-];
+const segmentFiltersByCategory: Partial<Record<AlbumFilter, SegmentFilter[]>> = {
+  Interiors: ["All", "Residential", "Commercial & Institutional"],
+  "Infra Projects": ["All", "High-Rise Buildings", "Standalone Apartment"],
+};
 
 function AlbumCover({
   album,
@@ -79,21 +78,27 @@ function AlbumCover({
 
 export default function GalleryPage() {
   const [activeFilter, setActiveFilter] = useState<AlbumFilter>("All");
-  const [activeInteriorFilter, setActiveInteriorFilter] =
-    useState<InteriorFilter>("All Interiors");
+  const [activeSegmentFilter, setActiveSegmentFilter] =
+    useState<SegmentFilter>("All");
   const reduceMotion = useReducedMotion();
   const filters: AlbumFilter[] = ["All", ...galleryAlbumCategories];
+  const segmentFilters = segmentFiltersByCategory[activeFilter];
+
+  function selectFilter(filter: AlbumFilter) {
+    setActiveFilter(filter);
+    setActiveSegmentFilter("All");
+  }
 
   const visibleAlbums = useMemo(
     () =>
       galleryAlbums.filter(
         (album) =>
           (activeFilter === "All" || album.category === activeFilter) &&
-          (activeFilter !== "Interiors" ||
-            activeInteriorFilter === "All Interiors" ||
-            album.segment === activeInteriorFilter),
+          (!segmentFilters ||
+            activeSegmentFilter === "All" ||
+            album.segment === activeSegmentFilter),
       ),
-    [activeFilter, activeInteriorFilter],
+    [activeFilter, activeSegmentFilter, segmentFilters],
   );
 
   const visibleImages = visibleAlbums.reduce(
@@ -163,7 +168,7 @@ export default function GalleryPage() {
                     <button
                       key={filter}
                       type="button"
-                      onClick={() => setActiveFilter(filter)}
+                      onClick={() => selectFilter(filter)}
                       aria-pressed={active}
                       className={`min-h-11 shrink-0 rounded-full border px-5 text-xs font-semibold transition-colors ${
                         active
@@ -197,25 +202,25 @@ export default function GalleryPage() {
             </p>
           </Reveal>
 
-          {activeFilter === "Interiors" ? (
+          {segmentFilters ? (
             <motion.div
               className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center"
               initial={reduceMotion ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: reduceMotion ? 0.01 : 0.35 }}
-              aria-label="Interior project type"
+              aria-label={`${activeFilter} project type`}
             >
               <p className="text-[0.6rem] font-semibold tracking-[0.14em] text-[#777d82] uppercase">
-                Interior project type
+                {activeFilter} project type
               </p>
               <div className="-mx-5 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:px-0">
-                {interiorFilters.map((filter) => {
-                  const active = activeInteriorFilter === filter;
+                {segmentFilters.map((filter) => {
+                  const active = activeSegmentFilter === filter;
                   return (
                     <button
                       key={filter}
                       type="button"
-                      onClick={() => setActiveInteriorFilter(filter)}
+                      onClick={() => setActiveSegmentFilter(filter)}
                       aria-pressed={active}
                       className={`min-h-10 shrink-0 rounded-full border px-4 text-[0.7rem] font-semibold transition-colors ${
                         active
@@ -304,15 +309,15 @@ export default function GalleryPage() {
                   {activeFilter === "Real Estate Layouts" ? (
                     <div className="mt-6">
                       <p className="mx-auto max-w-[34rem] text-sm leading-7 text-[#505961]">
-                        Land and development opportunities are presented through ASR Real
-                        Estate.
+                        Land and development opportunities are presented through ASR
+                        Developers.
                       </p>
                       <Link
                         href="https://avaniprojectsindia.com/gallery/"
                         target="_blank"
                         rel="noreferrer"
                         className="mt-6 inline-flex items-center gap-7 text-xs font-semibold text-[#9a7645]"
-                        aria-label="Explore ASR Real Estate layouts — opens external website"
+                        aria-label="Explore ASR Developers layouts — opens external website"
                       >
                         Explore real estate layouts
                         <span aria-hidden="true">↗</span>

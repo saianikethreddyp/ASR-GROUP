@@ -26,7 +26,7 @@ const businessStages: BusinessStage[] = [
   {
     number: "01",
     stage: "Find",
-    company: "ASR Real Estate",
+    company: "ASR Developers",
     description:
       "Land and property opportunities considered as the foundation of what comes next.",
     image: realEstateImage,
@@ -37,7 +37,7 @@ const businessStages: BusinessStage[] = [
   {
     number: "02",
     stage: "Build",
-    company: "ASR Home LLP",
+    company: "ASR Infra",
     description:
       "Construction planned and managed from structure through completion.",
     image: constructionImage,
@@ -57,7 +57,7 @@ const businessStages: BusinessStage[] = [
   {
     number: "04",
     stage: "Promote",
-    company: "ASR Advertising",
+    company: "ASR Ad Tech",
     description:
       "Brand and communication thinking that carries the completed vision into the market.",
     image: advertisingImage,

@@ -10,35 +10,35 @@ import { businessStructuredData, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "ASR Group | Turnkey Interiors & Construction in Hyderabad",
+  title: "ASR Group | Turnkey Interiors & Infra Projects in Hyderabad",
   description:
-    "ASR Group delivers turnkey residential and commercial interiors and construction in Hyderabad, with one accountable team from planning to handover.",
+    "ASR Group delivers turnkey residential and commercial interiors and infra projects in Hyderabad, with one accountable team from planning to handover.",
   keywords: [
     "ASR Group",
     "turnkey interiors Hyderabad",
-    "construction company Hyderabad",
+    "infra projects company Hyderabad",
     "structural glazing ACP",
     "commercial interiors",
   ],
   openGraph: {
-    title: "ASR Group | Turnkey Interiors & Construction in Hyderabad",
+    title: "ASR Group | Turnkey Interiors & Infra Projects in Hyderabad",
     description:
-      "Residential and commercial interiors and construction, coordinated by one accountable Hyderabad team.",
+      "Residential and commercial interiors and infra projects, coordinated by one accountable Hyderabad team.",
     type: "website",
     url: "/",
     siteName: "ASR Group",
     images: [
       {
         url: "/media/asr-land-to-interior-sketch.png",
-        alt: "ASR Group — interiors and construction in Hyderabad",
+        alt: "ASR Group — interiors and infra projects in Hyderabad",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ASR Group | Turnkey Interiors & Construction in Hyderabad",
+    title: "ASR Group | Turnkey Interiors & Infra Projects in Hyderabad",
     description:
-      "Residential and commercial interiors and construction, coordinated by one accountable Hyderabad team.",
+      "Residential and commercial interiors and infra projects, coordinated by one accountable Hyderabad team.",
     images: ["/media/asr-land-to-interior-sketch.png"],
   },
   alternates: { canonical: "/" },

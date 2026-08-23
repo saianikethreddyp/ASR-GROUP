@@ -7,9 +7,85 @@ import InternalFooter from "@/components/InternalFooter";
 import InternalHeader from "@/components/InternalHeader";
 import Reveal from "@/components/Reveal";
 import type { Division } from "@/data/divisions";
-import { signatureProjects } from "@/data/signatureProjects";
+import {
+  signatureProjects,
+  type SignatureProject,
+} from "@/data/signatureProjects";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+
+const segmentOrder: Array<NonNullable<SignatureProject["segment"]>> = [
+  "High-Rise Buildings",
+  "Standalone Apartment",
+];
+
+function groupBySegment(projects: SignatureProject[]) {
+  const groups: Array<{ label: string | null; projects: SignatureProject[] }> = [];
+
+  for (const segment of segmentOrder) {
+    const matches = projects.filter((project) => project.segment === segment);
+    if (matches.length) groups.push({ label: segment, projects: matches });
+  }
+
+  const rest = projects.filter(
+    (project) => !project.segment || !segmentOrder.includes(project.segment),
+  );
+  if (rest.length) {
+    groups.push({ label: groups.length ? "More Infra Projects" : null, projects: rest });
+  }
+
+  return groups;
+}
+
+function ProjectRecordCard({
+  project,
+  delay = 0,
+}: {
+  project: SignatureProject;
+  delay?: number;
+}) {
+  return (
+    <Reveal className="h-full" delay={delay}>
+      <Link
+        href={`/projects/${project.slug}`}
+        className="group flex h-full flex-col overflow-hidden rounded-[18px] border border-[#111820]/12 bg-[#e9e3d9] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9a7645]"
+        aria-label={`View ${project.title} project record`}
+      >
+        <div className="relative aspect-[4/3] overflow-hidden bg-[#d9d1c5]">
+          <Image
+            src={project.image}
+            alt={project.imageAlt}
+            fill
+            sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
+            className="object-cover saturate-[.82] transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+          />
+        </div>
+        <div className="flex flex-1 flex-col p-6 sm:p-7">
+          <div className="flex items-center justify-between gap-5 text-[0.58rem] font-semibold tracking-[0.13em] text-[#7c633f] uppercase">
+            <span>{project.sector}</span>
+            <span>{project.status}</span>
+          </div>
+          <h3 className="mt-5 text-[clamp(2rem,2.8vw,3rem)]">
+            {project.title}
+          </h3>
+          <p className="mt-3 text-sm text-[#596168]">{project.location}</p>
+          <p className="mt-5 border-t border-[#111820]/14 pt-5 text-sm leading-6 text-[#444e55]">
+            {project.scope}
+          </p>
+          <div className="mt-auto flex items-center justify-between gap-5 pt-6 text-[0.62rem] font-semibold tracking-[0.1em] text-[#8f6c3d] uppercase">
+            <span>View project record</span>
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            >
+              →
+            </span>
+          </div>
+        </div>
+      </Link>
+    </Reveal>
+  );
+}
 
 export default function DivisionPage({ division }: { division: Division }) {
   const reduceMotion = useReducedMotion();
@@ -17,6 +93,7 @@ export default function DivisionPage({ division }: { division: Division }) {
   const relevantProjects = signatureProjects.filter(
     (project) => project.discipline === division.name,
   );
+  const projectGroups = groupBySegment(relevantProjects);
 
   return (
     <article className="min-h-screen bg-[#f2eee6] text-[#111820]">
@@ -25,7 +102,7 @@ export default function DivisionPage({ division }: { division: Division }) {
         aria-labelledby="division-title"
       >
         <InternalHeader
-          activeLabel={division.slug === "interiors" ? "Interiors" : "Construction"}
+          activeLabel={division.slug === "interiors" ? "Interiors" : "Infra Projects"}
           tone="dark"
         />
         <Image
@@ -261,68 +338,42 @@ export default function DivisionPage({ division }: { division: Division }) {
                   id="relevant-work-title"
                   className="max-w-[18ch] text-balance text-[clamp(3.1rem,5vw,6rem)]"
                 >
-                  Completed work. Clear responsibility.
+                  Project work. Clear responsibility.
                 </h2>
               </div>
               <p className="max-w-[35rem] text-[clamp(1rem,1.15vw,1.125rem)] leading-[1.618] text-[#505961] lg:pb-2">
-                Completed {division.name.toLowerCase()} projects with the available scope,
+                ASR&apos;s {division.name.toLowerCase()} record, with the available scope,
                 location and visual record kept together.
               </p>
             </Reveal>
 
-            <div
-              className={`mt-14 grid gap-4 ${
-                relevantProjects.length === 1
-                  ? "max-w-[48rem]"
-                  : "md:grid-cols-2 xl:grid-cols-3"
-              }`}
-            >
-              {relevantProjects.map((project, index) => (
-                <Reveal
-                  key={project.slug}
-                  className="h-full"
-                  delay={(index % 3) * 0.06}
+            {projectGroups.map((group, groupIndex) => (
+              <div
+                key={group.label ?? "general"}
+                className={groupIndex > 0 ? "mt-16" : "mt-14"}
+              >
+                {group.label ? (
+                  <p className="mb-6 text-[0.62rem] font-semibold tracking-[0.17em] text-[#9a7645] uppercase">
+                    {group.label}
+                  </p>
+                ) : null}
+                <div
+                  className={`grid gap-4 ${
+                    group.projects.length === 1
+                      ? "max-w-[48rem]"
+                      : "md:grid-cols-2 xl:grid-cols-3"
+                  }`}
                 >
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="group flex h-full flex-col overflow-hidden rounded-[18px] border border-[#111820]/12 bg-[#e9e3d9] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9a7645]"
-                    aria-label={`View ${project.title} project record`}
-                  >
-                    <div className="relative aspect-[4/3] overflow-hidden bg-[#d9d1c5]">
-                      <Image
-                        src={project.image}
-                        alt={project.imageAlt}
-                        fill
-                        sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
-                        className="object-cover saturate-[.82] transition-transform duration-700 ease-out group-hover:scale-[1.025]"
-                      />
-                    </div>
-                    <div className="flex flex-1 flex-col p-6 sm:p-7">
-                      <div className="flex items-center justify-between gap-5 text-[0.58rem] font-semibold tracking-[0.13em] text-[#7c633f] uppercase">
-                        <span>{project.sector}</span>
-                        <span>{project.status}</span>
-                      </div>
-                      <h3 className="mt-5 text-[clamp(2rem,2.8vw,3rem)]">
-                        {project.title}
-                      </h3>
-                      <p className="mt-3 text-sm text-[#596168]">{project.location}</p>
-                      <p className="mt-5 border-t border-[#111820]/14 pt-5 text-sm leading-6 text-[#444e55]">
-                        {project.scope}
-                      </p>
-                      <div className="mt-auto flex items-center justify-between gap-5 pt-6 text-[0.62rem] font-semibold tracking-[0.1em] text-[#8f6c3d] uppercase">
-                        <span>View project record</span>
-                        <span
-                          aria-hidden="true"
-                          className="transition-transform duration-300 group-hover:translate-x-1"
-                        >
-                          →
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                </Reveal>
-              ))}
-            </div>
+                  {group.projects.map((project, index) => (
+                    <ProjectRecordCard
+                      key={project.slug}
+                      project={project}
+                      delay={(index % 3) * 0.06}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
 
             <Reveal className="mt-16 grid gap-8 rounded-[18px] border border-[#111820]/12 bg-[#e9e3d9] px-6 py-10 sm:px-10 sm:py-12 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,.72fr)] lg:items-end lg:px-12">
               <div>

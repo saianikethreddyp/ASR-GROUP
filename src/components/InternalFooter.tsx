@@ -3,7 +3,7 @@ import Link from "next/link";
 const links = [
   ["About Us", "/about"],
   ["Interiors", "/interiors"],
-  ["Construction", "/construction"],
+  ["Infra Projects", "/construction"],
   ["Gallery", "/gallery"],
   ["Contact Us", "/contact"],
 ] as const;

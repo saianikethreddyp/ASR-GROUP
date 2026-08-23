@@ -22,7 +22,7 @@ export const businessStructuredData = {
   logo: absoluteUrl("/brand/asr-group-logo-transparent.png"),
   image: absoluteUrl("/media/asr-land-to-interior-sketch.png"),
   description:
-    "ASR Group delivers residential and commercial interiors and construction in Hyderabad through one accountable team.",
+    "ASR Group delivers residential and commercial interiors and infra projects in Hyderabad through one accountable team.",
   telephone: "+91-80086-67766",
   email: "info@asrgroupindia.in",
   address: {
@@ -51,7 +51,7 @@ export const businessStructuredData = {
       },
       {
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Commercial interiors and construction" },
+        itemOffered: { "@type": "Service", name: "Commercial interiors and infra projects" },
       },
     ],
   },
