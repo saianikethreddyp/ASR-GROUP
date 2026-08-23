@@ -163,7 +163,7 @@ export const divisions: Record<Division["slug"], Division> = {
       "Construction environment showing structure and architectural delivery",
     imagePosition: "50% 48%",
     metrics: [
-      { value: "20+ years", label: "Construction experience" },
+      { value: "15+ years", label: "Construction experience" },
       {
         value: "6 lakh+ sq. ft.",
         label: "Constructed",

@@ -17,6 +17,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const segmentOrder: Array<NonNullable<SignatureProject["segment"]>> = [
   "High-Rise Buildings",
   "Standalone Apartment",
+  "Villa Projects",
 ];
 
 function groupBySegment(projects: SignatureProject[]) {

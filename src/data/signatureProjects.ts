@@ -3,7 +3,7 @@ export type SignatureProject = {
   title: string;
   discipline: "Interiors" | "Infra Projects";
   /** Building type used to group Infra Projects into page subsections. */
-  segment?: "Standalone Apartment" | "High-Rise Buildings";
+  segment?: "Standalone Apartment" | "High-Rise Buildings" | "Villa Projects";
   sector: string;
   location: string;
   summary: string;
@@ -162,6 +162,7 @@ export const signatureProjects: SignatureProject[] = [
     slug: "jayabheri-nexa",
     title: "Jayabheri NEXA",
     discipline: "Infra Projects",
+    segment: "High-Rise Buildings",
     sector: "Commercial construction",
     location: "Kondapur, Hyderabad",
     summary:
@@ -188,7 +189,7 @@ export const signatureProjects: SignatureProject[] = [
     slug: "gandipet-lake-view-villa",
     title: "Gandipet Lake View Villa",
     discipline: "Infra Projects",
-    segment: "Standalone Apartment",
+    segment: "Villa Projects",
     sector: "Luxury residential villa",
     location: "Gandipet, Hyderabad",
     summary:
@@ -215,7 +216,7 @@ export const signatureProjects: SignatureProject[] = [
     slug: "praneeth-pranav-daffodils",
     title: "Praneeth Pranav Daffodils",
     discipline: "Infra Projects",
-    segment: "Standalone Apartment",
+    segment: "High-Rise Buildings",
     sector: "Residential construction",
     location: "Bowrampet, Hyderabad",
     summary:
@@ -295,7 +296,7 @@ export const signatureProjects: SignatureProject[] = [
     slug: "southwoods-shamshabad",
     title: "Southwoods",
     discipline: "Infra Projects",
-    segment: "Standalone Apartment",
+    segment: "Villa Projects",
     sector: "Luxury residential villa",
     location: "Shamshabad, Hyderabad",
     summary:
@@ -304,13 +305,13 @@ export const signatureProjects: SignatureProject[] = [
       "ASR Infra is carrying out end-to-end construction, from foundation to handover, for Southwoods, a luxury G+1 residential villa of around 7,000 sq. ft. for the Vaishnaoi Group in Shamshabad, Hyderabad.",
     image: "/media/gallery/infra/southwoods-shamshabad/cover.jpg",
     imageAlt:
-      "Excavation and site preparation underway for the Southwoods luxury villa",
-    imageNote: "From the ASR Infra project archive.",
-    illustrative: false,
+      "Architectural rendering of the Southwoods luxury villa development in Shamshabad, Hyderabad",
+    imageNote: "Illustrative render, not project photography.",
+    illustrative: true,
     galleryCategory: "Infra Projects",
     scope: "End-to-end construction from foundation to handover",
     status: "Ongoing",
-    imageGroup: "Construction Process",
+    imageGroup: "Exterior & Built Form",
     facts: [
       { label: "Project", value: "Southwoods" },
       { label: "Sector", value: "Luxury residential villa" },
@@ -322,7 +323,7 @@ export const signatureProjects: SignatureProject[] = [
     slug: "sylvanor-mokila",
     title: "SYLVANOR",
     discipline: "Infra Projects",
-    segment: "Standalone Apartment",
+    segment: "Villa Projects",
     sector: "Luxury residential villa",
     location: "Mokila, Hyderabad",
     summary:
@@ -330,7 +331,8 @@ export const signatureProjects: SignatureProject[] = [
     detail:
       "ASR Infra is delivering end-to-end construction, from foundation to handover, for SYLVANOR, a luxury G+1 residential villa of around 7,000 sq. ft. for Bluefins in Mokila, Hyderabad.",
     image: "/media/gallery/infra/sylvanor-mokila/cover.jpg",
-    imageAlt: "Architectural rendering of the SYLVANOR luxury villa development",
+    imageAlt:
+      "Architectural rendering of the SYLVANOR luxury villa development in Mokila, Hyderabad",
     imageNote: "Illustrative render, not project photography.",
     illustrative: true,
     galleryCategory: "Infra Projects",
@@ -375,6 +377,7 @@ export const signatureProjects: SignatureProject[] = [
     slug: "karachi-commercial",
     title: "Karachi Commercial",
     discipline: "Infra Projects",
+    segment: "High-Rise Buildings",
     sector: "Commercial construction",
     location: "Kokapet, Hyderabad",
     summary: "A commercial building under construction in Kokapet, Hyderabad.",
@@ -426,7 +429,6 @@ export const signatureProjects: SignatureProject[] = [
     slug: "heyday-senior-living-community",
     title: "Heyday Senior Living Community",
     discipline: "Infra Projects",
-    segment: "High-Rise Buildings",
     sector: "Senior living residential",
     location: "Kollur, Hyderabad",
     summary:
@@ -556,7 +558,7 @@ export const signatureProjects: SignatureProject[] = [
     slug: "indus-villas",
     title: "Indus Villas",
     discipline: "Infra Projects",
-    segment: "Standalone Apartment",
+    segment: "Villa Projects",
     sector: "Residential villa",
     location: "Not specified",
     summary: "A completed independent residential villa.",
