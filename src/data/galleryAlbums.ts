@@ -44,7 +44,7 @@ export type GalleryImage = {
 
 export type GalleryAlbumCategory =
   | "Interiors"
-  | "Construction"
+  | "Infra Projects"
   | "Real Estate Layouts"
   | "Advertising";
 
@@ -54,7 +54,11 @@ export type GalleryAlbum = {
   title: string;
   discipline: SignatureProject["discipline"];
   category: GalleryAlbumCategory;
-  segment?: "Residential" | "Commercial & Institutional";
+  segment?:
+    | "Residential"
+    | "Commercial & Institutional"
+    | "Standalone Apartment"
+    | "High-Rise Buildings";
   location: string;
   clientName?: string;
   context?: string;
@@ -84,11 +88,11 @@ function createAlbum(
     title: project.title,
     discipline: project.discipline,
     category:
-      project.discipline === "Interiors" ? "Interiors" : "Construction",
+      project.discipline === "Interiors" ? "Interiors" : "Infra Projects",
     segment:
       project.discipline === "Interiors"
         ? "Commercial & Institutional"
-        : undefined,
+        : project.segment,
     location: project.location,
     summary: project.summary,
     scope: project.scope,
@@ -249,11 +253,245 @@ export const galleryAlbums: GalleryAlbum[] = [
       objectPosition: "50% 50%",
     },
   ]),
+  createAlbum("vasavi-urban-raise", [
+    {
+      id: "vasavi-urban-raise-towers",
+      src: "/media/gallery/infra/vasavi-urban-raise/cover.jpg",
+      alt: "Vasavi Urban Raise residential tower under construction, showing exposed concrete floors and scaffolding",
+      caption:
+        "Vasavi Urban Raise mid-construction, showing the completed and ongoing tower structures side by side.",
+      group: "Construction Process",
+      width: 1080,
+      height: 1920,
+    },
+  ]),
+  createAlbum("jayabheri-nexa", [
+    {
+      id: "jayabheri-nexa-facade",
+      src: "/media/gallery/infra/jayabheri-nexa/cover.jpg",
+      alt: "Completed Jayabheri NEXA commercial building with a dark glazed facade in Kondapur",
+      caption: "Jayabheri NEXA's completed glazed facade in Kondapur.",
+      group: "Exterior & Built Form",
+      width: 927,
+      height: 1536,
+    },
+  ]),
+  createAlbum("gandipet-lake-view-villa", [
+    {
+      id: "gandipet-villa-foundation",
+      src: "/media/gallery/infra/gandipet-lake-view-villa/cover.jpg",
+      alt: "Foundation and slab work in progress for the Gandipet lake-view luxury villa",
+      caption: "Foundation and slab work for the Gandipet lake-view villa.",
+      group: "Construction Process",
+      width: 1488,
+      height: 672,
+    },
+  ]),
+  createAlbum("praneeth-pranav-daffodils", [
+    {
+      id: "praneeth-daffodils-entrance",
+      src: "/media/gallery/infra/praneeth-pranav-daffodils/cover.jpg",
+      alt: "Completed Praneeth Pranav Daffodils apartment entrance with signage and landscaping",
+      caption:
+        "The completed Praneeth Pranav Daffodils entrance, landscaping and signage.",
+      group: "Exterior & Built Form",
+      width: 1152,
+      height: 870,
+    },
+  ]),
+  createAlbum("gitam-residency", [
+    {
+      id: "gitam-residency-structure",
+      src: "/media/gallery/infra/gitam-residency/cover.jpg",
+      alt: "GITAM Residency apartment tower under construction with scaffolding and a tower crane",
+      caption:
+        "GITAM Residency under construction, with scaffolding and a tower crane in place.",
+      group: "Construction Process",
+      width: 864,
+      height: 1536,
+    },
+  ]),
+  createAlbum("hedgewar-hospital-research-centre", [
+    {
+      id: "hedgewar-hospital-render",
+      src: "/media/gallery/infra/hedgewar-hospital-research-centre/cover.jpg",
+      alt: "Architectural rendering of the Dr. Hedgewar Hospital & Research Centre building",
+      caption: "Architectural rendering of the Dr. Hedgewar Hospital & Research Centre.",
+      group: "Exterior & Built Form",
+      width: 2706,
+      height: 1914,
+    },
+  ]),
+  createAlbum("southwoods-shamshabad", [
+    {
+      id: "southwoods-site-prep",
+      src: "/media/gallery/infra/southwoods-shamshabad/cover.jpg",
+      alt: "Excavation and site preparation underway for the Southwoods luxury villa",
+      caption: "Site excavation and preparation for the Southwoods villa.",
+      group: "Construction Process",
+      width: 864,
+      height: 1536,
+    },
+  ]),
+  createAlbum("sylvanor-mokila", [
+    {
+      id: "sylvanor-render",
+      src: "/media/gallery/infra/sylvanor-mokila/cover.jpg",
+      alt: "Architectural rendering of the SYLVANOR luxury villa development",
+      caption: "Architectural rendering of the SYLVANOR villa development.",
+      group: "Exterior & Built Form",
+      width: 888,
+      height: 510,
+    },
+  ]),
+  createAlbum("mangalam-rise", [
+    {
+      id: "mangalam-rise-foundation",
+      src: "/media/gallery/infra/mangalam-rise/cover.jpg",
+      alt: "Foundation excavation and shuttering underway at the Mangalam Rise site",
+      caption: "Foundation excavation and shuttering at the Mangalam Rise site.",
+      group: "Construction Process",
+      width: 1440,
+      height: 1080,
+    },
+  ]),
+  createAlbum("karachi-commercial", [
+    {
+      id: "karachi-commercial-excavation",
+      src: "/media/gallery/infra/karachi-commercial/cover.jpg",
+      alt: "Deep excavation underway at the Karachi Commercial building site",
+      caption: "Deep excavation at the Karachi Commercial site.",
+      group: "Construction Process",
+      width: 1536,
+      height: 864,
+    },
+  ]),
+  createAlbum("trendsquare-world-of-garden", [
+    {
+      id: "trendsquare-world-of-garden-site",
+      src: "/media/gallery/infra/trendsquare-world-of-garden/cover.jpg",
+      alt: "Tower cranes and early structural work at the TrendSquare World of Garden site",
+      caption: "Tower cranes and early structural work at TrendSquare World of Garden.",
+      group: "Construction Process",
+      width: 1440,
+      height: 1242,
+    },
+  ]),
+  createAlbum("heyday-senior-living-community", [
+    {
+      id: "heyday-senior-living-structure",
+      src: "/media/gallery/infra/heyday-senior-living-community/cover.jpg",
+      alt: "Multi-block structure under construction with a tower crane at Heyday senior living community",
+      caption: "Multi-block structure and tower crane at the Heyday senior living site.",
+      group: "Construction Process",
+      width: 1080,
+      height: 1920,
+    },
+  ]),
+  createAlbum("royal-ridge", [
+    {
+      id: "royal-ridge-elevation",
+      src: "/media/gallery/infra/royal-ridge/cover.jpg",
+      alt: "Royal Ridge residential apartment building elevation in JP Nagar, Hyderabad",
+      caption: "Royal Ridge, a 3 & 4 BHK residential development in JP Nagar, Hyderabad.",
+      group: "Exterior & Built Form",
+      width: 1280,
+      height: 960,
+    },
+  ]),
+  createAlbum("asr-residency", [
+    {
+      id: "asr-residency-elevation",
+      src: "/media/gallery/infra/asr-residency/cover.jpg",
+      alt: "ASR Residency apartment building elevation in Bhimavaram, Andhra Pradesh",
+      caption: "ASR Residency, a 2 & 3 BHK residential development in Bhimavaram, Andhra Pradesh.",
+      group: "Exterior & Built Form",
+      width: 1280,
+      height: 1033,
+    },
+  ]),
+  createAlbum("rr-residency", [
+    {
+      id: "rr-residency-elevation",
+      src: "/media/gallery/infra/rr-residency/cover.jpg",
+      alt: "RR Residency apartment building elevation with ground-floor retail in Gokul Plots, Hyderabad",
+      caption: "RR Residency, with ground-floor retail, in Gokul Plots, Hyderabad.",
+      group: "Exterior & Built Form",
+      width: 1082,
+      height: 1280,
+    },
+  ]),
+  createAlbum("kings-residency", [
+    {
+      id: "kings-residency-elevation",
+      src: "/media/gallery/infra/kings-residency/cover.jpg",
+      alt: "Kings Residency apartment building elevation in Bhimavaram, Hyderabad",
+      caption: "Kings Residency, a 3 & 4 BHK residential development in Bhimavaram, Hyderabad.",
+      group: "Exterior & Built Form",
+      width: 1280,
+      height: 1087,
+    },
+  ]),
+  createAlbum("indus-villas", [
+    {
+      id: "indus-villas-exterior",
+      src: "/media/gallery/infra/indus-villas/cover.jpg",
+      alt: "Indus Villas — completed two-storey independent residential villa with a private driveway and gate",
+      caption: "Indus Villas, a completed independent residential villa.",
+      group: "Exterior & Built Form",
+      width: 853,
+      height: 1280,
+    },
+  ]),
+  createAlbum("sai-nilayam", [
+    {
+      id: "sai-nilayam-elevation",
+      src: "/media/gallery/infra/sai-nilayam/cover.jpg",
+      alt: "Sai Nilayam apartment building elevation in Gokul Plots, Hyderabad",
+      caption: "Sai Nilayam, a 2 & 3 BHK residential development in Gokul Plots, Hyderabad.",
+      group: "Exterior & Built Form",
+      width: 995,
+      height: 1280,
+    },
+  ]),
+  createAlbum("royal-residences", [
+    {
+      id: "royal-residences-elevation",
+      src: "/media/gallery/infra/royal-residences/cover.jpg",
+      alt: "Royal Residences apartment building elevation in Miyapur, Hyderabad",
+      caption: "Royal Residences, a 2 & 3 BHK residential development in Miyapur, Hyderabad.",
+      group: "Exterior & Built Form",
+      width: 1280,
+      height: 875,
+    },
+  ]),
+  createAlbum("asr-avalon", [
+    {
+      id: "asr-avalon-elevation",
+      src: "/media/gallery/infra/asr-avalon/cover.jpg",
+      alt: "ASR Avalon hotel-rooms building elevation in Lingampally, Hyderabad",
+      caption: "ASR Avalon, a hotel-rooms development in Lingampally, Hyderabad.",
+      group: "Exterior & Built Form",
+      width: 1280,
+      height: 1280,
+    },
+  ]),
+  createAlbum("royal-nest", [
+    {
+      id: "royal-nest-elevation",
+      src: "/media/gallery/infra/royal-nest/cover.jpg",
+      alt: "Royal Nest hotel-rooms building elevation in Parwat Nagar",
+      caption: "Royal Nest, a hotel-rooms development in Parwat Nagar.",
+      group: "Exterior & Built Form",
+      width: 916,
+      height: 1280,
+    },
+  ]),
 ];
 
 export const galleryAlbumCategories: GalleryAlbumCategory[] = [
   "Interiors",
-  "Construction",
+  "Infra Projects",
   "Real Estate Layouts",
 ];
 

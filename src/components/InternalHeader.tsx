@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 const navigation = [
   ["About Us", "/about"],
   ["Interiors", "/interiors"],
-  ["Construction", "/construction"],
+  ["Infra Projects", "/construction"],
   ["Gallery", "/gallery"],
   ["Contact Us", "/contact"],
 ] as const;

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ClientsPage from "@/components/ClientsPage";
 
 export const metadata: Metadata = {
-  title: "ASR Group Clients | Interior & Construction Experience",
+  title: "ASR Group Clients | Interior & Infra Projects Experience",
   description:
     "Explore selected organizations, developers and institutions represented in ASR Group's Hyderabad interior and construction project experience.",
   alternates: { canonical: "/clients" },

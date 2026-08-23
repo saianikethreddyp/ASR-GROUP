@@ -8,21 +8,21 @@ import { useEffect, useState } from "react";
 const navItems = [
   ["About Us", "/about"],
   ["Interiors", "/interiors"],
-  ["Construction", "/construction"],
+  ["Infra Projects", "/construction"],
   ["Gallery", "/gallery"],
   ["Contact Us", "/contact"],
 ] as const;
 
 const businessUnits = [
   { name: "ASR Interio", href: "/interiors", external: false },
-  { name: "ASR Home LLP", href: "/construction", external: false },
+  { name: "ASR Infra", href: "/construction", external: false },
   {
-    name: "ASR Real Estate",
+    name: "ASR Developers",
     href: "https://avaniprojectsindia.com/",
     external: true,
   },
   {
-    name: "ASR Advertising",
+    name: "ASR Ad Tech",
     href: "https://airakonnect.com/",
     external: true,
   },

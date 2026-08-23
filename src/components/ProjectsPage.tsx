@@ -11,7 +11,7 @@ import Reveal from "@/components/Reveal";
 import { getGalleryAlbumForProject } from "@/data/galleryAlbums";
 import { signatureProjects } from "@/data/signatureProjects";
 
-const filters = ["All Projects", "Interiors", "Construction"] as const;
+const filters = ["All Projects", "Interiors", "Infra Projects"] as const;
 type ProjectFilter = (typeof filters)[number];
 
 export default function ProjectsPage() {
@@ -60,7 +60,7 @@ export default function ProjectsPage() {
               Work that proves what ASR can deliver.
             </h1>
             <p className="type-lead mt-7 max-w-[42rem] text-[#465058]">
-              Explore completed Interiors and Construction work by sector,
+              Explore completed Interiors and Infra Projects work by sector,
               location and ASR&apos;s responsibility.
             </p>
           </motion.div>
@@ -95,7 +95,7 @@ export default function ProjectsPage() {
       <section className="px-5 sm:px-9 lg:px-[4.8rem]">
         <Reveal className="mx-auto grid max-w-[1540px] border-y border-[#111820]/16 sm:grid-cols-3">
           {[
-            ["Disciplines", "Interiors + Construction"],
+            ["Disciplines", "Interiors + Infra Projects"],
             ["Project records", String(signatureProjects.length).padStart(2, "0")],
             [
               "Photography",

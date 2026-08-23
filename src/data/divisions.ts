@@ -1,6 +1,6 @@
 export type Division = {
   slug: "interiors" | "construction";
-  name: "Interiors" | "Construction";
+  name: "Interiors" | "Infra Projects";
   eyebrow: string;
   title: string;
   introduction: string;
@@ -153,8 +153,8 @@ export const divisions: Record<Division["slug"], Division> = {
   },
   construction: {
     slug: "construction",
-    name: "Construction",
-    eyebrow: "ASR Home LLP",
+    name: "Infra Projects",
+    eyebrow: "ASR Infra",
     title: "Strong where it doesn’t show.",
     introduction:
       "Residential, commercial and institutional builds. ASR Group carries the structure, the services and the finish—and the responsibility for all three.",
@@ -230,7 +230,7 @@ export const divisions: Record<Division["slug"], Division> = {
     ],
     clientsTitle: "Experience across complex built environments.",
     clientsIntroduction:
-      "Selected developers, infrastructure organizations and industrial businesses represented in ASR Home LLP’s wider project experience.",
+      "Selected developers, infrastructure organizations and industrial businesses represented in ASR Infra’s wider project experience.",
     clients: [
       { name: "India Cements", industry: "Industry & Enterprise" },
       { name: "K. Raheja IT Park", industry: "Development" },
@@ -241,7 +241,7 @@ export const divisions: Record<Division["slug"], Division> = {
       { name: "Ramky", industry: "Development" },
       { name: "Indu Projects", industry: "Development" },
     ],
-    galleryHref: "/gallery?category=Construction",
+    galleryHref: "/gallery?category=Infra%20Projects",
     galleryLabel: "View construction work",
     galleryTitle: "See completed construction work.",
     galleryBody:

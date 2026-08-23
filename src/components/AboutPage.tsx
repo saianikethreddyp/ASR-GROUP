@@ -42,17 +42,17 @@ const divisions = [
     href: "/interiors",
   },
   {
-    title: "ASR Construction",
+    title: "ASR Infra Projects",
     details: ["20+ years of experience", "6 lakh+ sq. ft. completed"],
     href: "/construction",
   },
   {
-    title: "ASR Real Estate",
+    title: "ASR Developers",
     details: ["Open plots and layouts", "Helping you find the right property"],
     href: "#", // Awaiting external URL
   },
   {
-    title: "ASR Advertising",
+    title: "ASR Ad Tech",
     details: ["Digital Out-of-Home Advertising"],
     href: "#", // Awaiting external URL
   },

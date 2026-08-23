@@ -18,7 +18,7 @@ const projectTeams = [
   },
   {
     value: "construction",
-    label: "Construction",
+    label: "Infra Projects",
     helper: "Residential, commercial and institutional",
   },
   {

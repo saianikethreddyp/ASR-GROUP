@@ -290,42 +290,32 @@ export default function GalleryAlbumPage({
         </div>
       </section>
 
-      <section className="bg-[#081523] px-5 py-20 text-[#f2eee6] sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-28">
-        <Reveal className="mx-auto grid max-w-[1540px] gap-9 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,.55fr)] lg:items-end">
-          <div>
-            <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#c6a36b] uppercase">
-              {album.projectSlug ? "Project context" : "Start a project"}
-            </p>
-            <h2 className="font-display max-w-[11ch] text-[clamp(3rem,5vw,5.8rem)] tracking-[-0.045em]">
-              {album.projectSlug
-                ? "See the work behind the images."
-                : "Planning a similar interior?"}
-            </h2>
-          </div>
-          <div>
-            <p className="text-sm leading-7 text-white/62">
-              {album.projectSlug
-                ? "Open the project record for ASR's responsibility, sector, status and delivery context."
-                : "Tell ASR about your space, location and priorities. We’ll help define the interior work and the right next step."}
-            </p>
-            {album.projectSlug ? (
-              <Link
-                href={`/projects/${album.projectSlug}`}
-                className="cta-primary mt-7 inline-flex min-h-14 items-center gap-10 rounded-[10px] px-7 text-[0.78rem] font-semibold"
-              >
-                View project record <span aria-hidden="true">→</span>
-              </Link>
-            ) : (
+      {!album.projectSlug ? (
+        <section className="bg-[#081523] px-5 py-20 text-[#f2eee6] sm:px-9 sm:py-24 lg:px-[4.8rem] lg:py-28">
+          <Reveal className="mx-auto grid max-w-[1540px] gap-9 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,.55fr)] lg:items-end">
+            <div>
+              <p className="mb-5 text-[0.67rem] font-semibold tracking-[0.18em] text-[#c6a36b] uppercase">
+                Start a project
+              </p>
+              <h2 className="font-display max-w-[11ch] text-[clamp(3rem,5vw,5.8rem)] tracking-[-0.045em]">
+                Planning a similar interior?
+              </h2>
+            </div>
+            <div>
+              <p className="text-sm leading-7 text-white/62">
+                Tell ASR about your space, location and priorities. We’ll help define
+                the interior work and the right next step.
+              </p>
               <Link
                 href="/contact"
                 className="cta-primary mt-7 inline-flex min-h-14 items-center gap-10 rounded-[10px] px-7 text-[0.78rem] font-semibold"
               >
                 Discuss your space <span aria-hidden="true">→</span>
               </Link>
-            )}
-          </div>
-        </Reveal>
-      </section>
+            </div>
+          </Reveal>
+        </section>
+      ) : null}
 
       {album.projectSlug ? (
         <ClosingCta

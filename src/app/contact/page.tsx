@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ContactPage from "@/components/ContactPage";
 
 export const metadata: Metadata = {
-  title: "Contact ASR Group | Interiors & Construction in Hyderabad",
+  title: "Contact ASR Group | Interiors & Infra Projects in Hyderabad",
   description:
     "Contact ASR Group in Hyderabad to discuss a home, workplace, commercial interior or construction project and its next steps.",
   alternates: { canonical: "/contact" },
