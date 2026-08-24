@@ -148,7 +148,7 @@ export default function Preloader() {
               </div>
 
               <span className={styles.disciplines}>
-                Real Estate <i /> Construction <i /> Interiors <i /> Advertising
+                Interiors <i /> Infra Projects <i /> Developments <i /> Advertising
               </span>
             </motion.div>
           </motion.div>
