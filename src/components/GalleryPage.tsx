@@ -19,7 +19,12 @@ type SegmentFilter = "All" | NonNullable<GalleryAlbum["segment"]>;
 
 const segmentFiltersByCategory: Partial<Record<AlbumFilter, SegmentFilter[]>> = {
   Interiors: ["All", "Residential", "Commercial & Institutional"],
-  "Infra Projects": ["All", "High-Rise Buildings", "Standalone Apartment"],
+  "Infra Projects": [
+    "All",
+    "High-Rise Buildings",
+    "Standalone Apartment",
+    "Villa Projects",
+  ],
 };
 
 function AlbumCover({
@@ -190,7 +195,7 @@ export default function GalleryPage() {
               </div>
             )}
             <p aria-live="polite" className="text-xs text-[#626a70]">
-              {activeFilter === "Real Estate Layouts" ? (
+              {activeFilter === "Development Projects" ? (
                 "External portfolio"
               ) : (
                 <>
@@ -238,8 +243,8 @@ export default function GalleryPage() {
 
           <div className="mt-8 flex items-baseline justify-between gap-6">
             <h2 className="font-display text-[clamp(2.6rem,4vw,4.8rem)] tracking-[-0.04em]">
-              {activeFilter === "Real Estate Layouts"
-                ? "Explore real estate."
+              {activeFilter === "Development Projects"
+                ? "Explore development projects."
                 : "Browse by project."}
             </h2>
           </div>
@@ -302,11 +307,11 @@ export default function GalleryPage() {
               >
                 <div>
                   <h3 className="font-display text-[clamp(2.2rem,4vw,4.4rem)] tracking-[-0.04em]">
-                    {activeFilter === "Real Estate Layouts"
-                      ? "Explore available real estate layouts."
+                    {activeFilter === "Development Projects"
+                      ? "Explore available development projects."
                       : "No albums match this category."}
                   </h3>
-                  {activeFilter === "Real Estate Layouts" ? (
+                  {activeFilter === "Development Projects" ? (
                     <div className="mt-6">
                       <p className="mx-auto max-w-[34rem] text-sm leading-7 text-[#505961]">
                         Land and development opportunities are presented through ASR
@@ -319,7 +324,7 @@ export default function GalleryPage() {
                         className="mt-6 inline-flex items-center gap-7 text-xs font-semibold text-[#9a7645]"
                         aria-label="Explore ASR Developers layouts — opens external website"
                       >
-                        Explore real estate layouts
+                        Explore development projects
                         <span aria-hidden="true">↗</span>
                       </Link>
                     </div>

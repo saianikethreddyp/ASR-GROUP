@@ -162,6 +162,17 @@ export default function ProjectCaseStudyPage({
                 </div>
               ))}
             </dl>
+            {project.location !== "Not specified" ? (
+              <div className="mt-6 overflow-hidden rounded-[18px] border border-[#111820]/16">
+                <iframe
+                  title={`Map location for ${project.title}`}
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(project.location)}&output=embed`}
+                  className="h-64 w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            ) : null}
           </Reveal>
         </div>
       </section>

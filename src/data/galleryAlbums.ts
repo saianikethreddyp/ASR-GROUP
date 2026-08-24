@@ -45,7 +45,7 @@ export type GalleryImage = {
 export type GalleryAlbumCategory =
   | "Interiors"
   | "Infra Projects"
-  | "Real Estate Layouts"
+  | "Development Projects"
   | "Advertising";
 
 export type GalleryAlbum = {
@@ -58,7 +58,8 @@ export type GalleryAlbum = {
     | "Residential"
     | "Commercial & Institutional"
     | "Standalone Apartment"
-    | "High-Rise Buildings";
+    | "High-Rise Buildings"
+    | "Villa Projects";
   location: string;
   clientName?: string;
   context?: string;
@@ -324,24 +325,24 @@ export const galleryAlbums: GalleryAlbum[] = [
   ]),
   createAlbum("southwoods-shamshabad", [
     {
-      id: "southwoods-site-prep",
+      id: "southwoods-render",
       src: "/media/gallery/infra/southwoods-shamshabad/cover.jpg",
-      alt: "Excavation and site preparation underway for the Southwoods luxury villa",
-      caption: "Site excavation and preparation for the Southwoods villa.",
-      group: "Construction Process",
-      width: 864,
-      height: 1536,
+      alt: "Architectural rendering of the Southwoods luxury villa development in Shamshabad, Hyderabad",
+      caption: "Architectural rendering of the Southwoods villa development.",
+      group: "Exterior & Built Form",
+      width: 1200,
+      height: 700,
     },
   ]),
   createAlbum("sylvanor-mokila", [
     {
       id: "sylvanor-render",
       src: "/media/gallery/infra/sylvanor-mokila/cover.jpg",
-      alt: "Architectural rendering of the SYLVANOR luxury villa development",
+      alt: "Architectural rendering of the SYLVANOR luxury villa development in Mokila, Hyderabad",
       caption: "Architectural rendering of the SYLVANOR villa development.",
       group: "Exterior & Built Form",
-      width: 888,
-      height: 510,
+      width: 2180,
+      height: 1366,
     },
   ]),
   createAlbum("mangalam-rise", [
@@ -492,7 +493,7 @@ export const galleryAlbums: GalleryAlbum[] = [
 export const galleryAlbumCategories: GalleryAlbumCategory[] = [
   "Interiors",
   "Infra Projects",
-  "Real Estate Layouts",
+  "Development Projects",
 ];
 
 export function getGalleryAlbum(slug: string) {

@@ -43,7 +43,7 @@ const divisions = [
   },
   {
     title: "ASR Infra Projects",
-    details: ["20+ years of experience", "6 lakh+ sq. ft. completed"],
+    details: ["15+ years of experience", "6 lakh+ sq. ft. completed"],
     href: "/construction",
   },
   {
@@ -148,7 +148,7 @@ export default function AboutPage() {
               animate={{ opacity: 1 }}
               transition={{ duration: reduceMotion ? 0.01 : 0.7, delay: 0.42 }}
             >
-              25+ years in Interiors <span className="px-2 text-[#111820]/28">·</span> 20+ years
+              25+ years in Interiors <span className="px-2 text-[#111820]/28">·</span> 15+ years
               in Construction
             </motion.p>
 
