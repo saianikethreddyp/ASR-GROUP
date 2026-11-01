@@ -556,17 +556,17 @@ export const signatureProjects: SignatureProject[] = [
   },
   {
     slug: "indus-villas",
-    title: "Indus Villas",
+    title: "Indu Villas",
     discipline: "Infra Projects",
     segment: "Villa Projects",
     sector: "Residential villa",
     location: "Not specified",
     summary: "A completed independent residential villa.",
     detail:
-      "Indus Villas is a completed independent residential villa, shown here in the ASR project record.",
+      "Indu Villas is a completed independent residential villa, shown here in the ASR project record.",
     image: "/media/gallery/infra/indus-villas/cover.jpg",
     imageAlt:
-      "Indus Villas — completed two-storey independent residential villa with a private driveway and gate",
+      "Indu Villas — completed two-storey independent residential villa with a private driveway and gate",
     imageNote: "From the ASR Infra project archive.",
     illustrative: false,
     galleryCategory: "Infra Projects",
@@ -574,7 +574,7 @@ export const signatureProjects: SignatureProject[] = [
     status: "Completed",
     imageGroup: "Exterior & Built Form",
     facts: [
-      { label: "Project", value: "Indus Villas" },
+      { label: "Project", value: "Indu Villas" },
       { label: "Sector", value: "Residential villa" },
       { label: "Location", value: "Not specified" },
       { label: "Status", value: "Completed" },

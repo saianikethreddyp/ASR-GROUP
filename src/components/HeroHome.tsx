@@ -18,7 +18,7 @@ const businessUnits = [
   { name: "ASR Infra", href: "/construction", external: false },
   {
     name: "ASR Developers",
-    href: "https://avaniprojectsindia.com/",
+    href: "https://avaniprojects.com/",
     external: true,
   },
   {

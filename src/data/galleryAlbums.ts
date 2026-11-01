@@ -437,8 +437,8 @@ export const galleryAlbums: GalleryAlbum[] = [
     {
       id: "indus-villas-exterior",
       src: "/media/gallery/infra/indus-villas/cover.jpg",
-      alt: "Indus Villas — completed two-storey independent residential villa with a private driveway and gate",
-      caption: "Indus Villas, a completed independent residential villa.",
+      alt: "Indu Villas — completed two-storey independent residential villa with a private driveway and gate",
+      caption: "Indu Villas, a completed independent residential villa.",
       group: "Exterior & Built Form",
       width: 853,
       height: 1280,

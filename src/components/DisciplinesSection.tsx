@@ -31,7 +31,7 @@ const businessStages: BusinessStage[] = [
       "Land and property opportunities considered as the foundation of what comes next.",
     image: realEstateImage,
     imagePosition: "50% 52%",
-    href: "https://avaniprojectsindia.com/",
+    href: "https://avaniprojects.com/",
     external: true,
   },
   {
